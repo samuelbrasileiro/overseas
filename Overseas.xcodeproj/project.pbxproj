@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E93234F26948D2600163E2B /* AreaModel1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93234E26948D2600163E2B /* AreaModel1.swift */; };
+		0E93235126948EE100163E2B /* LearningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93235026948EE100163E2B /* LearningModel.swift */; };
 		35BCE4B026947E820022B49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4AF26947E820022B49A /* AppDelegate.swift */; };
 		35BCE4B226947E820022B49A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4B126947E820022B49A /* SceneDelegate.swift */; };
 		35BCE4B426947E820022B49A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4B326947E820022B49A /* ContentView.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E93234E26948D2600163E2B /* AreaModel1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaModel1.swift; sourceTree = "<group>"; };
+		0E93235026948EE100163E2B /* LearningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningModel.swift; sourceTree = "<group>"; };
 		35BCE4AC26947E820022B49A /* Overseas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overseas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BCE4AF26947E820022B49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35BCE4B126947E820022B49A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E93234B26948CE100163E2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E93234E26948D2600163E2B /* AreaModel1.swift */,
+				0E93235026948EE100163E2B /* LearningModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0E93234C26948CE800163E2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0E93234D26948CEF00163E2B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		35BCE4A326947E820022B49A = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +85,9 @@
 		35BCE4AE26947E820022B49A /* Overseas */ = {
 			isa = PBXGroup;
 			children = (
+				0E93234D26948CEF00163E2B /* ViewModel */,
+				0E93234C26948CE800163E2B /* View */,
+				0E93234B26948CE100163E2B /* Model */,
 				35BCE4AF26947E820022B49A /* AppDelegate.swift */,
 				35BCE4B126947E820022B49A /* SceneDelegate.swift */,
 				35BCE4B326947E820022B49A /* ContentView.swift */,
@@ -148,6 +178,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E93234F26948D2600163E2B /* AreaModel1.swift in Sources */,
+				0E93235126948EE100163E2B /* LearningModel.swift in Sources */,
 				35BCE4B026947E820022B49A /* AppDelegate.swift in Sources */,
 				35BCE4B726947E820022B49A /* Overseas.xcdatamodeld in Sources */,
 				35BCE4B226947E820022B49A /* SceneDelegate.swift in Sources */,
