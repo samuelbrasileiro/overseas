@@ -6,9 +6,17 @@
 //
 
 import Foundation
+import CoreData
 
-extension Category {
-    func creatLearning(){
-        name = "Samuel"
+class Category: NSManagedObject {
+    
+    convenience init(name:String, color: String){
+        self.init()
+
+
+        self.name = name
+        self.color = color
     }
+    
+ 
 }

@@ -26,10 +26,28 @@
 		35F12E6326987066002A9532 /* CreateNewCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F12E6226987066002A9532 /* CreateNewCategoryView.swift */; };
 		35F12E652698708F002A9532 /* OnboardingMappingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F12E642698708F002A9532 /* OnboardingMappingView.swift */; };
 		35F12E6A2698711B002A9532 /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F12E692698711B002A9532 /* LearningView.swift */; };
-		35F12E6C2698725F002A9532 /* HomeScreenEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F12E6B2698725F002A9532 /* HomeScreenEnvironment.swift */; };
-		35F12E6E26987278002A9532 /* CategoryEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F12E6D26987278002A9532 /* CategoryEnvironment.swift */; };
-		35F12E7026987287002A9532 /* LearningEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F12E6F26987287002A9532 /* LearningEnvironment.swift */; };
+		8607E5CD269875CD007184A9 /* HomeScreenEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607E5CC269875CD007184A9 /* HomeScreenEnvironment.swift */; };
+		8607E5CF269875E2007184A9 /* CategoryEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607E5CE269875E2007184A9 /* CategoryEnvironment.swift */; };
+		8607E5D326987619007184A9 /* LearningEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607E5D226987619007184A9 /* LearningEnvironment.swift */; };
+		8607E5D526987673007184A9 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607E5D426987673007184A9 /* SideBarView.swift */; };
+		8607E5DF26987926007184A9 /* OverseasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607E5DE26987926007184A9 /* OverseasTests.swift */; };
+		8607E5E626987932007184A9 /* EnvironmentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607E5D6269878D6007184A9 /* EnvironmentTest.swift */; };
+		8607E5E82698795E007184A9 /* HomeScreenEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8607E5CC269875CD007184A9 /* HomeScreenEnvironment.swift */; };
+		8607E5E9269879B8007184A9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93234E26948D2600163E2B /* Category.swift */; };
+		8607E5EA269879BE007184A9 /* Learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93235026948EE100163E2B /* Learning.swift */; };
+		8607E5EB269879D3007184A9 /* Overseas.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4B526947E820022B49A /* Overseas.xcdatamodeld */; };
+		8607E5EC26988074007184A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4AF26947E820022B49A /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8607E5E126987926007184A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35BCE4A426947E820022B49A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35BCE4AB26947E820022B49A;
+			remoteInfo = Overseas;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0E93234E26948D2600163E2B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -53,13 +71,25 @@
 		35F12E6226987066002A9532 /* CreateNewCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewCategoryView.swift; sourceTree = "<group>"; };
 		35F12E642698708F002A9532 /* OnboardingMappingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMappingView.swift; sourceTree = "<group>"; };
 		35F12E692698711B002A9532 /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
-		35F12E6B2698725F002A9532 /* HomeScreenEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeScreenEnvironment.swift; path = Overseas/View/Category/HomeScreenEnvironment.swift; sourceTree = SOURCE_ROOT; };
-		35F12E6D26987278002A9532 /* CategoryEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryEnvironment.swift; path = Overseas/View/Category/CategoryEnvironment.swift; sourceTree = SOURCE_ROOT; };
-		35F12E6F26987287002A9532 /* LearningEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LearningEnvironment.swift; path = Overseas/View/Category/LearningEnvironment.swift; sourceTree = SOURCE_ROOT; };
+		8607E5CC269875CD007184A9 /* HomeScreenEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenEnvironment.swift; sourceTree = "<group>"; };
+		8607E5CE269875E2007184A9 /* CategoryEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEnvironment.swift; sourceTree = "<group>"; };
+		8607E5D226987619007184A9 /* LearningEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningEnvironment.swift; sourceTree = "<group>"; };
+		8607E5D426987673007184A9 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
+		8607E5D6269878D6007184A9 /* EnvironmentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentTest.swift; sourceTree = "<group>"; };
+		8607E5DC26987926007184A9 /* OverseasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OverseasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8607E5DE26987926007184A9 /* OverseasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverseasTests.swift; sourceTree = "<group>"; };
+		8607E5E026987926007184A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		35BCE4A926947E820022B49A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8607E5D926987926007184A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -90,20 +120,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		0E93234D26948CEF00163E2B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				35F12E6B2698725F002A9532 /* HomeScreenEnvironment.swift */,
-				35F12E6D26987278002A9532 /* CategoryEnvironment.swift */,
-				35F12E6F26987287002A9532 /* LearningEnvironment.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		35BCE4A326947E820022B49A = {
 			isa = PBXGroup;
 			children = (
+				8607E5D6269878D6007184A9 /* EnvironmentTest.swift */,
 				35BCE4AE26947E820022B49A /* Overseas */,
+				8607E5DD26987926007184A9 /* OverseasTests */,
 				35BCE4AD26947E820022B49A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				35BCE4AC26947E820022B49A /* Overseas.app */,
+				8607E5DC26987926007184A9 /* OverseasTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,7 +142,7 @@
 		35BCE4AE26947E820022B49A /* Overseas */ = {
 			isa = PBXGroup;
 			children = (
-				0E93234D26948CEF00163E2B /* ViewModel */,
+				8607E5CB26987520007184A9 /* ViewModel */,
 				0E93234C26948CE800163E2B /* View */,
 				0E93234B26948CE100163E2B /* Model */,
 				35BCE4AF26947E820022B49A /* AppDelegate.swift */,
@@ -157,6 +180,7 @@
 				359A048826986B4D006C7374 /* HomeScreenView.swift */,
 				35F12E5826986FA0002A9532 /* HomeScreenLearningItemView.swift */,
 				35F12E6226987066002A9532 /* CreateNewCategoryView.swift */,
+				8607E5D426987673007184A9 /* SideBarView.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -169,6 +193,25 @@
 				35F12E6026987034002A9532 /* CreateNewLearningView.swift */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		8607E5CB26987520007184A9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8607E5CC269875CD007184A9 /* HomeScreenEnvironment.swift */,
+				8607E5CE269875E2007184A9 /* CategoryEnvironment.swift */,
+				8607E5D226987619007184A9 /* LearningEnvironment.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8607E5DD26987926007184A9 /* OverseasTests */ = {
+			isa = PBXGroup;
+			children = (
+				8607E5DE26987926007184A9 /* OverseasTests.swift */,
+				8607E5E026987926007184A9 /* Info.plist */,
+			);
+			path = OverseasTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +234,24 @@
 			productReference = 35BCE4AC26947E820022B49A /* Overseas.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8607E5DB26987926007184A9 /* OverseasTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8607E5E326987926007184A9 /* Build configuration list for PBXNativeTarget "OverseasTests" */;
+			buildPhases = (
+				8607E5D826987926007184A9 /* Sources */,
+				8607E5D926987926007184A9 /* Frameworks */,
+				8607E5DA26987926007184A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8607E5E226987926007184A9 /* PBXTargetDependency */,
+			);
+			name = OverseasTests;
+			productName = OverseasTests;
+			productReference = 8607E5DC26987926007184A9 /* OverseasTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -202,6 +263,10 @@
 				TargetAttributes = {
 					35BCE4AB26947E820022B49A = {
 						CreatedOnToolsVersion = 12.5.1;
+					};
+					8607E5DB26987926007184A9 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 35BCE4AB26947E820022B49A;
 					};
 				};
 			};
@@ -219,6 +284,7 @@
 			projectRoot = "";
 			targets = (
 				35BCE4AB26947E820022B49A /* Overseas */,
+				8607E5DB26987926007184A9 /* OverseasTests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,6 +300,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8607E5DA26987926007184A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -246,24 +319,47 @@
 				35F12E5926986FA0002A9532 /* HomeScreenLearningItemView.swift in Sources */,
 				35F12E5526986CC9002A9532 /* HomeScreenView.swift in Sources */,
 				0E93235126948EE100163E2B /* Learning.swift in Sources */,
+				8607E5D326987619007184A9 /* LearningEnvironment.swift in Sources */,
 				35F12E5B26986FC6002A9532 /* CategoryView.swift in Sources */,
 				35F12E5D26986FE7002A9532 /* AllLearningsView.swift in Sources */,
-				35F12E6E26987278002A9532 /* CategoryEnvironment.swift in Sources */,
+				8607E5CF269875E2007184A9 /* CategoryEnvironment.swift in Sources */,
 				35F12E5F26987007002A9532 /* CategoryLearningView.swift in Sources */,
 				35F12E6A2698711B002A9532 /* LearningView.swift in Sources */,
-				35F12E7026987287002A9532 /* LearningEnvironment.swift in Sources */,
 				35BCE4B026947E820022B49A /* AppDelegate.swift in Sources */,
 				35BCE4B726947E820022B49A /* Overseas.xcdatamodeld in Sources */,
+				8607E5D526987673007184A9 /* SideBarView.swift in Sources */,
 				35F12E5726986F31002A9532 /* OnboardingView.swift in Sources */,
 				35BCE4B226947E820022B49A /* SceneDelegate.swift in Sources */,
 				35BCE4B426947E820022B49A /* ContentView.swift in Sources */,
-				35F12E6C2698725F002A9532 /* HomeScreenEnvironment.swift in Sources */,
+				8607E5CD269875CD007184A9 /* HomeScreenEnvironment.swift in Sources */,
 				35F12E652698708F002A9532 /* OnboardingMappingView.swift in Sources */,
 				35F12E6126987034002A9532 /* CreateNewLearningView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8607E5D826987926007184A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8607E5E82698795E007184A9 /* HomeScreenEnvironment.swift in Sources */,
+				8607E5DF26987926007184A9 /* OverseasTests.swift in Sources */,
+				8607E5EA269879BE007184A9 /* Learning.swift in Sources */,
+				8607E5EB269879D3007184A9 /* Overseas.xcdatamodeld in Sources */,
+				8607E5EC26988074007184A9 /* AppDelegate.swift in Sources */,
+				8607E5E626987932007184A9 /* EnvironmentTest.swift in Sources */,
+				8607E5E9269879B8007184A9 /* Category.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8607E5E226987926007184A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35BCE4AB26947E820022B49A /* Overseas */;
+			targetProxy = 8607E5E126987926007184A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		35BCE4BD26947E840022B49A /* LaunchScreen.storyboard */ = {
@@ -435,6 +531,46 @@
 			};
 			name = Release;
 		};
+		8607E5E426987926007184A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T6PW3HL3N4;
+				INFOPLIST_FILE = OverseasTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Elaine.OverseasTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Overseas.app/Overseas";
+			};
+			name = Debug;
+		};
+		8607E5E526987926007184A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T6PW3HL3N4;
+				INFOPLIST_FILE = OverseasTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Elaine.OverseasTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Overseas.app/Overseas";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -452,6 +588,15 @@
 			buildConfigurations = (
 				35BCE4C426947E840022B49A /* Debug */,
 				35BCE4C526947E840022B49A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8607E5E326987926007184A9 /* Build configuration list for PBXNativeTarget "OverseasTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8607E5E426987926007184A9 /* Debug */,
+				8607E5E526987926007184A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

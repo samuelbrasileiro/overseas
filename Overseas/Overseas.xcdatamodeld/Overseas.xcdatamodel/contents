@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+    <entity name="Category" representedClassName=".Category" syncable="YES" codeGenerationType="category">
         <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <relationship name="learnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Learning" inverseName="category" inverseEntity="Learning"/>
     </entity>
-    <entity name="Learning" representedClassName="Learning" syncable="YES" codeGenerationType="class">
+    <entity name="Learning" representedClassName=".Learning" syncable="YES" codeGenerationType="category">
         <attribute name="creationDate" attributeType="Date" defaultDateTimeInterval="647271720" usesScalarValueType="NO"/>
         <attribute name="descriptionText" optional="YES" attributeType="String"/>
         <attribute name="emoji" optional="YES" attributeType="String"/>

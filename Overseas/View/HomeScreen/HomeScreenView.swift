@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct HomeScreenView: View { //view
+    var env = HomeScreenEnvironment()
     
     var body: some View {
         
