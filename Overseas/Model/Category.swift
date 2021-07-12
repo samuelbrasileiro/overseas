@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreData
-import SwiftUI
+
 class Category: NSManagedObject {
     
     convenience init(name: String, color: String, context: NSManagedObjectContext){
