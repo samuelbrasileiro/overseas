@@ -9,5 +9,19 @@ import Foundation
 import CoreData
 
 class Learning: NSManagedObject {
-   
+
+    convenience init(name: String, descriptionText: String?, emoji: String?, estimatedTime: TimeInterval?, text: String?, context: NSManagedObjectContext){
+        self.init(context: context)
+        
+        self.name = name
+        self.creationDate = Date()
+        self.modificationDate = Date()
+        self.descriptionText = description
+        self.emoji = emoji
+        self.estimatedTime = estimatedTime ?? 1
+        self.text = text
+        
+        self.objectWillChange.send()
+    }
+    
 }

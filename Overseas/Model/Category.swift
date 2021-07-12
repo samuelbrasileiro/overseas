@@ -7,16 +7,16 @@
 
 import Foundation
 import CoreData
-
+import SwiftUI
 class Category: NSManagedObject {
     
-    convenience init(name:String, color: String){
-        self.init()
-
-
+    convenience init(name: String, color: String, context: NSManagedObjectContext){
+        self.init(context: context)
+        
         self.name = name
         self.color = color
+        
+        self.objectWillChange.send()
     }
-    
  
 }

@@ -21,8 +21,6 @@ class EnvironmentTest: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        let env = HomeScreenEnvironment()
-        print(env.categories[0].name)
     }
 
     func testPerformanceExample() throws {

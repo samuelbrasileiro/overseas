@@ -16,5 +16,8 @@ struct SideBarView: View {
 struct SideBarView_Previews: PreviewProvider {
     static var previews: some View {
         SideBarView()
+            .previewLayout(.fixed(width: 1080, height: 810))
+            .environment(\.horizontalSizeClass, .compact)
+            .environment(\.verticalSizeClass, .compact)
     }
 }
