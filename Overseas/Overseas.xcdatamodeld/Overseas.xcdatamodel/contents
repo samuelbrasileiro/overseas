@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="Area" representedClassName="Area" syncable="YES" codeGenerationType="class">
+    <entity name="Category" representedClassName=".Category" syncable="YES" codeGenerationType="category">
         <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
-        <relationship name="learnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Learning" inverseName="area" inverseEntity="Learning"/>
+        <relationship name="learnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Learning" inverseName="category" inverseEntity="Learning"/>
     </entity>
-    <entity name="Learning" representedClassName="Learning" syncable="YES" codeGenerationType="class">
+    <entity name="Learning" representedClassName=".Learning" syncable="YES" codeGenerationType="category">
         <attribute name="creationDate" attributeType="Date" defaultDateTimeInterval="647271720" usesScalarValueType="NO"/>
         <attribute name="descriptionText" optional="YES" attributeType="String"/>
         <attribute name="emoji" optional="YES" attributeType="String"/>
-        <attribute name="estimatedTime" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="estimatedTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="isFixed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="modificationDate" attributeType="Date" defaultDateTimeInterval="647271780" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="text" optional="YES" attributeType="String"/>
-        <relationship name="area" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Area" inverseName="learnings" inverseEntity="Area"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="learnings" inverseEntity="Category"/>
     </entity>
     <elements>
-        <element name="Area" positionX="-496.0355224609375" positionY="-221.9856872558594" width="128" height="88"/>
-        <element name="Learning" positionX="-64.3883056640625" positionY="-256.50048828125" width="128" height="163"/>
+        <element name="Category" positionX="-496.0355224609375" positionY="-221.9856872558594" width="128" height="88"/>
+        <element name="Learning" positionX="-186.3255615234375" positionY="-122.5958557128906" width="128" height="178"/>
     </elements>
 </model>
