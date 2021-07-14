@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LearningView: View {
     
+    @ObservedObject var env = HomeScreenEnvironment()
     @State var title: String = ""
     @State var description: String = ""
     @State var emoji: String = ""
@@ -19,7 +20,6 @@ struct LearningView: View {
             HStack {
                 
                 EmojiTextField(text: $emoji, placeholder: "🍣")
-                    
                 
                 VStack{
                     
@@ -29,6 +29,27 @@ struct LearningView: View {
                         .font(.footnote)
                 }
             }
+            
+            Button("Salvar") {
+                saveNewLearning()
+                print(env.allLearnings)
+            }
+        }
+    }
+    
+    func saveNewLearning() {
+        if title.isEmpty || description.isEmpty {
+            return
+        }
+        
+        let context = AppDelegate.viewContext
+        let learning = Learning(name: self.title, descriptionText: self.description, emoji: emoji, estimatedTime: 0, text: "", context: context)
+        env.allLearnings.append(learning)
+        do {
+            try context.save()
+            
+        } catch {
+            print(error)
         }
     }
 }
