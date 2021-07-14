@@ -87,10 +87,14 @@ struct HomeScreenView: View { //view
                 Spacer()
             }
             .disabled(env.didSelectNewCategory)
-            if(env.didSelectNewCategory){
-                CreateNewCategoryView(env: env)
-                    .frame(maxWidth: 600, maxHeight: 500)
-            }
+            
+            CreateNewCategoryView(env: env)
+                .frame(maxWidth: 600, maxHeight: 500)
+                .offset(y: env.didSelectNewCategory ? 0 : 1000)
+                .animation(.spring())
+                .opacity(env.didSelectNewCategory ? 1 : 0)
+            
+            
         }
     }
 }
