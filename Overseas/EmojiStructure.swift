@@ -11,7 +11,7 @@ import SwiftUI
 
 
 class UIEmojiTextField: UITextField {
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -21,7 +21,7 @@ class UIEmojiTextField: UITextField {
     }
     
     override var textInputContextIdentifier: String? {
-           return ""
+        return ""
     }
     
     override var textInputMode: UITextInputMode? {
@@ -48,7 +48,6 @@ struct EmojiTextField: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIEmojiTextField, context: Context) {
-        text = String(text.suffix(1))
         uiView.text = text
     }
     
@@ -65,7 +64,32 @@ struct EmojiTextField: UIViewRepresentable {
         
         func textFieldDidChangeSelection(_ textField: UITextField) {
             DispatchQueue.main.async { [weak self] in
-                self?.parent.text = textField.text ?? ""
+                
+                var isEmoji = false
+                var previous = ""
+                
+                if(textField.text != nil){
+                    previous = String(textField.text!.prefix(1))
+                    textField.text = String(textField.text!.suffix(1))
+                    
+                    
+                    for scalar in textField.text!.unicodeScalars {
+                        isEmoji = scalar.properties.isEmoji
+                        
+                        if isEmoji {
+                            break
+                        }
+                        print(isEmoji)
+                    }
+                    
+                }
+                
+                if(isEmoji){
+                    self?.parent.text = textField.text ?? ""
+                }else{
+                    textField.text = previous
+                    self?.parent.text = textField.text ?? ""
+                }
             }
         }
     }
