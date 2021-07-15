@@ -22,7 +22,7 @@ class HomeScreenEnvironment: ObservableObject{
     init(){
         
         let categoriesRequest: NSFetchRequest<Category> = Category.fetchRequest()
-        categoriesRequest.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        categoriesRequest.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
         do {
             try categories = context.fetch(categoriesRequest)
         }catch{

@@ -16,121 +16,128 @@ struct HomeScreenView: View { //view
         //let categories = env.categories
         let fixed = env.fixedLearnings
         let all = env.allLearnings
-        NavigationView{
-            ZStack{
-                HStack {
-                    SideBarView(env: env)
-                        .frame(maxWidth: 270)
-                    VStack(alignment: .leading){
+        ZStack{
+            NavigationView{
+                SideBarView(env: env).navigationViewStyle(DoubleColumnNavigationViewStyle())
+                    .accentColor(.black)
+                ZStack{
+                        //                    SideBarView(env: env)
+                        //                        .frame(maxWidth: 270)
                         VStack(alignment: .leading){
-                            Text("Fixados").underline()
-                                .font(.largeTitle.bold())
-                            
-                            VStack(alignment: .trailing){
-                                HStack(spacing: 40){
-                                    ForEach(fixed[0..<(fixed.count < 3 ? fixed.count : 3)]){ l in
-                                        HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!).frame(width: 240, height: 240)
-                                    }
-                                }
-                                if(fixed.count==0){
-                                    VStack{
-                                        Spacer()
-                                        HStack{
-                                            Spacer()
-                                            Text("Você ainda não fixou nenhum aprendizado")
-                                            Spacer()
-                                        }
-                                        Spacer()
-                                        
-                                    }.background(Color(.systemGray6))
-                                    .padding(20)
-                                    
-                                }else{
-                                    NavigationLink(destination: GridLearningView(isFixed: true)){
-                                        HStack{
-                                            Text("Ver todos")
-                                                .bold()
-                                            Text(Image(systemName: "chevron.right"))
-                                                .bold()
-                                            
-                                        }
-                                        .padding(.top)
-                                    }.accentColor(.black)
-                                    
-                                }
-                                
-                            }
-                        }
-                        
-                        VStack(alignment: .leading){
-                            HStack{
-                                Text("Meus Aprendizados").underline()
+                            VStack(alignment: .leading){
+                                Text("Fixados").underline()
                                     .font(.largeTitle.bold())
-                                NavigationLink(destination: LearningView()){
-                                    Image(systemName: "plus")
-                                        .resizable()
-                                        .frame(width: 20, height: 20)
-                                        .foregroundColor(.black)
-                                        .padding(10)
-                                        .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
-                                        .padding(.leading)
-                                }
-                            }
-                            VStack(alignment: .trailing){
-                                HStack(spacing: 40){
-                                    ForEach(all[0..<(all.count < 3 ? all.count : 3)]){ l in
-                                        
-                                        HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!)
-                                            .frame(width: 240, height: 240)
-                                    }
-                                }
                                 
-                                if(all.count==0){
-                                    VStack{
-                                        Spacer()
-                                        HStack{
-                                            Spacer()
-                                            Text("Você ainda não adicionou nenhum aprendizado")
-                                            Spacer()
+                                VStack(alignment: .trailing){
+                                    HStack(spacing: 40){
+                                        ForEach(fixed[0..<(fixed.count < 3 ? fixed.count : 3)]){ l in
+                                            HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!).frame(width: 240, height: 240)
                                         }
-                                        Spacer()
-                                        
-                                    }.background(Color(.systemGray6))
-                                    .padding(20)
-                                }else{
-                                    
-                                    NavigationLink(destination: GridLearningView(isFixed: false)){
-                                        HStack{
-                                            Text("Ver todos")
-                                                .bold()
-                                            Text(Image(systemName: "chevron.right"))
-                                                .bold()
+                                    }
+                                    if(fixed.count==0){
+                                        VStack{
+                                            Spacer()
+                                            HStack{
+                                                Spacer()
+                                                Text("Você ainda não fixou nenhum aprendizado")
+                                                Spacer()
+                                            }
+                                            Spacer()
                                             
-                                        }
-                                        .padding(.top)
-                                    }.accentColor(.black)
+                                        }.background(Color(.systemGray6))
+                                        .padding(20)
+                                        
+                                    }else{
+                                        NavigationLink(destination: GridLearningView(isFixed: true)){
+                                            HStack{
+                                                Text("Ver todos")
+                                                    .bold()
+                                                Text(Image(systemName: "chevron.right"))
+                                                    .bold()
+                                                
+                                            }
+                                            .padding(.top)
+                                        }.accentColor(.black)
+                                        
+                                    }
+                                    
                                 }
                             }
                             
+                            VStack(alignment: .leading){
+                                HStack{
+                                    Text("Meus Aprendizados").underline()
+                                        .font(.largeTitle.bold())
+                                    NavigationLink(destination: LearningView()){
+                                        Image(systemName: "plus")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                            .foregroundColor(.black)
+                                            .padding(10)
+                                            .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+                                            .padding(.leading)
+                                    }
+                                }
+                                VStack(alignment: .trailing){
+                                    HStack(spacing: 40){
+                                        ForEach(all[0..<(all.count < 3 ? all.count : 3)]){ l in
+                                            
+                                            HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!)
+                                                .frame(width: 240, height: 240)
+                                        }
+                                    }
+                                    
+                                    if(all.count==0){
+                                        VStack{
+                                            Spacer()
+                                            HStack{
+                                                Spacer()
+                                                Text("Você ainda não adicionou nenhum aprendizado")
+                                                Spacer()
+                                            }
+                                            Spacer()
+                                            
+                                        }.background(Color(.systemGray6))
+                                        .padding(20)
+                                    }else{
+                                        
+                                        NavigationLink(destination: GridLearningView(isFixed: false)){
+                                            HStack{
+                                                Text("Ver todos")
+                                                    .bold()
+                                                Text(Image(systemName: "chevron.right"))
+                                                    .bold()
+                                                
+                                            }
+                                            .padding(.top)
+                                        }.accentColor(.black)
+                                    }
+                                }
+                                
+                            }
+                            
                         }
-                    }
-                    .padding(.leading)
-                    Spacer()
-                }
-                .disabled(env.didSelectNewCategory)
-                
-                CreateNewCategoryView(env: env)
-                    .frame(maxWidth: 600, maxHeight: 500)
-                    .offset(y: env.didSelectNewCategory ? 0 : 1000)
+                        .padding(.leading)
+
+                    .disabled(env.didSelectNewCategory)
                     .animation(.spring())
-                    .opacity(env.didSelectNewCategory ? 1 : 0)
+                    
+                    
+                    
+                }
+                //.navigationViewStyle(DoubleColumnNavigationViewStyle())
+                //.navigationBarHidden(true)
                 
-                
-            }
-            //.navigationViewStyle(DoubleColumnNavigationViewStyle())
-            .navigationBarHidden(true)
+            }//.navigationViewStyle(StackNavigationViewStyle())
             
-        }.navigationViewStyle(StackNavigationViewStyle())
+            Rectangle().fill(Color.gray).opacity(env.didSelectNewCategory ? 0.3 : 0)
+            CreateNewCategoryView(env: env)
+                .frame(maxWidth: 600, maxHeight: 500)
+                .offset(y: env.didSelectNewCategory ? 0 : 1000)
+                .animation(.spring())
+                .opacity(env.didSelectNewCategory ? 1 : 0)
+            
+        }
     }
 }
 

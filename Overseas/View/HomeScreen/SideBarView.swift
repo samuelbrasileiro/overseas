@@ -17,15 +17,7 @@ struct SideBarView: View {
     var body: some View {
         let categories = env.categories
         VStack(alignment: .leading){
-            Button(action:{
-            }){
-                HStack{
-                    Text(Image(systemName: "sidebar.left"))
-                        .fontWeight(.regular)
-                        .font(.system(size: 25))
-                }
-                .padding()
-            }.accentColor(.black)
+            
             
             Button(action:{
             }){
@@ -37,11 +29,12 @@ struct SideBarView: View {
                     
                 }.padding(10)
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
-                .padding()
+                .padding(.horizontal)
             }.accentColor(.black)
             
             ScrollView{
                 VStack(alignment: .leading, spacing: 10){
+                    
                     ForEach(categories){c in
                         NavigationLink(destination: CategoryView(env: CategoryEnvironment(category: c))){
                             Text(c.name ?? "")
@@ -49,25 +42,26 @@ struct SideBarView: View {
                                 .foregroundColor(.black)
                         }
                     }
-                }.padding(.leading)
-                .padding(.bottom)
-                
-                HStack{
-                    Button(action:{
-                        env.didSelectNewCategory = true
-                    }){
-                        Text(Image(systemName: "plus"))
-                            .padding(5)
-                            .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
-                            .padding(.leading)
-                    }.accentColor(.black)
+                    .padding(.leading)
+                    .padding(.bottom)
                     
-                    Text("Adicionar categoria")
+                    HStack{
+                        Button(action:{
+                            env.didSelectNewCategory = true
+                        }){
+                            Text(Image(systemName: "plus"))
+                                .padding(5)
+                                .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+                                .padding(.leading)
+                            Text("Adicionar categoria")
+                        }.accentColor(.black)
+                        
+                        
+                    }
                 }
-                
                 Spacer()
             }
-        }.background(Color(.systemGray6))
+        }
     }
 }
 
