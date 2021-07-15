@@ -23,6 +23,7 @@ struct CreateNewCategoryView: View {
             HStack{
                 Button(action:{
                     env.didSelectNewCategory = false
+                    name = ""
                 }){
                     Text("Cancelar")
                 }
@@ -33,6 +34,8 @@ struct CreateNewCategoryView: View {
                 Button(action:{
                     env.didSelectNewCategory = false
                     env.createNewCategory(name: name, colorIndex: colorIndex)
+                    name = ""
+
                 }){
                     Text("Salvar")
                         .bold()

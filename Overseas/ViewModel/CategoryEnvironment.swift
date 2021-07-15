@@ -20,7 +20,7 @@ class CategoryEnvironment: ObservableObject{
     init(/*category: Category*/){
         //self.category = category
         
-        let category = Category(name: "Culinária", color: "Preto", context: context)
+        let category = Category(name: "Culinária", color: 0, context: context)
         
         for j in (0..<10){
             let learning = Learning(name: "Sushi \(j)", descriptionText: "Aprendi sushi poxa", emoji: "🍣", estimatedTime: 1, text: "Uhhh aprendi a fazer sushi hoje", context: context)

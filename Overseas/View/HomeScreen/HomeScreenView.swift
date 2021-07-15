@@ -25,7 +25,7 @@ struct HomeScreenView: View { //view
                         
                         VStack(alignment: .trailing){
                             HStack(spacing: 40){
-                                ForEach(fixed[0..<(categories.count < 3 ? categories.count : 3)]){ l in
+                                ForEach(fixed[0..<(fixed.count < 3 ? fixed.count : 3)]){ l in
                                     HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!).frame(width: 240, height: 240)
                                 }
                             }
@@ -63,7 +63,7 @@ struct HomeScreenView: View { //view
                         }
                         VStack(alignment: .trailing){
                             HStack(spacing: 40){
-                                ForEach(all[0..<(categories.count < 3 ? categories.count : 3)]){ l in
+                                ForEach(all[0..<(all.count < 3 ? all.count : 3)]){ l in
                                     HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!)
                                         .frame(width: 240, height: 240)
                                 }
