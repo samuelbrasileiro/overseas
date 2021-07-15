@@ -29,18 +29,34 @@ struct HomeScreenView: View { //view
                                     HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!).frame(width: 240, height: 240)
                                 }
                             }
-                            Button(action:{
-                                
-                            }){
-                                HStack{
-                                    Text("Ver todos")
-                                        .bold()
-                                    Text(Image(systemName: "chevron.right"))
-                                        .bold()
+                            if(fixed.count==0){
+                                VStack{
+                                    Spacer()
+                                    HStack{
+                                        Spacer()
+                                        Text("Você ainda não fixou nenhum aprendizado")
+                                        Spacer()
+                                    }
+                                    Spacer()
                                     
-                                }
-                                .padding(.top)
-                            }.accentColor(.black)
+                                }.background(Color(.systemGray6))
+                                .padding(20)
+                                
+                            }else{
+                                Button(action:{
+                                    
+                                }){
+                                    HStack{
+                                        Text("Ver todos")
+                                            .bold()
+                                        Text(Image(systemName: "chevron.right"))
+                                            .bold()
+                                        
+                                    }
+                                    .padding(.top)
+                                }.accentColor(.black)
+                                
+                            }
                             
                         }
                     }
@@ -68,19 +84,36 @@ struct HomeScreenView: View { //view
                                         .frame(width: 240, height: 240)
                                 }
                             }
-                            Button(action:{
-                                
-                            }){
-                                HStack{
-                                    Text("Ver todos")
-                                        .bold()
-                                    Text(Image(systemName: "chevron.right"))
-                                        .bold()
+                            
+                            if(all.count==0){
+                                VStack{
+                                    Spacer()
+                                    HStack{
+                                        Spacer()
+                                        Text("Você ainda não adicionou nenhum aprendizado")
+                                        Spacer()
+                                    }
+                                    Spacer()
                                     
-                                }
-                                .padding(.top)
-                            }.accentColor(.black)
+                                }.background(Color(.systemGray6))
+                                .padding(20)
+                            }else{
+                                
+                                Button(action:{
+                                    
+                                }){
+                                    HStack{
+                                        Text("Ver todos")
+                                            .bold()
+                                        Text(Image(systemName: "chevron.right"))
+                                            .bold()
+                                        
+                                    }
+                                    .padding(.top)
+                                }.accentColor(.black)
+                            }
                         }
+                        
                     }
                 }
                 .padding(.leading)

@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName=".Category" syncable="YES" codeGenerationType="category">
         <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="creationDate" attributeType="Date" defaultDateTimeInterval="648043260" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <relationship name="learnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Learning" inverseName="category" inverseEntity="Learning"/>
     </entity>
@@ -17,7 +18,7 @@
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="learnings" inverseEntity="Category"/>
     </entity>
     <elements>
-        <element name="Category" positionX="-496.0355224609375" positionY="-221.9856872558594" width="128" height="88"/>
+        <element name="Category" positionX="-497.2212524414062" positionY="-213.3427734375" width="128" height="103"/>
         <element name="Learning" positionX="-186.3255615234375" positionY="-122.5958557128906" width="128" height="178"/>
     </elements>
 </model>

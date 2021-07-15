@@ -20,7 +20,25 @@ class HomeScreenEnvironment: ObservableObject{
     
     
     init(){
-                
+        
+        let categoriesRequest: NSFetchRequest<Category> = Category.fetchRequest()
+        categoriesRequest.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        do {
+            try categories = context.fetch(categoriesRequest)
+        }catch{
+            print(error)
+        }
+        
+        //DELETE COREDATA DATA
+//        do {
+//            for user in try context.fetch(categoriesRequest){
+//                context.delete(user)
+//            }
+//           try context.save()
+//
+//        } catch{
+//
+//        }
         
         let fixed = categories.map({ category in
             (category.learnings?.allObjects as! [Learning]).filter({learning in

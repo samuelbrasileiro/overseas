@@ -15,6 +15,7 @@ class Category: NSManagedObject {
         
         self.name = name
         self.color = String(color)
+        self.creationDate = Date()
         
         self.objectWillChange.send()
     }
