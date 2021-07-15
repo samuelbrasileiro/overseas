@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CategoryView: View {
     let env: CategoryEnvironment
+    @State var isPresented = false
+    
     var body: some View {
         VStack{
             HStack{
@@ -41,12 +43,13 @@ struct CategoryView: View {
             .padding(.horizontal, 40)
             Spacer()
         }
+        .navigationBarHidden(false)
     }
 }
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView(env: CategoryEnvironment())
+        CategoryView(env: CategoryEnvironment(category: Category(name: "Culinária", color: 0, context: AppDelegate.viewContext)))
             //.previewDevice("iPad (8th generation)")
             .previewLayout(.fixed(width: 1080, height: 810))
             .environment(\.horizontalSizeClass, .compact)

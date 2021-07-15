@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct GridLearningView: View {
+    
+    @State var isPresented = false
+    
     @ObservedObject var env = HomeScreenEnvironment()
     var isFixed: Bool = false
     var learnings: [Learning] = []
@@ -61,6 +64,7 @@ struct GridLearningView: View {
                 .padding(.horizontal)
             }
         }
+        .navigationBarHidden(false)
     }
 }
 

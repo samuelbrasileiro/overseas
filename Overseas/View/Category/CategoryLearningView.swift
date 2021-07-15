@@ -11,6 +11,8 @@ struct CategoryLearningView: View {
     @ObservedObject var learning: Learning
     var color: Color //lembrar de fazer referencia à color do category referente (não fizemos porque é string)
     
+    @State var isPresented = false
+    
     var body: some View {
         ZStack{
             VStack(alignment: .leading){
@@ -62,7 +64,7 @@ struct CategoryLearningView: View {
             Rectangle().stroke(color, lineWidth: 4)
             
         }
-        
+        .navigationBarHidden(false)
     }
 }
 

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LearningView: View {
     
+    @State var isPresented = false
+    
     @ObservedObject var env = HomeScreenEnvironment()
     @State var title: String = ""
     @State var description: String = ""
@@ -37,6 +39,7 @@ struct LearningView: View {
                 print(env.allLearnings)
             }
         }
+        .navigationBarHidden(false)
     }
     
     func saveNewLearning() {

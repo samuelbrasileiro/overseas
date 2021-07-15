@@ -12,6 +12,7 @@ struct SideBarView: View {
     
     @ObservedObject var env: HomeScreenEnvironment
     
+    @State var isPresented = false
     
     var body: some View {
         let categories = env.categories
@@ -40,11 +41,13 @@ struct SideBarView: View {
             }.accentColor(.black)
             
             ScrollView{
-                VStack(spacing: 10){
+                VStack(alignment: .leading, spacing: 10){
                     ForEach(categories){c in
-                        Text(c.name ?? "")
-                            .bold()
-                            .foregroundColor(.black)
+                        NavigationLink(destination: CategoryView(env: CategoryEnvironment(category: c))){
+                            Text(c.name ?? "")
+                                .bold()
+                                .foregroundColor(.black)
+                        }
                     }
                 }.padding(.leading)
                 .padding(.bottom)
