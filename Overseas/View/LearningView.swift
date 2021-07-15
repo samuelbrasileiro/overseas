@@ -21,12 +21,14 @@ struct LearningView: View {
                 
                 EmojiTextField(text: $emoji, placeholder: "🍣")
                 
+                
                 VStack{
                     
                     TextField("Insira seu título aqui", text: $title)
                         .font(.largeTitle.bold())
                     TextField("Insira sua descrição aqui", text: $description)
                         .font(.footnote)
+                        
                 }
             }
             

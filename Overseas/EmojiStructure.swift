@@ -69,17 +69,18 @@ struct EmojiTextField: UIViewRepresentable {
                 var previous = ""
                 
                 if(textField.text != nil){
-                    previous = String(textField.text!.prefix(1))
+                    if(textField.text!.count>1){
+                        previous = String(textField.text!.prefix(1))
+                    }
                     textField.text = String(textField.text!.suffix(1))
                     
                     
                     for scalar in textField.text!.unicodeScalars {
-                        isEmoji = scalar.properties.isEmoji
+                        isEmoji = scalar.properties.isEmoji && !scalar.properties.isHexDigit && scalar != "#" && scalar != "*"
                         
                         if isEmoji {
                             break
                         }
-                        print(isEmoji)
                     }
                     
                 }
@@ -87,9 +88,11 @@ struct EmojiTextField: UIViewRepresentable {
                 if(isEmoji){
                     self?.parent.text = textField.text ?? ""
                 }else{
+                    textField.text = ""
                     textField.text = previous
                     self?.parent.text = textField.text ?? ""
                 }
+                
             }
         }
     }
