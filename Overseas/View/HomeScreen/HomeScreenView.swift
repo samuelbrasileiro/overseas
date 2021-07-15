@@ -14,69 +14,87 @@ struct HomeScreenView: View { //view
         let categories = env.categories
         let fixed = env.fixedLearnings
         let all = env.allLearnings
-        VStack{
-            VStack(alignment: .leading){
-                Text("Fixados").underline()
-                    .font(.largeTitle.bold())
-                
-                VStack(alignment: .trailing){
-                    HStack(spacing: 40){
-                        ForEach(fixed[0..<3]){ l in
-                            HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!).frame(width: 240, height: 240)
-                        }
-                    }
-                    Button(action:{
+        ZStack{
+            HStack {
+                SideBarView(env: env)
+                    .frame(maxWidth: 270)
+                VStack(alignment: .leading){
+                    VStack(alignment: .leading){
+                        Text("Fixados").underline()
+                            .font(.largeTitle.bold())
                         
-                    }){
-                        HStack{
-                            Text("Ver todos")
-                                .bold()
-                            Text(Image(systemName: "chevron.right"))
-                                .bold()
+                        VStack(alignment: .trailing){
+                            HStack(spacing: 40){
+                                ForEach(fixed[0..<(categories.count < 3 ? categories.count : 3)]){ l in
+                                    HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!).frame(width: 240, height: 240)
+                                }
+                            }
+                            Button(action:{
+                                
+                            }){
+                                HStack{
+                                    Text("Ver todos")
+                                        .bold()
+                                    Text(Image(systemName: "chevron.right"))
+                                        .bold()
+                                    
+                                }
+                                .padding(.top)
+                            }.accentColor(.black)
                             
                         }
-                        .padding(.top)
-                    }.accentColor(.black)
+                    }
                     
-                }
-            }
-            VStack(alignment: .leading){
-                HStack{
-                    Text("Meus Aprendizados").underline()
-                        .font(.largeTitle.bold())
-                    Button(action:{
-                        
-                    }){
-                        Image(systemName: "plus")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.black)
-                            .padding(10)
-                            .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
-                            .padding(.leading)
-                    }
-                }
-                VStack(alignment: .trailing){
-                    HStack(spacing: 40){
-                        ForEach(all[0..<3]){ l in
-                            HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!)
-                                .frame(width: 240, height: 240)
-                        }
-                    }
-                    Button(action:{
-                        
-                    }){
+                    VStack(alignment: .leading){
                         HStack{
-                            Text("Ver todos")
-                                .bold()
-                            Text(Image(systemName: "chevron.right"))
-                                .bold()
-                            
+                            Text("Meus Aprendizados").underline()
+                                .font(.largeTitle.bold())
+                            Button(action:{
+                                
+                            }){
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(.black)
+                                    .padding(10)
+                                    .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+                                    .padding(.leading)
+                            }
                         }
-                        .padding(.top)
-                    }.accentColor(.black)
+                        VStack(alignment: .trailing){
+                            HStack(spacing: 40){
+                                ForEach(all[0..<(categories.count < 3 ? categories.count : 3)]){ l in
+                                    HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!)
+                                        .frame(width: 240, height: 240)
+                                }
+                            }
+                            Button(action:{
+                                
+                            }){
+                                HStack{
+                                    Text("Ver todos")
+                                        .bold()
+                                    Text(Image(systemName: "chevron.right"))
+                                        .bold()
+                                    
+                                }
+                                .padding(.top)
+                            }.accentColor(.black)
+                        }
+                    }
                 }
+                .padding(.leading)
+                Spacer()
             }
+            .disabled(env.didSelectNewCategory)
+            
+            CreateNewCategoryView(env: env)
+                .frame(maxWidth: 600, maxHeight: 500)
+                .offset(y: env.didSelectNewCategory ? 0 : 1000)
+                .animation(.spring())
+                .opacity(env.didSelectNewCategory ? 1 : 0)
+            
+            
         }
     }
 }

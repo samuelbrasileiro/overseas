@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+
 struct SideBarView: View {
     
     @ObservedObject var env: HomeScreenEnvironment
+    
     
     var body: some View {
         let categories = env.categories
@@ -37,30 +39,31 @@ struct SideBarView: View {
                 .padding()
             }.accentColor(.black)
             
-            VStack(spacing: 10){
-                ForEach(categories[0..<3]){c in
-                    Text(c.name ?? "")
-                        .bold()
-                        .foregroundColor([.blue, .pink, .yellow, .purple].randomElement()!)
-                }
-            }.padding(.leading)
-            .padding(.bottom)
-            
-            HStack{
-                Button(action:{
-                    
-                }){
-                    Text(Image(systemName: "plus"))
-                        .padding(5)
-                        .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
-                        .padding(.leading)
-                }.accentColor(.black)
+            ScrollView{
+                VStack(spacing: 10){
+                    ForEach(categories){c in
+                        Text(c.name ?? "")
+                            .bold()
+                            .foregroundColor(.black)
+                    }
+                }.padding(.leading)
+                .padding(.bottom)
                 
-                Text("Adicionar categoria")
+                HStack{
+                    Button(action:{
+                        env.didSelectNewCategory = true
+                    }){
+                        Text(Image(systemName: "plus"))
+                            .padding(5)
+                            .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+                            .padding(.leading)
+                    }.accentColor(.black)
+                    
+                    Text("Adicionar categoria")
+                }
+                
+                Spacer()
             }
-            
-            Spacer()
-            
         }.background(Color(.systemGray6))
     }
 }
