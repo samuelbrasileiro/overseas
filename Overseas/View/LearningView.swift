@@ -8,8 +8,51 @@
 import SwiftUI
 
 struct LearningView: View {
+    
+    @ObservedObject var env = HomeScreenEnvironment()
+    @State var title: String = ""
+    @State var description: String = ""
+    @State var emoji: String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            
+            HStack {
+                
+                EmojiTextField(text: $emoji, placeholder: "🍣")
+                
+                
+                VStack{
+                    
+                    TextField("Insira seu título aqui", text: $title)
+                        .font(.largeTitle.bold())
+                    TextField("Insira sua descrição aqui", text: $description)
+                        .font(.footnote)
+                        
+                }
+            }
+            
+            Button("Salvar") {
+                saveNewLearning()
+                print(env.allLearnings)
+            }
+        }
+    }
+    
+    func saveNewLearning() {
+        if title.isEmpty || description.isEmpty {
+            return
+        }
+        
+        let context = AppDelegate.viewContext
+        let learning = Learning(name: self.title, descriptionText: self.description, emoji: emoji, estimatedTime: 0, text: "", context: context)
+        env.allLearnings.append(learning)
+        do {
+            try context.save()
+            
+        } catch {
+            print(error)
+        }
     }
 }
 
