@@ -20,6 +20,7 @@ struct HomeScreenView: View { //view
             NavigationView{
                 SideBarView(env: env).navigationViewStyle(DoubleColumnNavigationViewStyle())
                     .accentColor(.black)
+                    //.navigationBarTitleDisplayMode(.inline)
                 ZStack{
                         //                    SideBarView(env: env)
                         //                        .frame(maxWidth: 270)
@@ -32,6 +33,8 @@ struct HomeScreenView: View { //view
                                     HStack(spacing: 40){
                                         ForEach(fixed[0..<(fixed.count < 3 ? fixed.count : 3)]){ l in
                                             HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!).frame(width: 240, height: 240)
+                                                .scaleEffect(0.8)
+                                                .frame(width: 240*0.8, height: 240*0.8)
                                         }
                                     }
                                     if(fixed.count==0){
@@ -84,6 +87,8 @@ struct HomeScreenView: View { //view
                                             
                                             HomeScreenLearningItemView(learning: l, color: [.red, .blue, .blue, .yellow].randomElement()!)
                                                 .frame(width: 240, height: 240)
+                                                .scaleEffect(0.8)
+                                                .frame(width: 240*0.8, height: 240*0.8)
                                         }
                                     }
                                     
@@ -125,6 +130,7 @@ struct HomeScreenView: View { //view
                     
                     
                 }
+                .navigationBarTitleDisplayMode(.inline)
                 //.navigationViewStyle(DoubleColumnNavigationViewStyle())
                 //.navigationBarHidden(true)
                 
