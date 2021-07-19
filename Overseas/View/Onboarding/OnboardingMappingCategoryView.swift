@@ -56,7 +56,7 @@ struct OnboardingMappingCategoryView: View {
                         .padding(.leading)
                     
                     Text(category.name)
-                        .font(.largeTitle.bold())
+                        .font(.title.bold())
                         .foregroundColor(.black)
                         .padding(.leading)
                         

@@ -13,6 +13,7 @@
 		1054763B269DD490006F8713 /* EmojiStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054763A269DD490006F8713 /* EmojiStructure.swift */; };
 		35B9B88526A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B9B88426A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift */; };
 		35B9B88826A5B2D200747AC4 /* UIColor+adjust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B9B88726A5B2D200747AC4 /* UIColor+adjust.swift */; };
+		35B9B88A26A5BFE400747AC4 /* View+onRotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B9B88926A5BFE400747AC4 /* View+onRotate.swift */; };
 		35BCE4B026947E820022B49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4AF26947E820022B49A /* AppDelegate.swift */; };
 		35BCE4B226947E820022B49A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4B126947E820022B49A /* SceneDelegate.swift */; };
 		35BCE4B426947E820022B49A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4B326947E820022B49A /* ContentView.swift */; };
@@ -61,6 +62,7 @@
 		359A048826986B4D006C7374 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		35B9B88426A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMappingCategoryView.swift; sourceTree = "<group>"; };
 		35B9B88726A5B2D200747AC4 /* UIColor+adjust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+adjust.swift"; sourceTree = "<group>"; };
+		35B9B88926A5BFE400747AC4 /* View+onRotate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+onRotate.swift"; sourceTree = "<group>"; };
 		35BCE4AC26947E820022B49A /* Overseas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overseas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BCE4AF26947E820022B49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35BCE4B126947E820022B49A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				35B9B88726A5B2D200747AC4 /* UIColor+adjust.swift */,
+				35B9B88926A5BFE400747AC4 /* View+onRotate.swift */,
 			);
 			path = Extra;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				8607E5CF269875E2007184A9 /* CategoryEnvironment.swift in Sources */,
 				35F12E5F26987007002A9532 /* CategoryLearningView.swift in Sources */,
 				0EB065DD269DB9AC00AEA2E2 /* GridLearningView.swift in Sources */,
+				35B9B88A26A5BFE400747AC4 /* View+onRotate.swift in Sources */,
 				35F12E6A2698711B002A9532 /* LearningView.swift in Sources */,
 				35BCE4B026947E820022B49A /* AppDelegate.swift in Sources */,
 				35BCE4B726947E820022B49A /* Overseas.xcdatamodeld in Sources */,
