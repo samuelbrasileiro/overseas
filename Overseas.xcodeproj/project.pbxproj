@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		0E93234F26948D2600163E2B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93234E26948D2600163E2B /* Category.swift */; };
 		0E93235126948EE100163E2B /* Learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93235026948EE100163E2B /* Learning.swift */; };
-		1054763B269DD490006F8713 /* EmojiStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054763A269DD490006F8713 /* EmojiStructure.swift */; };
 		0EB065DD269DB9AC00AEA2E2 /* GridLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */; };
+		1054763B269DD490006F8713 /* EmojiStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054763A269DD490006F8713 /* EmojiStructure.swift */; };
+		35B9B88526A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B9B88426A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift */; };
+		35B9B88826A5B2D200747AC4 /* UIColor+adjust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B9B88726A5B2D200747AC4 /* UIColor+adjust.swift */; };
 		35BCE4B026947E820022B49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4AF26947E820022B49A /* AppDelegate.swift */; };
 		35BCE4B226947E820022B49A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4B126947E820022B49A /* SceneDelegate.swift */; };
 		35BCE4B426947E820022B49A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4B326947E820022B49A /* ContentView.swift */; };
@@ -54,9 +56,11 @@
 /* Begin PBXFileReference section */
 		0E93234E26948D2600163E2B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		0E93235026948EE100163E2B /* Learning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learning.swift; sourceTree = "<group>"; };
-		1054763A269DD490006F8713 /* EmojiStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiStructure.swift; sourceTree = "<group>"; };
 		0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLearningView.swift; sourceTree = "<group>"; };
+		1054763A269DD490006F8713 /* EmojiStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiStructure.swift; sourceTree = "<group>"; };
 		359A048826986B4D006C7374 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
+		35B9B88426A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMappingCategoryView.swift; sourceTree = "<group>"; };
+		35B9B88726A5B2D200747AC4 /* UIColor+adjust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+adjust.swift"; sourceTree = "<group>"; };
 		35BCE4AC26947E820022B49A /* Overseas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overseas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BCE4AF26947E820022B49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35BCE4B126947E820022B49A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +129,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		35B9B88626A5B2BD00747AC4 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				35B9B88726A5B2D200747AC4 /* UIColor+adjust.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
 		35BCE4A326947E820022B49A = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +159,7 @@
 		35BCE4AE26947E820022B49A /* Overseas */ = {
 			isa = PBXGroup;
 			children = (
+				35B9B88626A5B2BD00747AC4 /* Extra */,
 				8607E5CB26987520007184A9 /* ViewModel */,
 				0E93234C26948CE800163E2B /* View */,
 				0E93234B26948CE100163E2B /* Model */,
@@ -176,6 +189,7 @@
 			children = (
 				35F12E5626986F31002A9532 /* OnboardingView.swift */,
 				35F12E642698708F002A9532 /* OnboardingMappingView.swift */,
+				35B9B88426A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -322,7 +336,9 @@
 			files = (
 				0E93234F26948D2600163E2B /* Category.swift in Sources */,
 				35F12E6326987066002A9532 /* CreateNewCategoryView.swift in Sources */,
+				35B9B88826A5B2D200747AC4 /* UIColor+adjust.swift in Sources */,
 				35F12E5926986FA0002A9532 /* HomeScreenLearningItemView.swift in Sources */,
+				35B9B88526A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift in Sources */,
 				35F12E5526986CC9002A9532 /* HomeScreenView.swift in Sources */,
 				0E93235126948EE100163E2B /* Learning.swift in Sources */,
 				8607E5D326987619007184A9 /* LearningEnvironment.swift in Sources */,
