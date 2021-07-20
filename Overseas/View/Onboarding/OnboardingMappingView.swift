@@ -10,6 +10,7 @@ import CoreData
 class OnboardingEnvironment: ObservableObject{
     @Published var categories: [SelectionCategory] = []
     
+    
     init(){
         categories.append(contentsOf: [("Culinária","🧑‍🍳"), ("Investimento","💸"), ("Música","🎵"), ("Manutenção da casa","🔧"), ("Videogames","🎮"), ("Cabelo","💈"), ("Animais de estimação","🐶"), ("Skin Care","🧼") ].map{.init(name: $0.0, emoji: $0.1)})
     }
@@ -50,7 +51,7 @@ struct OnboardingMappingView: View {
             VStack{
             LazyVGrid(columns: (orientation == .portrait || orientation == .faceUp ? [GridItem(), GridItem()]: [GridItem(), GridItem(), GridItem(), GridItem()]) , content: {
                 ForEach(0..<env.categories.count, id: \.self){ index in
-                    OnboardingMappingCategoryView(category: env.categories[index]).padding(10)
+                    OnboardingMappingCategoryView(category: $env.categories[index]).padding(10)
                 }
                 
             })

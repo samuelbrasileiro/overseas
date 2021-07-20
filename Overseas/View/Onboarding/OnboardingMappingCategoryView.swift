@@ -14,14 +14,11 @@ struct SelectionCategory{
 }
 
 struct OnboardingMappingCategoryView: View {
-    @State var category: SelectionCategory
+    @Binding var category: SelectionCategory
     @State var color: Color = .lightBlue
     
     @State var isPresented = false
     
-    init(category: SelectionCategory){
-        self.category = category
-    }
     var body: some View {
         Button(action:{
             self.category.isSelected.toggle()
@@ -75,12 +72,13 @@ struct OnboardingMappingCategoryView: View {
     }
 }
 
-struct OnboardingMappingCategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingMappingCategoryView(category: SelectionCategory(name: "Culinária", emoji: "🍣"))
-            
-            .previewLayout(.fixed(width: 300, height: 300))
-            .environment(\.horizontalSizeClass, .compact)
-            .environment(\.verticalSizeClass, .compact)
-    }
-}
+//struct OnboardingMappingCategoryView_Previews: PreviewProvider {
+////    @State var c = SelectionCategory(name: "Culinária", emoji: "🍣")
+////    static var previews: some View {
+////        OnboardingMappingCategoryView(category: $c)
+////            
+////            .previewLayout(.fixed(width: 300, height: 300))
+////            .environment(\.horizontalSizeClass, .compact)
+////            .environment(\.verticalSizeClass, .compact)
+////    }
+//}
