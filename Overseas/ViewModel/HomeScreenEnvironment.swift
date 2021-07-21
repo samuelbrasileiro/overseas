@@ -9,7 +9,8 @@ import Foundation
 import CoreData
 import SwiftUI
 
-class HomeScreenEnvironment: ObservableObject{
+class HomeScreenEnvironment: ObservableObject, LearningDelegate{
+    
     @Published var categories: [Category] = []
     let context = AppDelegate.viewContext
     
@@ -17,11 +18,14 @@ class HomeScreenEnvironment: ObservableObject{
     @Published var allLearnings: [Learning] = []
     
     @Published var didSelectNewCategory = false
-    
-    
-    init(){
         
+    init(){
+        reset()
+    }
+    
+    func reset(){
         let categoriesRequest: NSFetchRequest<Category> = Category.fetchRequest()
+        
         categoriesRequest.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
         do {
             try categories = context.fetch(categoriesRequest)
@@ -53,6 +57,7 @@ class HomeScreenEnvironment: ObservableObject{
         }).joined()
         allLearnings.append(contentsOf: all)
         print(fixed.count)
+        
         for category in categories{
             print(category.name! + ":")
             for learnin in category.learnings?.allObjects as! [Learning]{
@@ -66,6 +71,7 @@ class HomeScreenEnvironment: ObservableObject{
     func createNewCategory(name: String, colorIndex: Int){
         
         if name == ""{
+            print("?????")
             return
         }
         
@@ -73,7 +79,7 @@ class HomeScreenEnvironment: ObservableObject{
         
         
         let category = Category(name: name, color: colorIndex, context: context)
-        
+        print(category.name! + "ddddddd")
         categories.append(category)
         
         do{
@@ -84,6 +90,28 @@ class HomeScreenEnvironment: ObservableObject{
         
     }
     
+    
+    func saveNewLearning(title: String, description: String, emoji: String) {
+        
+        if title.isEmpty || description.isEmpty {
+            return
+        }
+        
+        let context = AppDelegate.viewContext
+        let learning = Learning(name: title, descriptionText: description, emoji: emoji, estimatedTime: 0, text: "", context: context)
+        
+        //learning.category = category
+        //category.addToLearnings(learning)
+        
+        allLearnings.append(learning)
+        do {
+            try context.save()
+            
+        } catch {
+            print(error)
+        }
+        
+    }
     
 
 }

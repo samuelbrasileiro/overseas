@@ -18,6 +18,19 @@ struct SideBarView: View {
         let categories = env.categories
         VStack(alignment: .leading){
             
+            //NavigationLink(destination: HomeScreenNavigationView()){
+                HStack{
+                Text("HomeScreen")
+                    
+                    .bold()
+                    
+                Spacer()
+                }
+                .padding(10)
+                .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+           // }
+            //.padding(.horizontal)
+            .padding()
             
             Button(action:{
             }){

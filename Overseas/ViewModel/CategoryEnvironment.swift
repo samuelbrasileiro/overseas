@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreData
-class CategoryEnvironment: ObservableObject{
+class CategoryEnvironment: ObservableObject, LearningDelegate{
     
     @Published var category: Category
     
@@ -20,31 +20,41 @@ class CategoryEnvironment: ObservableObject{
     init(category: Category){
         self.category = category
         
-        //let category = Category(name: "Culinária", color: 0, context: context)
+        allLearnings = category.learnings?.allObjects as! [Learning]
         
-        for j in (0..<10){
-            let learning = Learning(name: "Sushi \(j)", descriptionText: "Aprendi sushi poxa", emoji: "🍣", estimatedTime: 1, text: "Uhhh aprendi a fazer sushi hoje", context: context)
-            
-            if j % 5 == 0{
-                learning.isFixed = true
-            }
-            
-            category.addToLearnings(learning)
-            learning.category = category
-        }
-        self.category = category
-        
-        
-        
-        //fixedLearnings = (category.learnings?.allObjects as! [Learning]).filter({learning in
-        //                                                                            learning.isFixed == true})
-        
-        
-        allLearnings = (category.learnings?.allObjects as! [Learning])
         
         allLearnings.sort(by: {(learning1, learning2) in
             learning1.isFixed && !learning2.isFixed
         })
     }
+    
+    
+    func saveNewLearning(title: String, description: String, emoji: String) {
+        
+        if title.isEmpty || description.isEmpty {
+            return
+        }
+        
+        let context = AppDelegate.viewContext
+        let learning = Learning(name: title, descriptionText: description, emoji: emoji, estimatedTime: 0, text: "", context: context)
+        
+        learning.category = category
+        category.addToLearnings(learning)
+        
+        allLearnings.append(learning)
+        
+        allLearnings.sort(by: {(learning1, learning2) in
+            learning1.isFixed && !learning2.isFixed
+        })
+        
+        do {
+            try context.save()
+            
+        } catch {
+            print(error)
+        }
+        
+    }
+    
     
 }

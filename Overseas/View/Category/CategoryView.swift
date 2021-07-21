@@ -16,9 +16,7 @@ struct CategoryView: View {
             HStack{
                 Text(env.category.name ?? "Categoria").underline()
                     .font(.largeTitle.bold())
-                Button(action:{
-                    
-                }){
+                NavigationLink(destination: LearningView(delegate: env)){
                     Image(systemName: "plus")
                         .resizable()
                         .frame(width: 20, height: 20)
@@ -27,6 +25,7 @@ struct CategoryView: View {
                         .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
                         .padding(.leading)
                 }
+                .accentColor(.black)
                 
                 Spacer()
             }
@@ -34,16 +33,19 @@ struct CategoryView: View {
             .padding([.leading, .top], 40)
             .padding(.top, 40)
             
-            LazyVGrid(columns: [GridItem(),GridItem()], content: {
-                ForEach(env.allLearnings[0..<4]){ learning in
-                    CategoryLearningView(learning: learning, color: [.red,.blue,.green].randomElement()!)
-                        .padding()
-                }
-            })
+            ScrollView{
+                LazyVGrid(columns: [GridItem(),GridItem()], content: {
+                    ForEach(env.allLearnings[0..<env.allLearnings.count]){ learning in
+                        CategoryLearningView(learning: learning, color: [.red,.blue,.green].randomElement()!)
+                            .padding()
+                    }
+                })
+            }
             .padding(.horizontal, 40)
             Spacer()
         }
         .navigationBarHidden(false)
+        .navigationBarTitle("", displayMode: .inline)
     }
 }
 
