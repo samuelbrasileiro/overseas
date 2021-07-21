@@ -49,31 +49,34 @@ struct OnboardingMappingView: View {
             }
             .padding(40)
             VStack{
-            LazyVGrid(columns: (orientation == .portrait || orientation == .faceUp ? [GridItem(), GridItem()]: [GridItem(), GridItem(), GridItem(), GridItem()]) , content: {
-                ForEach(0..<env.categories.count, id: \.self){ index in
-                    OnboardingMappingCategoryView(category: $env.categories[index]).padding(10)
-                }
+                LazyVGrid(columns: (orientation == .portrait || orientation == .faceUp ? [GridItem(), GridItem()]: [GridItem(), GridItem(), GridItem(), GridItem()]) , content: {
+                    ForEach(0..<env.categories.count, id: \.self){ index in
+                        OnboardingMappingCategoryView(category: $env.categories[index]).padding(10)
+                    }
+                    
+                })
+                .padding(30)
                 
-            })
-            .padding(30)
-            Button(action:{
-                if env.hasSelectedAny{
-                    env.saveSelectedToCoreData()
-                }
-            }){
-                HStack{
-                    Spacer()
-                Text("Concluir seleção")
-                    .font(.title)
-                    .foregroundColor(env.hasSelectedAny ? .white : .darkBlue)
-                    .padding()
-                    Spacer()
-                }
-                .background(env.hasSelectedAny ? Color.darkBlue : Color.white)
-                .overlay(Rectangle().stroke(Color.darkBlue, lineWidth: 2))
-                .padding(.horizontal, 40)
+                Spacer()
                 
-            }
+                Button(action:{
+                    if env.hasSelectedAny{
+                        env.saveSelectedToCoreData()
+                    }
+                }){
+                    HStack{
+                        Spacer()
+                        Text("Concluir seleção")
+                            .font(.title)
+                            .foregroundColor(env.hasSelectedAny ? .white : .darkBlue)
+                            .padding()
+                        Spacer()
+                    }
+                    .background(env.hasSelectedAny ? Color.darkBlue : Color.white)
+                    .overlay(Rectangle().stroke(Color.darkBlue, lineWidth: 2))
+                    .padding(.horizontal, 40)
+                    
+                }.padding(.bottom, 100)
             }
             Spacer()
         }
