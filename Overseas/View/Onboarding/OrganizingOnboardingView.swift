@@ -47,7 +47,7 @@ struct OnboardingCardView: View {
     
 }
 
-struct OnboardingView: View {
+struct OrganizingOnboardingView: View {
     
     @State var scale = CGSize(width: 1, height: 1)
     @State var positions = [CGPoint(x: -80,y: 20), CGPoint(x: -100,y: 70), CGPoint(x: -300,y: 0), CGPoint(x: -200,y: 80)]
@@ -98,9 +98,59 @@ struct OnboardingView: View {
     }
 }
 
-struct BrainOnboardingView: View {
+struct KnowledgeOnboardingView: View {
+    
+    @State var scaleBrain = CGSize(width: 1, height: 1)
+    @State var scaleObjects = CGSize(width: 1, height: 1)
+    @State var initialPositions = [CGPoint(x: 125, y: -250), CGPoint(x: -225, y: 125), CGPoint(x: 500, y: 125), CGPoint(x: 125, y: 125)]
+    @State var finalPositions = [CGPoint(x: 125, y: 125), CGPoint(x: 125, y: 125), CGPoint(x: 125, y: 125), CGPoint(x: 125, y: 125)]
+    
     var body: some View {
-        Text("Oi")
+        VStack {
+            
+            Spacer()
+            
+            ZStack {
+                
+                Image("Camping")
+                    .position(initialPositions[0])
+                    .scaleEffect(scaleObjects)
+                
+                Image("Tricot")
+                    .position(initialPositions[1])
+                    .scaleEffect(scaleObjects)
+                
+                Image("Surfboard")
+                    .position(initialPositions[2])
+                    .scaleEffect(scaleObjects)
+                
+                Image("Brain")
+                    .scaleEffect(scaleBrain)
+                    .position(initialPositions[3])
+                
+                
+            }
+            .frame(maxWidth: 250, maxHeight: 250)
+            .padding(.top, 100)
+            
+            Text("Conhecimento para além do óbvio")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.top, 150)
+            
+            Text("Valorize seus aprendizados do cotidiano.")
+            
+
+            Spacer()
+            
+        }
+        .onAppear(){
+            withAnimation(.spring().speed(0.5).delay(2)){
+                initialPositions = finalPositions
+                scaleBrain = CGSize(width: 1.5, height: 1.5)
+                scaleObjects = CGSize(width: 0.5, height: 0.5)
+            }
+        }
     }
 }
 
@@ -108,8 +158,8 @@ struct PageViewController: View {
     var body: some View {
         
         TabView {
-            OnboardingView()
-            BrainOnboardingView()
+            OrganizingOnboardingView()
+            KnowledgeOnboardingView()
         }
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
