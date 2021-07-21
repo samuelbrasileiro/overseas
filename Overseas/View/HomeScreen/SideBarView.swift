@@ -16,19 +16,19 @@ struct SideBarView: View {
     
     var body: some View {
         let categories = env.categories
-        VStack(alignment: .leading){
+        List{
             
-            //NavigationLink(destination: HomeScreenNavigationView()){
+            NavigationLink(destination: HomeScreenView(env: env)){
                 HStack{
-                Text("HomeScreen")
+                    Text("HomeScreen")
+                        
+                        .bold()
                     
-                    .bold()
-                    
-                Spacer()
+                    Spacer()
                 }
                 .padding(10)
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
-           // }
+            }
             //.padding(.horizontal)
             .padding()
             
@@ -45,34 +45,26 @@ struct SideBarView: View {
                 .padding(.horizontal)
             }.accentColor(.black)
             
-            ScrollView{
-                VStack(alignment: .leading, spacing: 10){
-                    
-                    ForEach(categories){c in
-                        NavigationLink(destination: CategoryView(env: CategoryEnvironment(category: c))){
-                            Text(c.name ?? "")
-                                .bold()
-                                .foregroundColor(.black)
-                        }
-                    }
-                    .padding(.leading)
-                    .padding(.bottom)
-                    
-                    HStack{
-                        Button(action:{
-                            env.didSelectNewCategory = true
-                        }){
-                            Text(Image(systemName: "plus"))
-                                .padding(5)
-                                .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
-                                .padding(.leading)
-                            Text("Adicionar categoria")
-                        }.accentColor(.black)
-                        
-                        
-                    }
+            ForEach(categories){c in
+                NavigationLink(destination: CategoryView(env: CategoryEnvironment(category: c))){
+                    Text(c.name ?? "")
+                        .bold()
+                        .foregroundColor(.black)
                 }
-                Spacer()
+            }
+            
+            
+            HStack{
+                Button(action:{
+                    env.didSelectNewCategory = true
+                }){
+                    Text(Image(systemName: "plus"))
+                        .padding(5)
+                        .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+                        .padding(.leading)
+                    Text("Adicionar categoria")
+                }.accentColor(.black)
+                
             }
         }
     }

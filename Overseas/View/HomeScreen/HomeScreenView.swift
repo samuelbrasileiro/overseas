@@ -14,13 +14,31 @@ struct HomeScreenNavigationView: View { //view
     
     var body: some View {
         //let categories = env.categories
-        let fixed = env.fixedLearnings
-        let all = env.allLearnings
+        
         ZStack{
             NavigationView{
                 SideBarView(env: env)
-                    .navigationViewStyle(DoubleColumnNavigationViewStyle())
+                
+                    //.navigationViewStyle(DoubleColumnNavigationViewStyle())
                     .accentColor(.black)
+                
+                HomeScreenView(env: env)
+            }
+            
+            Rectangle().fill(Color.gray).opacity(env.didSelectNewCategory ? 0.3 : 0)
+            CreateNewCategoryView(env: env)
+                .frame(maxWidth: 600, maxHeight: 500)
+                .offset(y: env.didSelectNewCategory ? 0 : 1000)
+                .animation(.spring())
+                .opacity(env.didSelectNewCategory ? 1 : 0)
+        }
+    }
+}
+struct HomeScreenView: View{
+    @ObservedObject var env = HomeScreenEnvironment()
+    var body: some View{
+        let fixed = env.fixedLearnings
+        let all = env.allLearnings
                     //.navigationBarTitleDisplayMode(.inline)
                 ZStack{
                         //                    SideBarView(env: env)
@@ -138,15 +156,8 @@ struct HomeScreenNavigationView: View { //view
                 
             }//.navigationViewStyle(StackNavigationViewStyle())
             
-            Rectangle().fill(Color.gray).opacity(env.didSelectNewCategory ? 0.3 : 0)
-            CreateNewCategoryView(env: env)
-                .frame(maxWidth: 600, maxHeight: 500)
-                .offset(y: env.didSelectNewCategory ? 0 : 1000)
-                .animation(.spring())
-                .opacity(env.didSelectNewCategory ? 1 : 0)
             
-        }
-    }
+            
 }
 
 struct HomeScreenView_Previews: PreviewProvider {
