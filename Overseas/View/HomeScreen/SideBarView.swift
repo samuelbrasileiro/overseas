@@ -29,6 +29,7 @@ struct SideBarView: View {
                 .padding(10)
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
             }
+            //.listRowBackground(EmptyView())
             //.padding(.horizontal)
             .padding()
             
@@ -45,24 +46,27 @@ struct SideBarView: View {
                 .padding(.horizontal)
             }.accentColor(.black)
             
+            
             ForEach(categories){c in
                 NavigationLink(destination: CategoryView(env: CategoryEnvironment(category: c))){
                     Text(c.name ?? "")
                         .bold()
                         .foregroundColor(.black)
                 }
+                
             }
             
             
-            HStack{
-                Button(action:{
-                    env.didSelectNewCategory = true
-                }){
+            
+            Button(action:{
+                env.didSelectNewCategory = true
+            }){
+                HStack{
                     Text(Image(systemName: "plus"))
                         .padding(5)
                         .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
                         .padding(.leading)
-                    Text("Adicionar categoria")
+                    Text("Adicionar Categoria")
                 }.accentColor(.black)
                 
             }
