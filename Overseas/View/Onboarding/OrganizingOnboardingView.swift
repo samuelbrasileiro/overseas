@@ -62,7 +62,8 @@ struct OrganizingOnboardingView: View {
             ZStack{
                 
                 Image("BackFolder")
-                    .offset(x: 200, y: 0)
+                    .offset(x: 600, y: 0)
+                    .scaleEffect(CGSize(width: 0.35, height: 0.35))
                 
                 
                 OnboardingCardView(position: $positions[0], scale: $scale, emoji: "🥦", color: .green)
@@ -71,7 +72,8 @@ struct OrganizingOnboardingView: View {
                 OnboardingCardView(position: $positions[3], scale: $scale, emoji: "🧚🏼‍♂️", color: .purple)
                 
                 Image("FrontFolder")
-                    .offset(x: 200, y: 0)
+                    .offset(x: 600, y: 0)
+                    .scaleEffect(CGSize(width: 0.35, height: 0.35))
                 
             }
             .padding(.top, 100)
@@ -100,15 +102,16 @@ struct OrganizingOnboardingView: View {
 
 struct KnowledgeOnboardingView: View {
     
-    @State var scaleBrain = CGSize(width: 1, height: 1)
-    @State var scaleObjects = CGSize(width: 1, height: 1)
-    @State var initialPositions = [CGPoint(x: 125, y: -250), CGPoint(x: -225, y: 125), CGPoint(x: 500, y: 125), CGPoint(x: 125, y: 125)]
+    @ObservedObject var env = OnboardingEnvironment()
+    @State var isPresented = false
+    
+    @State var scaleBrain = CGSize(width: 0.25, height: 0.25)
+    @State var scaleObjects = CGSize(width: 0.25, height: 0.25)
+    @State var initialPositions = [CGPoint(x: 125, y: -1250), CGPoint(x: -1225, y: 125), CGPoint(x: 1500, y: 125), CGPoint(x: 125, y: 125)]
     @State var finalPositions = [CGPoint(x: 125, y: 125), CGPoint(x: 125, y: 125), CGPoint(x: 125, y: 125), CGPoint(x: 125, y: 125)]
     
     var body: some View {
         VStack {
-            
-            Spacer()
             
             ZStack {
                 
@@ -131,7 +134,8 @@ struct KnowledgeOnboardingView: View {
                 
             }
             .frame(maxWidth: 250, maxHeight: 250)
-            .padding(.top, 100)
+            .padding(.top, 250)
+            .padding(.bottom, 50)
             
             Text("Conhecimento para além do óbvio")
                 .font(.title)
@@ -140,16 +144,33 @@ struct KnowledgeOnboardingView: View {
             
             Text("Valorize seus aprendizados do cotidiano.")
             
+            Button(action:{
+                isPresented = true
+            }){
+                HStack{
+                    Spacer()
+                Text("Mapear interesses")
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .padding()
+                    Spacer()
+                }
+                .background(Color.darkBlue)
+                .overlay(Rectangle().stroke(Color.darkBlue, lineWidth: 2))
+                .padding(.horizontal, 40)
+                .padding(.top, 50)
+            }
 
-            Spacer()
-            
         }
         .onAppear(){
             withAnimation(.spring().speed(0.5).delay(2)){
                 initialPositions = finalPositions
-                scaleBrain = CGSize(width: 1.5, height: 1.5)
-                scaleObjects = CGSize(width: 0.5, height: 0.5)
+                scaleBrain = CGSize(width: 0.5, height: 0.5)
+                scaleObjects = CGSize(width: 0.125, height: 0.125)
             }
+        }
+        .fullScreenCover(isPresented: $isPresented){
+            OnboardingMappingView(env: OnboardingEnvironment())
         }
     }
 }
