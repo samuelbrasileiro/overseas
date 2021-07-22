@@ -8,15 +8,21 @@
 import SwiftUI
 
 struct CategoryView: View {
-    let env: CategoryEnvironment
+    @State var index: Int
+    @ObservedObject var homeEnv: HomeScreenEnvironment
+    
     @State var isPresented = false
     
     var body: some View {
+        let category = homeEnv.categories[index]
+        let learnings = (category.learnings?.allObjects as! [Learning]).sorted(by: {(learning1, learning2) in
+            learning1.isFixed && !learning2.isFixed
+        })
         VStack{
             HStack{
-                Text(env.category.name ?? "Categoria").underline()
+                Text(category.name ?? "Categoria").underline()
                     .font(.largeTitle.bold())
-                NavigationLink(destination: LearningView(delegate: env)){
+                NavigationLink(destination: LearningView(delegate: homeEnv, homeEnv: homeEnv,index: index, isFromCategory: true)){
                     Image(systemName: "plus")
                         .resizable()
                         .frame(width: 20, height: 20)
@@ -35,7 +41,7 @@ struct CategoryView: View {
             
             ScrollView{
                 LazyVGrid(columns: [GridItem(),GridItem()], content: {
-                    ForEach(env.allLearnings[0..<env.allLearnings.count]){ learning in
+                    ForEach(learnings[0..<learnings.count]){ learning in
                         CategoryLearningView(learning: learning, color: [.red,.blue,.green].randomElement()!)
                             .padding()
                     }
@@ -51,7 +57,7 @@ struct CategoryView: View {
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView(env: CategoryEnvironment(category: Category(name: "Culinária", color: 0, context: AppDelegate.viewContext)))
+        CategoryView(index: 0, homeEnv: HomeScreenEnvironment())
             //.previewDevice("iPad (8th generation)")
             .previewLayout(.fixed(width: 1080, height: 810))
             .environment(\.horizontalSizeClass, .compact)

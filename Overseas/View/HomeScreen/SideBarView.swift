@@ -18,13 +18,7 @@ struct SideBarView: View {
     @State var categoriesIsOpen: Bool = false
     
     @State var isPresented = false
-    @State var state: Screen? = .homescreen{
-        didSet {
-            if state == .homescreen{
-                env.reset()
-            }
-        }
-    }
+    @State var state: Screen? = .homescreen
     
     var body: some View {
         let categories = env.categories
@@ -68,7 +62,8 @@ struct SideBarView: View {
 
             Group{
                 ForEach((0..<(categoriesIsOpen ? categories.count : 0)), id: \.self){ index in
-                    NavigationLink(destination: CategoryView(env: CategoryEnvironment(category: categories[index])),  tag: Screen.category(index: index), selection: $state){
+                    NavigationLink(destination: CategoryView(index: index, homeEnv: env),  tag: Screen.category(index: index), selection: $state){
+                        
                         Text(categories[index].name ?? "")
                          
                     }

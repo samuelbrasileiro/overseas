@@ -13,19 +13,14 @@ struct HomeScreenNavigationView: View { //view
     @State var isPresented = false
     
     var body: some View {
-        //let categories = env.categories
         
         ZStack{
             NavigationView{
                 SideBarView(env: env)
-                
-                    //.navigationViewStyle(DoubleColumnNavigationViewStyle())
                     .accentColor(.clear)
                 
                 HomeScreenView(env: env)
-                    .onAppear{
-                        env.reset()
-                    }
+
             }
             
             Rectangle().fill(Color.gray).opacity(env.didSelectNewCategory ? 0.3 : 0)
@@ -42,10 +37,7 @@ struct HomeScreenView: View{
     var body: some View{
         let fixed = env.fixedLearnings
         let all = env.allLearnings
-                    //.navigationBarTitleDisplayMode(.inline)
                 ZStack{
-                        //                    SideBarView(env: env)
-                        //                        .frame(maxWidth: 270)
                         VStack(alignment: .leading){
                             VStack(alignment: .leading){
                                 Text("Fixados").underline()
@@ -94,7 +86,7 @@ struct HomeScreenView: View{
                                 HStack{
                                     Text("Meus Aprendizados").underline()
                                         .font(.largeTitle.bold())
-                                    NavigationLink(destination: LearningView(delegate: env)){
+                                    NavigationLink(destination: LearningView(delegate: env, homeEnv: env)){
                                         Image(systemName: "plus")
                                             .resizable()
                                             .frame(width: 20, height: 20)
@@ -147,19 +139,13 @@ struct HomeScreenView: View{
                         }
                         .padding(.leading)
 
-                    //.disabled(env.didSelectNewCategory)
                     .animation(.spring())
-                    
-                    
                     
                 }
                 .navigationBarTitleDisplayMode(.inline)
-                //.navigationViewStyle(DoubleColumnNavigationViewStyle())
-                //.navigationBarHidden(true)
-                
-            }//.navigationViewStyle(StackNavigationViewStyle())
-            
-            
+
+            }
+
             
 }
 

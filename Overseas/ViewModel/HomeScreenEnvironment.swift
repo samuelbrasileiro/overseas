@@ -22,9 +22,11 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
     @Published var categorySelected: Category?
         
     init(){
+        NotificationCenter.default.addObserver(self, selector: #selector(self.addNewLearningByCategoryView(_:)), name: .addNewLearningByCategoryView, object: nil)
+        
         reset()
     }
-    
+
     func reset(){
         print("resetted")
         categories = []
@@ -77,7 +79,7 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
     }
     
     
-    func saveNewLearning(title: String, description: String, emoji: String) {
+    func saveNewLearning(categoryIndex: Int, title: String, description: String, emoji: String) {
         
         if title.isEmpty || description.isEmpty {
             return
@@ -85,6 +87,9 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         
         let context = AppDelegate.viewContext
         let learning = Learning(name: title, descriptionText: description, emoji: emoji, estimatedTime: 0, text: "", context: context)
+        
+        categories[categoryIndex].addToLearnings(learning)
+        learning.category = categories[categoryIndex]
         
         allLearnings.append(learning)
         do {
@@ -96,5 +101,8 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         
     }
     
+    @objc func addNewLearningByCategoryView(_ note: NSNotification) {
+
+    }
 
 }
