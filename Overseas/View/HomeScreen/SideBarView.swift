@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum Screen: Hashable {
+    case homescreen
+    case category(index:Int)
+}
 
 struct SideBarView: View {
     
@@ -14,25 +18,31 @@ struct SideBarView: View {
     @State var categoriesIsOpen: Bool = false
     
     @State var isPresented = false
+    @State var state: Screen? = .homescreen{
+        didSet {
+            if state == .homescreen{
+                env.reset()
+            }
+        }
+    }
     
     var body: some View {
         let categories = env.categories
         List{
             
-            NavigationLink(destination: HomeScreenView(env: env)){
+            NavigationLink(destination: HomeScreenView(env: env), tag: Screen.homescreen, selection: $state){
                 HStack{
-                    Text("HomeScreen")
-                        
-                        .bold()
-                    
+                    Label("Homescreen", systemImage: "house")
+                        .padding(.horizontal)
+                        .padding(.vertical, 10)
                     Spacer()
                 }
-                .listRowBackground(Color(.systemGray6))
-                .padding(10)
-                .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+                
+
             }
-            .listRowBackground(Color(.systemGray6))
-            //.padding(.horizontal)
+            .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+            .font(Font.headline.weight(state == Screen.homescreen ? .bold : .regular))
+            .foregroundColor(.black)
             .padding()
             
             Button(action:{
@@ -54,22 +64,20 @@ struct SideBarView: View {
                 }.padding(10)
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
                 .padding(.horizontal)
-            }.accentColor(.black)
-
-        
-            ForEach(categories[0..<(categoriesIsOpen ? categories.count : 0)]){c in
-                NavigationLink(destination: CategoryView(env: CategoryEnvironment(category: c))){
-                    Text(c.name ?? "")
-                        .bold()
-                        .foregroundColor(.black)
-                        .accentColor(.clear)
-                }
-                
-                
             }
-            .listRowBackground(Color(.systemGray6))
+
+            Group{
+                ForEach((0..<(categoriesIsOpen ? categories.count : 0)), id: \.self){ index in
+                    NavigationLink(destination: CategoryView(env: CategoryEnvironment(category: categories[index])),  tag: Screen.category(index: index), selection: $state){
+                        Text(categories[index].name ?? "")
+                         
+                    }
+                    .font(Font.headline.weight(state == Screen.category(index: index) ? .bold : .regular))
+                    .foregroundColor(.black)
+                    
+                }
+            }
             .padding(.leading, 30)
-            
             
             
             Button(action:{
@@ -81,10 +89,10 @@ struct SideBarView: View {
                         .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
                         .padding(.leading)
                     Text("Adicionar Categoria")
-                }.accentColor(.black)
-                
+                }
             }
         }
+        .navigationTitle("Menu")
     }
 }
 

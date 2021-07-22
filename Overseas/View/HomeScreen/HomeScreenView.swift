@@ -20,9 +20,12 @@ struct HomeScreenNavigationView: View { //view
                 SideBarView(env: env)
                 
                     //.navigationViewStyle(DoubleColumnNavigationViewStyle())
-                    .accentColor(.black)
+                    .accentColor(.clear)
                 
                 HomeScreenView(env: env)
+                    .onAppear{
+                        env.reset()
+                    }
             }
             
             Rectangle().fill(Color.gray).opacity(env.didSelectNewCategory ? 0.3 : 0)

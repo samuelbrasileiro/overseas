@@ -26,6 +26,11 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
     }
     
     func reset(){
+        print("oi resetttt")
+        categories = []
+        allLearnings = []
+        fixedLearnings = []
+        
         let categoriesRequest: NSFetchRequest<Category> = Category.fetchRequest()
         
         categoriesRequest.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
@@ -52,7 +57,7 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
             
         }).joined()
         fixedLearnings.append(contentsOf: fixed)
-        print(fixed.count)
+        //print(fixed.count)
         
         let all = categories.map({ category in
             (category.learnings?.allObjects as! [Learning])
@@ -68,6 +73,7 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
             }
         }
         
+        self.objectWillChange.send()
     }
     
     func createNewCategory(name: String, colorIndex: Int){
