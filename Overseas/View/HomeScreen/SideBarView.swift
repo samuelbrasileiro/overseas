@@ -11,6 +11,7 @@ import SwiftUI
 struct SideBarView: View {
     
     @ObservedObject var env: HomeScreenEnvironment
+    @State var categoriesIsOpen: Bool = false
     
     @State var isPresented = false
     
@@ -26,35 +27,48 @@ struct SideBarView: View {
                     
                     Spacer()
                 }
+                .listRowBackground(Color(.systemGray6))
                 .padding(10)
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
             }
-            //.listRowBackground(EmptyView())
+            .listRowBackground(Color(.systemGray6))
             //.padding(.horizontal)
             .padding()
             
             Button(action:{
+                categoriesIsOpen = !categoriesIsOpen
             }){
                 HStack{
                     Text("Categorias")
                         .bold()
                     Spacer()
-                    Image(systemName: "chevron.down")
+                    
+                    
+                    Image(systemName: "chevron.right")
+                        .rotationEffect(.init(degrees: categoriesIsOpen ? 90.0 : 0))
+                        .animation(.spring())
+                        
+                            
+                    
                     
                 }.padding(10)
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
                 .padding(.horizontal)
             }.accentColor(.black)
-            
-            
-            ForEach(categories){c in
+
+        
+            ForEach(categories[0..<(categoriesIsOpen ? categories.count : 0)]){c in
                 NavigationLink(destination: CategoryView(env: CategoryEnvironment(category: c))){
                     Text(c.name ?? "")
                         .bold()
                         .foregroundColor(.black)
+                        .accentColor(.clear)
                 }
                 
+                
             }
+            .listRowBackground(Color(.systemGray6))
+            .padding(.leading, 30)
             
             
             

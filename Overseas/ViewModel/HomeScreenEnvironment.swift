@@ -18,6 +18,8 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
     @Published var allLearnings: [Learning] = []
     
     @Published var didSelectNewCategory = false
+    
+    @Published var categorySelected: Category?
         
     init(){
         reset()
