@@ -26,7 +26,7 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
     }
     
     func reset(){
-        print("oi resetttt")
+        print("resetted")
         categories = []
         allLearnings = []
         fixedLearnings = []
@@ -40,38 +40,17 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
             print(error)
         }
         
-        //DELETE COREDATA DATA
-//        do {
-//            for user in try context.fetch(categoriesRequest){
-//                context.delete(user)
-//            }
-//           try context.save()
-//
-//        } catch{
-//
-//        }
-        
         let fixed = categories.map({ category in
             (category.learnings?.allObjects as! [Learning]).filter({learning in
                                                                     learning.isFixed == true})
             
         }).joined()
         fixedLearnings.append(contentsOf: fixed)
-        //print(fixed.count)
         
         let all = categories.map({ category in
             (category.learnings?.allObjects as! [Learning])
         }).joined()
         allLearnings.append(contentsOf: all)
-        print(fixed.count)
-        
-        for category in categories{
-            print(category.name! + ":")
-            for learnin in category.learnings?.allObjects as! [Learning]{
-                print("\t" + learnin.name!)
-                
-            }
-        }
         
         self.objectWillChange.send()
     }
@@ -79,7 +58,7 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
     func createNewCategory(name: String, colorIndex: Int){
         
         if name == ""{
-            print("?????")
+            print("Please insert a name")
             return
         }
         
@@ -87,7 +66,6 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         
         
         let category = Category(name: name, color: colorIndex, context: context)
-        print(category.name! + "ddddddd")
         categories.append(category)
         
         do{
@@ -107,9 +85,6 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         
         let context = AppDelegate.viewContext
         let learning = Learning(name: title, descriptionText: description, emoji: emoji, estimatedTime: 0, text: "", context: context)
-        
-        //learning.category = category
-        //category.addToLearnings(learning)
         
         allLearnings.append(learning)
         do {
