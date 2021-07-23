@@ -32,10 +32,10 @@ struct CreateNewCategoryView: View {
                     .bold()
                 Spacer()
                 Button(action:{
-                    print("APERTOU AQUI")
                     env.didSelectNewCategory = false
                     env.createNewCategory(name: name, colorIndex: colorIndex)
                     name = ""
+                    env.categoriesIsOpen = true
 
                 }){
                     Text("Salvar")

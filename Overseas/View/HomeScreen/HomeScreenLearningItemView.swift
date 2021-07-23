@@ -34,7 +34,7 @@ struct HomeScreenLearningItemView: View {
                 Text(learning.name ?? "Name")
                     .font(.largeTitle.bold())
                     .padding(.leading)
-                Text("Pança cheia de Beatrix Lee")
+                Text(learning.descriptionText ?? "Description")
                     
                     .padding(.leading)
                 Spacer()

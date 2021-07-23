@@ -15,7 +15,6 @@ enum Screen: Hashable {
 struct SideBarView: View {
     
     @ObservedObject var env: HomeScreenEnvironment
-    @State var categoriesIsOpen: Bool = false
     
     @State var isPresented = false
     @State var state: Screen? = .homescreen
@@ -40,7 +39,7 @@ struct SideBarView: View {
             .padding()
             
             Button(action:{
-                categoriesIsOpen = !categoriesIsOpen
+                env.categoriesIsOpen.toggle()
             }){
                 HStack{
                     Text("Categorias")
@@ -49,7 +48,7 @@ struct SideBarView: View {
                     
                     
                     Image(systemName: "chevron.right")
-                        .rotationEffect(.init(degrees: categoriesIsOpen ? 90.0 : 0))
+                        .rotationEffect(.init(degrees: env.categoriesIsOpen ? 90.0 : 0))
                         .animation(.spring())
                         
                             
@@ -61,7 +60,7 @@ struct SideBarView: View {
             }
 
             Group{
-                ForEach((0..<(categoriesIsOpen ? categories.count : 0)), id: \.self){ index in
+                ForEach((0..<(env.categoriesIsOpen ? categories.count : 0)), id: \.self){ index in
                     NavigationLink(destination: CategoryView(index: index, homeEnv: env),  tag: Screen.category(index: index), selection: $state){
                         
                         Text(categories[index].name ?? "")

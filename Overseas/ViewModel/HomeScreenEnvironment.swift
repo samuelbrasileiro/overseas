@@ -20,7 +20,9 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
     @Published var didSelectNewCategory = false
     
     @Published var categorySelected: Category?
-        
+    
+    @Published var categoriesIsOpen: Bool = true
+    
     init(){
         NotificationCenter.default.addObserver(self, selector: #selector(self.addNewLearningByCategoryView(_:)), name: .addNewLearningByCategoryView, object: nil)
         
