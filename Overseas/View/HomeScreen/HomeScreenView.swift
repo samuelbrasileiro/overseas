@@ -76,6 +76,7 @@ struct HomeScreenView: View{
                                             }
                                             .padding(.top)
                                         }.accentColor(.black)
+                                        .opacity(fixed.count > 3 ? 1 : 0)
                                         
                                     }
                                     
@@ -130,7 +131,9 @@ struct HomeScreenView: View{
                                                 
                                             }
                                             .padding(.top)
+                                            
                                         }.accentColor(.black)
+                                        .opacity(all.count > 3 ? 1 : 0)
                                     }
                                 }
                                 

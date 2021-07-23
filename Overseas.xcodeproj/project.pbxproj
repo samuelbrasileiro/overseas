@@ -529,7 +529,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Overseas/Preview Content\"";
-				DEVELOPMENT_TEAM = T6PW3HL3N4;
+				DEVELOPMENT_TEAM = P63952MS7L;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Overseas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -539,7 +539,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.prisma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -551,7 +551,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Overseas/Preview Content\"";
-				DEVELOPMENT_TEAM = T6PW3HL3N4;
+				DEVELOPMENT_TEAM = P63952MS7L;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Overseas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -561,7 +561,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.prisma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

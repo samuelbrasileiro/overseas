@@ -52,11 +52,11 @@ struct GridLearningView: View {
             .padding(.top, 30)
             
             ScrollView(.vertical) {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 240, maximum: 240), spacing: 20)], alignment: .center, spacing: 20, pinnedViews: [], content: {
+                LazyVGrid(columns: [GridItem(spacing: 20), GridItem(spacing: 20)], alignment: .center, spacing: 20, pinnedViews: [], content: {
                     
                     ForEach(learnings, id:\.self){ learning in
                         
-                        HomeScreenLearningItemView(learning: learning, color: [.red, .blue, .blue, .yellow].randomElement()!)
+                        CategoryLearningView(learning: learning, color: [.red, .blue, .blue, .yellow].randomElement()!)
                             
                             
                     }
