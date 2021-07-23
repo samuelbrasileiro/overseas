@@ -10,11 +10,13 @@ import CoreData
 
 class Category: NSManagedObject {
     
+    var colorIndex: Int = 0
     convenience init(name: String, color: Int, context: NSManagedObjectContext){
         self.init(context: context)
         
         self.name = name
         self.color = String(color)
+        self.colorIndex = color
         //self.creationDate = Date()
         
         self.objectWillChange.send()

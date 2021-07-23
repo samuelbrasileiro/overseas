@@ -56,7 +56,7 @@ struct GridLearningView: View {
                     
                     ForEach(learnings, id:\.self){ learning in
                         
-                        CategoryLearningView(learning: learning, color: [.red, .blue, .blue, .yellow].randomElement()!)
+                        CategoryLearningView(learning: learning, color: Color.categoryColors[learning.category!.colorIndex])
                             
                             
                     }

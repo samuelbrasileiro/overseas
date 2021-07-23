@@ -10,7 +10,10 @@ import SwiftUI
 extension Color{
     static let lightBlue = Color(red: 0x6d/0xff, green: 0x7a/0xff, blue: 0xed/0xff, opacity: 1)
     static let darkBlue = Color(red: 0x35/0xff, green: 0x46/0xff, blue: 0xe6/0xff, opacity: 1)
+    
+    static let categoryColors = [.orange, Color(.systemIndigo), .pink, .green, Color(.systemTeal)]
 }
+
 
 extension UIColor {
 

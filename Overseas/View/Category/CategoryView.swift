@@ -42,7 +42,7 @@ struct CategoryView: View {
             ScrollView{
                 LazyVGrid(columns: [GridItem(),GridItem()], content: {
                     ForEach(learnings[0..<learnings.count]){ learning in
-                        CategoryLearningView(learning: learning, color: [.red,.blue,.green].randomElement()!)
+                        CategoryLearningView(learning: learning, color: Color.categoryColors[category.colorIndex])
                             .padding()
                     }
                 })

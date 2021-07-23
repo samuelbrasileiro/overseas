@@ -12,8 +12,7 @@ struct CreateNewCategoryView: View {
     let env: HomeScreenEnvironment
     
     @State var name: String = ""
-    
-    let allColors: [Color] = [.orange, Color(.systemIndigo), .pink, .green, Color(.systemTeal)]
+
     
     @State var colorIndex: Int = 0
     
@@ -69,16 +68,16 @@ struct CreateNewCategoryView: View {
             
             HStack{
                 
-                ForEach((0..<allColors.count)){index in
+                ForEach((0..<Color.categoryColors.count)){index in
                     Button(action:{
                         self.colorIndex = index
                     }){
                         ZStack{
                             Circle()
-                                .fill(allColors[index])
+                                .fill(Color.categoryColors[index])
                                 .frame(width: 50, height: 50)
                                 .padding(4)
-                                .overlay(Circle().stroke().foregroundColor(allColors[index]).opacity(index == colorIndex ? 1 : 0)
+                                .overlay(Circle().stroke().foregroundColor(Color.categoryColors[index]).opacity(index == colorIndex ? 1 : 0)
                                 )
                             Text(Image(systemName: "checkmark"))
                                 .foregroundColor(.white)
