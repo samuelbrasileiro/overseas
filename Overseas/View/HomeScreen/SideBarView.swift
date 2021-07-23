@@ -7,61 +7,86 @@
 
 import SwiftUI
 
+enum Screen: Hashable {
+    case homescreen
+    case category(index:Int)
+}
 
 struct SideBarView: View {
     
     @ObservedObject var env: HomeScreenEnvironment
     
     @State var isPresented = false
+    @State var state: Screen? = .homescreen
     
     var body: some View {
         let categories = env.categories
-        VStack(alignment: .leading){
+        List{
             
+            NavigationLink(destination: HomeScreenView(env: env), tag: Screen.homescreen, selection: $state){
+                HStack{
+                    Label("Homescreen", systemImage: "house")
+                        .padding(.horizontal)
+                        .padding(.vertical, 10)
+                    Spacer()
+                }
+                
+
+            }
+            .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+            .font(Font.headline.weight(state == Screen.homescreen ? .bold : .regular))
+            .foregroundColor(.black)
+            .padding()
             
             Button(action:{
+                env.categoriesIsOpen.toggle()
             }){
                 HStack{
                     Text("Categorias")
                         .bold()
                     Spacer()
-                    Image(systemName: "chevron.down")
+                    
+                    
+                    Image(systemName: "chevron.right")
+                        .rotationEffect(.init(degrees: env.categoriesIsOpen ? 90.0 : 0))
+                        .animation(.spring())
+                        
+                            
+                    
                     
                 }.padding(10)
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
                 .padding(.horizontal)
-            }.accentColor(.black)
-            
-            ScrollView{
-                VStack(alignment: .leading, spacing: 10){
-                    
-                    ForEach(categories){c in
-                        NavigationLink(destination: CategoryView(env: CategoryEnvironment(category: c))){
-                            Text(c.name ?? "")
-                                .bold()
-                                .foregroundColor(.black)
-                        }
-                    }
-                    .padding(.leading)
-                    .padding(.bottom)
-                    
-                    HStack{
-                        Button(action:{
-                            env.didSelectNewCategory = true
-                        }){
-                            Text(Image(systemName: "plus"))
-                                .padding(5)
-                                .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
-                                .padding(.leading)
-                            Text("Adicionar categoria")
-                        }.accentColor(.black)
+            }
+
+            Group{
+                ForEach((0..<(env.categoriesIsOpen ? categories.count : 0)), id: \.self){ index in
+                    NavigationLink(destination: CategoryView(index: index, homeEnv: env),  tag: Screen.category(index: index), selection: $state){
                         
-                        
+                        Text(categories[index].name ?? "")
+                         
                     }
+                    .font(Font.headline.weight(state == Screen.category(index: index) ? .bold : .regular))
+                    .foregroundColor(.black)
+                    
                 }
-                Spacer()
+            }
+            .padding(.leading, 30)
+            
+            
+            Button(action:{
+                env.didSelectNewCategory = true
+            }){
+                HStack{
+                    Text(Image(systemName: "plus"))
+                        .padding(5)
+                        .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+                        .padding(.leading)
+                    Text("Adicionar Categoria")
+                }
             }
         }
+        .navigationTitle("Menu")
     }
 }
 

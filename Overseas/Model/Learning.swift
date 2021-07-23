@@ -19,7 +19,7 @@ class Learning: NSManagedObject {
         self.name = name
         self.creationDate = Date()
         self.modificationDate = Date()
-        self.descriptionText = description
+        self.descriptionText = descriptionText
         self.emoji = emoji
         self.estimatedTime = estimatedTime ?? 1
         self.text = text

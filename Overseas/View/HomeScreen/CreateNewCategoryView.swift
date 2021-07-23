@@ -35,6 +35,7 @@ struct CreateNewCategoryView: View {
                     env.didSelectNewCategory = false
                     env.createNewCategory(name: name, colorIndex: colorIndex)
                     name = ""
+                    env.categoriesIsOpen = true
 
                 }){
                     Text("Salvar")

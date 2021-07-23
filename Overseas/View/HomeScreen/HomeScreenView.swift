@@ -7,23 +7,37 @@
 
 import SwiftUI
 
-struct HomeScreenView: View { //view
+struct HomeScreenNavigationView: View { //view
     @ObservedObject var env = HomeScreenEnvironment()
     
     @State var isPresented = false
     
     var body: some View {
-        //let categories = env.categories
-        let fixed = env.fixedLearnings
-        let all = env.allLearnings
+        
         ZStack{
             NavigationView{
-                SideBarView(env: env).navigationViewStyle(DoubleColumnNavigationViewStyle())
-                    .accentColor(.black)
-                    //.navigationBarTitleDisplayMode(.inline)
+                SideBarView(env: env)
+                    .accentColor(.clear)
+                
+                HomeScreenView(env: env)
+
+            }
+            
+            Rectangle().fill(Color.gray).opacity(env.didSelectNewCategory ? 0.3 : 0)
+            CreateNewCategoryView(env: env)
+                .frame(maxWidth: 600, maxHeight: 500)
+                .offset(y: env.didSelectNewCategory ? 0 : 1000)
+                .animation(.spring())
+                .opacity(env.didSelectNewCategory ? 1 : 0)
+        }
+    }
+}
+struct HomeScreenView: View{
+    @ObservedObject var env = HomeScreenEnvironment()
+    var body: some View{
+        let fixed = env.fixedLearnings
+        let all = env.allLearnings
                 ZStack{
-                        //                    SideBarView(env: env)
-                        //                        .frame(maxWidth: 270)
                         VStack(alignment: .leading){
                             VStack(alignment: .leading){
                                 Text("Fixados").underline()
@@ -48,7 +62,8 @@ struct HomeScreenView: View { //view
                                             Spacer()
                                             
                                         }.background(Color(.systemGray6))
-                                        .padding(20)
+                                        .frame(maxHeight: 280)
+                                        .padding([.top, .bottom, .trailing],20)
                                         
                                     }else{
                                         NavigationLink(destination: GridLearningView(isFixed: true)){
@@ -61,6 +76,7 @@ struct HomeScreenView: View { //view
                                             }
                                             .padding(.top)
                                         }.accentColor(.black)
+                                        .opacity(fixed.count > 3 ? 1 : 0)
                                         
                                     }
                                     
@@ -71,7 +87,7 @@ struct HomeScreenView: View { //view
                                 HStack{
                                     Text("Meus Aprendizados").underline()
                                         .font(.largeTitle.bold())
-                                    NavigationLink(destination: LearningView()){
+                                    NavigationLink(destination: LearningView(delegate: env, homeEnv: env)){
                                         Image(systemName: "plus")
                                             .resizable()
                                             .frame(width: 20, height: 20)
@@ -115,7 +131,9 @@ struct HomeScreenView: View { //view
                                                 
                                             }
                                             .padding(.top)
+                                            
                                         }.accentColor(.black)
+                                        .opacity(all.count > 3 ? 1 : 0)
                                     }
                                 }
                                 
@@ -124,32 +142,19 @@ struct HomeScreenView: View { //view
                         }
                         .padding(.leading)
 
-                    .disabled(env.didSelectNewCategory)
                     .animation(.spring())
-                    
-                    
                     
                 }
                 .navigationBarTitleDisplayMode(.inline)
-                //.navigationViewStyle(DoubleColumnNavigationViewStyle())
-                //.navigationBarHidden(true)
-                
-            }//.navigationViewStyle(StackNavigationViewStyle())
+
+            }
+
             
-            Rectangle().fill(Color.gray).opacity(env.didSelectNewCategory ? 0.3 : 0)
-            CreateNewCategoryView(env: env)
-                .frame(maxWidth: 600, maxHeight: 500)
-                .offset(y: env.didSelectNewCategory ? 0 : 1000)
-                .animation(.spring())
-                .opacity(env.didSelectNewCategory ? 1 : 0)
-            
-        }
-    }
 }
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreenView()
+        HomeScreenNavigationView()
             //.previewDevice("iPad (8th generation)")
             .previewLayout(.fixed(width: 1080, height: 810))
             .environment(\.horizontalSizeClass, .compact)

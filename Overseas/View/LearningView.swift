@@ -7,11 +7,20 @@
 
 import SwiftUI
 
+protocol LearningDelegate{
+    func saveNewLearning(categoryIndex: Int, title: String, description: String, emoji: String)
+}
+
 struct LearningView: View {
     
+    var delegate: LearningDelegate?
+    
+    @ObservedObject var homeEnv: HomeScreenEnvironment
+    @State var index = 0
     @State var isPresented = false
     
-    @ObservedObject var env = HomeScreenEnvironment()
+    @State var isFromCategory = false
+    
     @State var title: String = ""
     @State var description: String = ""
     @State var emoji: String = ""
@@ -35,32 +44,18 @@ struct LearningView: View {
             }
             
             Button("Salvar") {
-                saveNewLearning()
-                print(env.allLearnings)
+                delegate?.saveNewLearning(categoryIndex: index, title: title, description: description, emoji: emoji)
+                
             }
         }
         .navigationBarHidden(false)
     }
     
-    func saveNewLearning() {
-        if title.isEmpty || description.isEmpty {
-            return
-        }
-        
-        let context = AppDelegate.viewContext
-        let learning = Learning(name: self.title, descriptionText: self.description, emoji: emoji, estimatedTime: 0, text: "", context: context)
-        env.allLearnings.append(learning)
-        do {
-            try context.save()
-            
-        } catch {
-            print(error)
-        }
-    }
+
 }
 
 struct LearningView_Previews: PreviewProvider {
     static var previews: some View {
-        LearningView()
+        LearningView( homeEnv: HomeScreenEnvironment())
     }
 }
