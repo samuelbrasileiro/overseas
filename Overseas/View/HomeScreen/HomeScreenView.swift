@@ -18,7 +18,7 @@ struct HomeScreenNavigationView: View { //view
             NavigationView{
                 SideBarView(env: env)
                     .accentColor(.clear)
-                
+
                 HomeScreenView(env: env)
 
             }

@@ -360,7 +360,7 @@
 				8607E5D526987673007184A9 /* SideBarView.swift in Sources */,
 				1054763B269DD490006F8713 /* EmojiStructure.swift in Sources */,
 				3596751B26A9AF4100CE20B6 /* Notification.Name+Names.swift in Sources */,
-				35F12E5726986F31002A9532 /* OnboardingView.swift in Sources */,
+				35F12E5726986F31002A9532 /* OrganizingOnboardingView.swift in Sources */,
 				35F12E5726986F31002A9532 /* OrganizingOnboardingView.swift in Sources */,
 				35BCE4B226947E820022B49A /* SceneDelegate.swift in Sources */,
 				35BCE4B426947E820022B49A /* ContentView.swift in Sources */,
@@ -528,9 +528,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Overseas/Preview Content\"";
-				DEVELOPMENT_TEAM = P63952MS7L;
+				DEVELOPMENT_TEAM = T6PW3HL3N4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Overseas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -550,9 +550,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Overseas/Preview Content\"";
-				DEVELOPMENT_TEAM = P63952MS7L;
+				DEVELOPMENT_TEAM = T6PW3HL3N4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Overseas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

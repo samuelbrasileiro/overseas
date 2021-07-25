@@ -21,5 +21,11 @@ class Category: NSManagedObject {
         
         self.objectWillChange.send()
     }
+    
+    public override func willChangeValue(forKey key: String) {
+        super.willChangeValue(forKey: key)
+        self.objectWillChange.send()
+
+    }
  
 }
