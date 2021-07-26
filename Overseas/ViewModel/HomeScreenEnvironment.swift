@@ -44,17 +44,33 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
             print(error)
         }
         
-        let fixed = categories.map({ category in
-            (category.learnings?.allObjects as! [Learning]).filter({learning in
-                                                                    learning.isFixed == true})
-            
-        }).joined()
-        fixedLearnings.append(contentsOf: fixed)
+        let fixedsRequest: NSFetchRequest<Learning> = Learning.fetchRequest()
         
-        let all = categories.map({ category in
-            (category.learnings?.allObjects as! [Learning])
-        }).joined()
-        allLearnings.append(contentsOf: all)
+        fixedsRequest.predicate = NSPredicate(format: "isFixed == true")
+        fixedsRequest.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        let learningsRequest: NSFetchRequest<Learning> = Learning.fetchRequest()
+        
+        learningsRequest.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        do {
+            try fixedLearnings = context.fetch(fixedsRequest)
+            try allLearnings = context.fetch(learningsRequest)
+        }catch{
+            print(error)
+        }
+        
+//        let fixed = categories.map({ category in
+//            (category.learnings?.allObjects as! [Learning]).filter({learning in
+//                                                                    learning.isFixed == true})
+//
+//        }).joined()
+//        fixedLearnings.append(contentsOf: fixed)
+//
+//        let all = categories.map({ category in
+//            (category.learnings?.allObjects as! [Learning])
+//        }).joined()
+//        allLearnings.append(contentsOf: all)
         
         self.objectWillChange.send()
     }
@@ -80,7 +96,17 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         
     }
     
-    
+    func getLearningsFromCategory(_ index: Int)->[Learning]{
+        let category = self.categories[index]
+        var learnings = (category.learnings?.allObjects as! [Learning])
+        learnings.sort(by: {(learning1, learning2) in
+            learning1.creationDate! > learning2.creationDate!
+        })
+        learnings.sort(by: {(learning1, learning2) in
+            learning1.isFixed && !learning2.isFixed
+        })
+        return learnings
+    }
     func saveNewLearning(categoryIndex: Int, title: String, description: String, emoji: String) {
         
         if title.isEmpty || description.isEmpty {
@@ -93,7 +119,7 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         categories[categoryIndex].addToLearnings(learning)
         learning.category = categories[categoryIndex]
         
-        allLearnings.append(learning)
+        allLearnings.insert(learning, at: 0)
         do {
             try context.save()
             

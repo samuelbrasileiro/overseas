@@ -13,14 +13,12 @@ struct CategoryView: View {
     
     @State var isPresented = false
     
+    
     var body: some View {
-        let category = homeEnv.categories[index]
-        let learnings = (category.learnings?.allObjects as! [Learning]).sorted(by: {(learning1, learning2) in
-            learning1.isFixed && !learning2.isFixed
-        })
+        let learnings = homeEnv.getLearningsFromCategory(index)
         VStack{
             HStack{
-                Text(category.name ?? "Categoria").underline()
+                Text(homeEnv.categories[index].name ?? "Categoria").underline()
                     .font(.largeTitle.bold())
                 NavigationLink(destination: LearningView(delegate: homeEnv, homeEnv: homeEnv,index: index, isFromCategory: true)){
                     Image(systemName: "plus")
@@ -42,7 +40,7 @@ struct CategoryView: View {
             ScrollView{
                 LazyVGrid(columns: [GridItem(),GridItem()], content: {
                     ForEach(learnings[0..<learnings.count]){ learning in
-                        CategoryLearningView(learning: learning, color: Color.categoryColors[category.colorIndex])
+                        CategoryLearningView(learning: learning, color: Color.categoryColors[homeEnv.categories[index].colorIndex])
                             .padding()
                     }
                 })

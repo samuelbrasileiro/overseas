@@ -10,7 +10,11 @@ import CoreData
 
 class Learning: NSManagedObject {
 
-    let dateFormatter = DateFormatter()
+    lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM"
+        return formatter
+    }()
     
     
     convenience init(name: String, descriptionText: String?, emoji: String?, estimatedTime: TimeInterval?, text: String?, context: NSManagedObjectContext){
@@ -26,7 +30,6 @@ class Learning: NSManagedObject {
         
         self.objectWillChange.send()
         
-        dateFormatter.dateFormat = "dd/MM"
         
     }
     

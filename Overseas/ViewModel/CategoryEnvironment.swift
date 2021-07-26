@@ -26,10 +26,6 @@ class CategoryEnvironment: ObservableObject/*, LearningDelegate*/{
         self.reset()
     }
     
-    func updateCategory(category: Category){
-        self.category = category
-        self.reset()
-    }
     
     func reset(){
         allLearnings = category.learnings?.allObjects as! [Learning]
@@ -38,35 +34,6 @@ class CategoryEnvironment: ObservableObject/*, LearningDelegate*/{
             learning1.isFixed && !learning2.isFixed
         })
     }
-    
-//    func saveNewLearning(title: String, description: String, emoji: String) {
-//        
-//        if title.isEmpty || description.isEmpty {
-//            return
-//        }
-//        
-//        let context = AppDelegate.viewContext
-//        let learning = Learning(name: title, descriptionText: description, emoji: emoji, estimatedTime: 0, text: "", context: context)
-//        
-//        learning.category = category
-//        category.addToLearnings(learning)
-//        
-//        allLearnings.append(learning)
-//        
-//        allLearnings.sort(by: {(learning1, learning2) in
-//            learning1.isFixed && !learning2.isFixed
-//        })
-//        
-//        do {
-//            try context.save()
-//            
-//        } catch {
-//            print(error)
-//        }
-//        
-//        //NotificationCenter.default.post(name: .addNewLearningByCategoryView, object: learning)
-//        
-//    }
     
     
 }
