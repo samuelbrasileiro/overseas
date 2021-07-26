@@ -58,7 +58,8 @@ struct SideBarView: View {
                 .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
                 .padding(.horizontal)
             }
-
+            .foregroundColor(.black)
+            
             Group{
                 ForEach((0..<(env.categoriesIsOpen ? categories.count : 0)), id: \.self){ index in
                     NavigationLink(destination: CategoryView(index: index, homeEnv: env),  tag: Screen.category(index: index), selection: $state){
@@ -89,6 +90,7 @@ struct SideBarView: View {
         .navigationTitle("Menu")
     }
 }
+
 
 struct SideBarView_Previews: PreviewProvider {
     static var previews: some View {
