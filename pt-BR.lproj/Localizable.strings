@@ -1,0 +1,61 @@
+/* 
+  Localizable.strings
+  Overseas
+
+  Created by Elaine  Cruz on 26/07/21.
+  
+*/
+
+
+//Onboarding
+"Pular" = "Pular";
+"Tudo em seu devido lugar" = "Tudo em seu devido lugar";
+"Organize seus aprendizados em um espaço construído por você." = "Organize seus aprendizados em um espaço construído por você.";
+"Conhecimento para além do óbvio" = "Conhecimento para além do óbvio";
+"Valorize seus aprendizados do cotidiano" = "Valorize seus aprendizados do cotidiano";
+"Mapear Interesses" = "Mapear Interesses";
+"Escolha uma ou mais categorias de seu interesse" = "Escolha uma ou mais categorias de seu interesse";
+"Essas áreas armazenarão seus aprendizados" = "Essas áreas armazenarão seus aprendizados";
+"Concluir seleção" = "Concluir seleção";
+
+//Homescreen
+"Meus Aprendizados" = "Meus Aprendizados";
+"Fixados" = "Fixados";
+"Categorias" = "Categorias";
+"Adicionar categoria" = "Adicionar categoria";
+"Ver todos" = "Ver todos";
+
+//Categoria popup
+"Salvar" = "Salvar";
+"Cancelar" = "Cancelar";
+"Categoria" = "Categoria";
+"Nome da categoria" = "Nome da categoria";
+"A categoria ajuda a agrupar os aprendizados e ver o progresso em diferentes aspectos da vida" = "A categoria ajuda a agrupar os aprendizados e ver o progresso em diferentes aspectos da vida";
+"Cor" = "Cor";
+"Os aprendizados referentes a essa categoria ficarão sinalizadas com a cor escolhida" = "Os aprendizados referentes a essa categoria ficarão sinalizadas com a cor escolhida";
+
+//Aprendizado popup
+"Adicionar Aprendizado" = "Adicionar Aprendizado";
+"Adicione um título" = "Adicione um título";
+"Adicione uma descrição" = "Adicione uma descrição";
+
+"O título do aprendizado é uma forma rápida e resumida de representar o aprendizado" ="O título do aprendizado é uma forma rápida e resumida de representar o aprendizado";
+"Descrição" = "Descrição";
+"A descrição ajuda a compreender as especificidades dos aprendizados." = "A descrição ajuda a compreender as especificidades dos aprendizados.";
+
+//View da categoria
+"Editar" = "Editar";
+
+//Tela de registro
+"Descreva" = "Descreva";
+"Ordene" = "Ordene";
+"Avalie" = "Avalie";
+"O que você aprendeu nessa atividade?" = "O que você aprendeu nessa atividade?";
+"Quais foram as etapas dessa atividade?" = "Quais foram as etapas dessa atividade?";
+"O quão agradável foi realizá-la?" = "O quão agradável foi realizá-la?";
+"Não foi" = "Não foi";
+"Neutro" = "Neutro";
+"Muito" = "Muito";
+"Bastante" = "Bastante";
+"Parabéns!" = "Parabéns!";
+"Concluir aprendizado" = "Concluir aprendizado";

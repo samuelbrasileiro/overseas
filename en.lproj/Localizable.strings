@@ -1,0 +1,61 @@
+/* 
+  Localizable.strings
+  Overseas
+
+  Created by Elaine  Cruz on 26/07/21.
+  
+*/
+
+"Tudo em seu devido lugar" = "Everything in its place";
+"Organize seus aprendizados em um espaço construído por você." = "Organize your learnings in a space built by yourself.";
+"Conhecimento para além do óbvio" = "Knowledge beyond usual";
+"Valorize seus aprendizados do cotidiano" = "Value your daily learnings";
+"Mapear Interesses" = "Map Interests";
+"Escolha uma ou mais categorias de seu interesse" = "Choose one or more categories that you are interested in";
+"Essas áreas armazenarão seus aprendizados." = "These areas will store your learnings.";
+"Concluir seleção" = "Complete selection";
+
+//Homescreen
+"Meus Aprendizados" = "My Learnings";
+"Fixados" = "Favorites";
+"Categorias" = "Categories";
+"Adicionar Categoria" = "Add Category";
+"Ver todos" = "See all";
+"Você ainda não fixou nenhum aprendizado" = "You don't have any favorite learning yet";
+"Você ainda não adicionou nenhum aprendizado" = "You haven't added any learning yet";
+
+//Categoria popup
+"Salvar" = "Save";
+"Cancelar" = "Cancel";
+"Categoria" = "Category";
+"Nome da categoria" = "Category's name";
+"A categoria ajuda a agrupar os aprendizados e ver o progresso em diferentes aspectos da vida" = "The category helps to group your learnings and see progress in different aspects of life";
+"Cor" = "Color";
+"Os aprendizados referentes a essa categoria ficarão sinalizadas com a cor escolhida" = "Learnings related to this category will be marked with the chosen color";
+
+//Aprendizado popup
+"Adicionar Aprendizado" = "Add Learning";
+"Adicione um título" = "Add title";
+"Adicione uma descrição" = "Add description";
+
+"O título do aprendizado é uma forma rápida e resumida de representar o aprendizado" = "The learning title is a quick and short way to represent the learning";
+"Descrição" = "Description";
+"A descrição ajuda a compreender as especificidades dos aprendizados." = "The description helps to understand the specifics of the learning.";
+
+//View da categoria
+"Editar" = "Edit";
+
+//Tela de registro
+"Descreva" = "Describe";
+"Ordene" = "Order";
+"Avalie" = "Evaluate";
+"O que você aprendeu nessa atividade?" = "What did you learn in this activity?";
+"Quais foram as etapas dessa atividade?" = "What were the steps of this activity?";
+
+"O quão agradável foi realizá-la?" = "How satisfying was it?";
+"Não foi" = "It wasn't";
+"Neutro" = "Neutral";
+"Muito" = "Very";
+"Bastante" = "A lot";
+"Parabéns!" = "Congratulations";
+"Concluir aprendizado" = "Complete learning";
