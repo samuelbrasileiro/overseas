@@ -87,6 +87,7 @@ struct HomeScreenView: View{
                                 HStack{
                                     Text("Meus Aprendizados").underline()
                                         .font(.largeTitle.bold())
+
                                     NavigationLink(destination: LearningView(delegate: env, homeEnv: env)){
                                         Image(systemName: "plus")
                                             .resizable()
@@ -146,7 +147,7 @@ struct HomeScreenView: View{
                     
                 }
                 .navigationBarTitleDisplayMode(.inline)
-
+                //.environment(\.locale, .init(identifier: "en"))
             }
 
             
