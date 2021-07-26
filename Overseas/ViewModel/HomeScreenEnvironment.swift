@@ -96,7 +96,17 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         
     }
     
-    
+    func getLearningsFromCategory(_ index: Int)->[Learning]{
+        let category = self.categories[index]
+        var learnings = (category.learnings?.allObjects as! [Learning])
+        learnings.sort(by: {(learning1, learning2) in
+            learning1.creationDate! > learning2.creationDate!
+        })
+        learnings.sort(by: {(learning1, learning2) in
+            learning1.isFixed && !learning2.isFixed
+        })
+        return learnings
+    }
     func saveNewLearning(categoryIndex: Int, title: String, description: String, emoji: String) {
         
         if title.isEmpty || description.isEmpty {
