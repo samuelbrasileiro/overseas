@@ -18,6 +18,7 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
     @Published var allLearnings: [Learning] = []
     
     @Published var didSelectNewCategory = false
+    @Published var didSelectNewLearning = false
     
     @Published var categorySelected: Category?
     

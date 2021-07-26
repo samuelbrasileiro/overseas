@@ -23,12 +23,18 @@ struct HomeScreenNavigationView: View { //view
 
             }
             
-            Rectangle().fill(Color.gray).opacity(env.didSelectNewCategory ? 0.3 : 0)
+            Rectangle().fill(Color.gray).opacity((env.didSelectNewCategory || env.didSelectNewLearning) ? 0.3 : 0)
             CreateNewCategoryView(env: env)
                 .frame(maxWidth: 600, maxHeight: 500)
                 .offset(y: env.didSelectNewCategory ? 0 : 1000)
                 .animation(.spring())
                 .opacity(env.didSelectNewCategory ? 1 : 0)
+            
+            CreateNewLearningView(env: env)
+                .frame(maxWidth: 600, maxHeight: 500)
+                .offset(y: env.didSelectNewLearning ? 0 : 1000)
+                .animation(.spring())
+                .opacity(env.didSelectNewLearning ? 1 : 0)
         }
     }
 }
@@ -88,7 +94,7 @@ struct HomeScreenView: View{
                                     Text("Meus Aprendizados").underline()
                                         .font(.largeTitle.bold())
 
-                                    NavigationLink(destination: LearningView(delegate: env, homeEnv: env)){
+                                    Button(action: {env.didSelectNewLearning = true}){
                                         Image(systemName: "plus")
                                             .resizable()
                                             .frame(width: 20, height: 20)
