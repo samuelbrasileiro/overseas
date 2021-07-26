@@ -10,17 +10,23 @@ import CoreData
 
 class Category: NSManagedObject {
     
-    var colorIndex: Int = 0
+    var colorIndex: Int {
+        get{
+            Int(color ?? "0" ) ?? 0
+        }
+        
+    }
+    
     convenience init(name: String, color: Int, context: NSManagedObjectContext){
         self.init(context: context)
         
         self.name = name
         self.color = String(color)
-        self.colorIndex = color
-        //self.creationDate = Date()
+        self.creationDate = Date()
         
         self.objectWillChange.send()
     }
+    
     
     public override func willChangeValue(forKey key: String) {
         super.willChangeValue(forKey: key)
