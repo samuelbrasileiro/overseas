@@ -14,7 +14,7 @@ struct GridLearningView: View {
     @ObservedObject var env = HomeScreenEnvironment()
     var isFixed: Bool = false
     var learnings: [Learning] = []
-    var title: String = ""
+    var title: LocalizedStringKey = ""
     
     init(isFixed: Bool){
         self.isFixed = isFixed
