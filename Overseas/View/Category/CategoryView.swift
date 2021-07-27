@@ -50,6 +50,10 @@ struct CategoryView: View {
         }
         .navigationBarHidden(false)
         .navigationTitle(homeEnv.categories[index].name ?? "")
+        .background(NavigationConfigurator { nc in
+            nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.clear]
+                    })
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

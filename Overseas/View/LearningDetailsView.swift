@@ -14,19 +14,26 @@ struct LearningDetailsView: View {
     var body: some View {
         VStack{
             HStack{
+                
                 Text(learning.emoji ?? "?")
                     .font(.system(size: 60))
                     .padding(11)
                     .overlay(Circle().stroke(color, lineWidth: 2))
-                    .padding(.leading)
+                    .padding(.leading, 30)
                 
-                Text(learning.name ?? "Name")
-                    .font(.largeTitle.bold())
-                    .padding(.leading)
-                Text(learning.descriptionText ?? "Description")
-                    
-                    .padding(.leading)
-            }
+                VStack(alignment:.leading) {
+                    Text(learning.name ?? "Name")
+                        .font(.largeTitle.bold())
+                                            
+                    Text(learning.descriptionText ?? "Description")
+                }.padding(.leading, 20)
+                
+                Spacer()
+               
+            }.padding(.bottom, 20)
+            
+            Divider()
+            
         } .navigationBarHidden(false)
         .navigationBarTitleDisplayMode(.inline)
     }
