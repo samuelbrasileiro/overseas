@@ -31,7 +31,7 @@ struct HomeScreenNavigationView: View { //view
                 .opacity(env.didSelectNewCategory ? 1 : 0)
             
             CreateNewLearningView(env: env)
-                .frame(maxWidth: 600, maxHeight: 500)
+                .frame(maxWidth: 600, maxHeight: 630)
                 .offset(y: env.didSelectNewLearning ? 0 : 1000)
                 .animation(.spring())
                 .opacity(env.didSelectNewLearning ? 1 : 0)

@@ -10,10 +10,10 @@ import SwiftUI
 struct CreateNewLearningView: View {
     @State var isPresented = false
     @ObservedObject var env: HomeScreenEnvironment
-    
     @State var name: String = ""
-
-    
+    @State var description: String = ""
+    @State var emoji: String = ""
+    @State var selectedCategoryIndex: Int = 0
     @State var colorIndex: Int = 0
     
     var body: some View {
@@ -32,9 +32,8 @@ struct CreateNewLearningView: View {
                 Spacer()
                 Button(action:{
                     env.didSelectNewLearning = false
-                    //env.createNewCategory(name: name, colorIndex: colorIndex)
+                    env.saveNewLearning(categoryIndex: selectedCategoryIndex, title: name, description: description, emoji: emoji)
                     name = ""
-                    //env.categoriesIsOpen = true
 
                 }){
                     Text("Salvar")
@@ -52,50 +51,83 @@ struct CreateNewLearningView: View {
                 .padding()
             
             ScrollView(.horizontal){
-                LazyHStack{
+                HStack{
                     ForEach(0..<env.categories.count, id: \.self){ index in
-                        Text(env.categories[index].name ?? "")
+                        ZStack{
+                            Text(env.categories[index].name ?? "")
+                                .padding(5)
+                                .background(Color.categoryColors[env.categories[index].colorIndex])
+                                .onTapGesture {
+                                    self.selectedCategoryIndex = index
+                                }
+                            if(self.selectedCategoryIndex==index){
+                                Image(systemName: "checkmark.circle.fill")
+                                    //.foregroundColor(Color.categoryColors[env.categories[index].colorIndex])
+                                    .foregroundColor(.white)
+                                   
+                            }
+                        }
+                        
                     }
                     
                 }
+                .padding(20)
+
             }
+            .background(Color(.white))
             
             Text("Aprendizado")
                 .font(.title2.bold())
                 .padding()
             
-            TextField("Adicione um título", text: $name)
-            .padding()
+            HStack{
+                
+                EmojiTextField(text: $emoji, placeholder: "🧐")
+                    //.padding(.leading, 30)
+                    .frame(width: 50, height: 50, alignment: .center)
+                    .background(Circle().stroke(Color(.systemGray3)))
+                    .padding(.vertical, 8)
+                    .padding(.leading, 16)
+             
+                TextField("Adicione um título", text: $name)
+                    .padding(.leading, 5)
+                    //.padding(.leading, 50)
+            }
             .background(Color(.white))
+           
             
             HStack{
-                Spacer()
                 Text("O título do aprendizado é uma forma rápida e resumida de representar o aprendizado.")
-                .font(.footnote)
+                    .padding(.leading)
+                    .padding(.top, 5)
+                    .font(.footnote)
                     .foregroundColor(.gray)
-                Spacer()
+                    
             }
             
             Text("Descrição")
                 .font(.title2.bold())
                 .padding()
             
-            TextField("Adicione uma descrição", text: $name)
-            .padding()
+            TextField("Adicione uma descrição", text: $description)
+            .padding(20)
             .background(Color(.white))
             
            
             HStack{
-                Spacer()
-                Text("Os aprendizados referentes a essa categoria ficarão sinalizadas com a cor escolhida")
-                .font(.footnote)
+                Text("A descrição ajuda a compreender as especificidades dos aprendizados.")
+                    .padding(.leading)
+                    .padding(.top, 5)
+                    .font(.footnote)
                     .foregroundColor(.gray)
-                Spacer()
             }
+            .padding(.bottom, 50)
             
-            Spacer()
+        
         }
         .background(Color(.systemGray6))
+        
+        Spacer()
     }
 }
 
