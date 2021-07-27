@@ -24,12 +24,12 @@ struct CategoryView: View {
                     Image(systemName: "plus")
                         .resizable()
                         .frame(width: 20, height: 20)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                         .padding(10)
-                        .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+                        .overlay(Rectangle().stroke(Color.primary, lineWidth: 2))
                         .padding(.leading)
                 }
-                .accentColor(.black)
+                .accentColor(.primary)
                 
                 Spacer()
             }
