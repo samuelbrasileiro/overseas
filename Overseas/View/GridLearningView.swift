@@ -65,6 +65,7 @@ struct GridLearningView: View {
             }
         }
         .navigationBarHidden(false)
+        .navigationTitle(isFixed ? "Fixados" : "Meus Aprendizados")
     }
 }
 

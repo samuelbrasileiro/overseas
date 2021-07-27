@@ -14,51 +14,54 @@ struct HomeScreenLearningItemView: View {
     @State var isPresented = false
     
     var body: some View {
-        ZStack{
-            VStack(alignment: .leading){
-                ZStack(alignment: .trailing){
-                    Rectangle()
-                        .fill(color)
-                    Circle()
-                        .fill(Color(.systemBackground))
-                        .frame(width:30)
-                        .padding(10)
+        
+        NavigationLink(destination: LearningDetailsView(learning: learning, color: color)) {
+            ZStack{
+                VStack(alignment: .leading){
+                    ZStack(alignment: .trailing){
+                        Rectangle()
+                            .fill(color)
+                        Circle()
+                            .fill(Color(.systemBackground))
+                            .frame(width:30)
+                            .padding(10)
+                    }
+                    .frame(height: 40)
+                    Text(learning.emoji ?? "?")
+                        .font(.system(size: 60))
+                        .padding(11)
+                        .overlay(Circle().stroke(color, lineWidth: 2))
+                        .padding(.leading)
+                    
+                    Text(learning.name ?? "Name")
+                        .font(.largeTitle.bold())
+                        .padding(.leading)
+                    Text(learning.descriptionText ?? "Description")
+                        
+                        .padding(.leading)
+                    Spacer()
+                    
+                    
+                    
+                    Text(String(Int(learning.estimatedTime / 60)) + " minutos" )
+                        .padding(.leading)
+                        .padding(.bottom, 20)
                 }
-                .frame(height: 40)
-                Text(learning.emoji ?? "?")
-                    .font(.system(size: 60))
-                    .padding(11)
-                    .overlay(Circle().stroke(color, lineWidth: 2))
-                    .padding(.leading)
+                Rectangle().stroke(color, lineWidth: 4)
                 
-                Text(learning.name ?? "Name")
-                    .font(.largeTitle.bold())
-                    .padding(.leading)
-                Text(learning.descriptionText ?? "Description")
-                    
-                    .padding(.leading)
-                Spacer()
-                    
-                
-                
-                Text(String(Int(learning.estimatedTime / 60)) + " minutos" )
-                    .padding(.leading)
-                    .padding(.bottom, 20)
             }
-            Rectangle().stroke(color, lineWidth: 4)
-            
-        }
-        .background(Color(.systemBackground))
-        .frame(maxWidth: 300, maxHeight: 300)
-        .onDrag {
-            let learningViewImage = CategoryLearningView(learning: learning, color: color).frame(width: 500, height: 400).background(Color(.systemBackground).shadow(radius: 7)).padding(30).snapshot()
-            
-            let provider = NSItemProvider(object: learningViewImage)
-            provider.suggestedName = learning.name ?? "Aprendizado"
-            //provider.preferredPresentationSize
-            
-            return provider
-        }
+            .background(Color(.systemBackground))
+            .frame(maxWidth: 300, maxHeight: 300)
+            .onDrag {
+                let learningViewImage = CategoryLearningView(learning: learning, color: color).frame(width: 500, height: 400).background(Color(.systemBackground).shadow(radius: 7)).padding(30).snapshot()
+                
+                let provider = NSItemProvider(object: learningViewImage)
+                provider.suggestedName = learning.name ?? "Aprendizado"
+                //provider.preferredPresentationSize
+                
+                return provider
+            }
+        }.accentColor(.primary)
     }
 }
 

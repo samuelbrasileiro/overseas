@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E6CD91426B052BB00BC1F1F /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6CD91326B052BB00BC1F1F /* NavigationConfigurator.swift */; };
+		0E6CD91626B053EF00BC1F1F /* LearningDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6CD91526B053EF00BC1F1F /* LearningDetailsView.swift */; };
 		0E93234F26948D2600163E2B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93234E26948D2600163E2B /* Category.swift */; };
 		0E93235126948EE100163E2B /* Learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93235026948EE100163E2B /* Learning.swift */; };
 		0EB065DD269DB9AC00AEA2E2 /* GridLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */; };
@@ -59,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E6CD91326B052BB00BC1F1F /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
+		0E6CD91526B053EF00BC1F1F /* LearningDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDetailsView.swift; sourceTree = "<group>"; };
 		0E93234E26948D2600163E2B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		0E93235026948EE100163E2B /* Learning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learning.swift; sourceTree = "<group>"; };
 		0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLearningView.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 				35F12E692698711B002A9532 /* LearningView.swift */,
 				35F12E5C26986FE7002A9532 /* AllLearningsView.swift */,
 				0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */,
+				0E6CD91526B053EF00BC1F1F /* LearningDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				35B9B88926A5BFE400747AC4 /* View+onRotate.swift */,
 				3596751A26A9AF4100CE20B6 /* Notification.Name+Names.swift */,
 				3558933526B03F2A0027D787 /* View+snapshot.swift */,
+				0E6CD91326B052BB00BC1F1F /* NavigationConfigurator.swift */,
 			);
 			path = Extra;
 			sourceTree = "<group>";
@@ -352,12 +358,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E6CD91426B052BB00BC1F1F /* NavigationConfigurator.swift in Sources */,
 				0E93234F26948D2600163E2B /* Category.swift in Sources */,
 				35F12E6326987066002A9532 /* CreateNewCategoryView.swift in Sources */,
 				35B9B88826A5B2D200747AC4 /* UIColor+adjust.swift in Sources */,
 				35F12E5926986FA0002A9532 /* HomeScreenLearningItemView.swift in Sources */,
 				35B9B88526A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift in Sources */,
 				35F12E5526986CC9002A9532 /* HomeScreenView.swift in Sources */,
+				0E6CD91626B053EF00BC1F1F /* LearningDetailsView.swift in Sources */,
 				0E93235126948EE100163E2B /* Learning.swift in Sources */,
 				8607E5D326987619007184A9 /* LearningEnvironment.swift in Sources */,
 				35F12E5B26986FC6002A9532 /* CategoryView.swift in Sources */,

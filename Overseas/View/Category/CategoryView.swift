@@ -49,7 +49,7 @@ struct CategoryView: View {
             Spacer()
         }
         .navigationBarHidden(false)
-        .navigationBarTitle("", displayMode: .inline)
+        .navigationTitle(homeEnv.categories[index].name ?? "")
     }
 }
 

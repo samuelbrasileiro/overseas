@@ -154,7 +154,10 @@ struct HomeScreenView: View{
                     
                 }
                 .navigationBarTitleDisplayMode(.inline)
-                //.environment(\.locale, .init(identifier: "en"))
+                .navigationTitle("Home")
+                .background(NavigationConfigurator { nc in
+                    nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.clear]
+                            })
             }
 
             
