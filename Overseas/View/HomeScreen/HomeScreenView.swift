@@ -81,7 +81,7 @@ struct HomeScreenView: View{
                                                 
                                             }
                                             .padding(.top)
-                                        }.accentColor(.black)
+                                        }.accentColor(.primary)
                                         .opacity(fixed.count > 3 ? 1 : 0)
                                         
                                     }
@@ -98,9 +98,9 @@ struct HomeScreenView: View{
                                         Image(systemName: "plus")
                                             .resizable()
                                             .frame(width: 20, height: 20)
-                                            .foregroundColor(.black)
+                                            .foregroundColor(.primary)
                                             .padding(10)
-                                            .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+                                            .overlay(Rectangle().stroke(Color.primary, lineWidth: 2))
                                             .padding(.leading)
                                     }
                                 }
@@ -139,7 +139,8 @@ struct HomeScreenView: View{
                                             }
                                             .padding(.top)
                                             
-                                        }.accentColor(.black)
+                                        }.accentColor(.primary)
+                                        
                                         .opacity(all.count > 3 ? 1 : 0)
                                     }
                                 }

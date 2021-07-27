@@ -11,6 +11,7 @@
 		0E93235126948EE100163E2B /* Learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93235026948EE100163E2B /* Learning.swift */; };
 		0EB065DD269DB9AC00AEA2E2 /* GridLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */; };
 		1054763B269DD490006F8713 /* EmojiStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054763A269DD490006F8713 /* EmojiStructure.swift */; };
+		3558933626B03F2A0027D787 /* View+snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3558933526B03F2A0027D787 /* View+snapshot.swift */; };
 		3596751B26A9AF4100CE20B6 /* Notification.Name+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3596751A26A9AF4100CE20B6 /* Notification.Name+Names.swift */; };
 		35B9B88526A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B9B88426A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift */; };
 		35B9B88826A5B2D200747AC4 /* UIColor+adjust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B9B88726A5B2D200747AC4 /* UIColor+adjust.swift */; };
@@ -62,6 +63,7 @@
 		0E93235026948EE100163E2B /* Learning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learning.swift; sourceTree = "<group>"; };
 		0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLearningView.swift; sourceTree = "<group>"; };
 		1054763A269DD490006F8713 /* EmojiStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiStructure.swift; sourceTree = "<group>"; };
+		3558933526B03F2A0027D787 /* View+snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+snapshot.swift"; sourceTree = "<group>"; };
 		3596751A26A9AF4100CE20B6 /* Notification.Name+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Names.swift"; sourceTree = "<group>"; };
 		359A048826986B4D006C7374 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		35B9B88426A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMappingCategoryView.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				35B9B88726A5B2D200747AC4 /* UIColor+adjust.swift */,
 				35B9B88926A5BFE400747AC4 /* View+onRotate.swift */,
 				3596751A26A9AF4100CE20B6 /* Notification.Name+Names.swift */,
+				3558933526B03F2A0027D787 /* View+snapshot.swift */,
 			);
 			path = Extra;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				35F12E5726986F31002A9532 /* OrganizingOnboardingView.swift in Sources */,
 				35BCE4B226947E820022B49A /* SceneDelegate.swift in Sources */,
 				35BCE4B426947E820022B49A /* ContentView.swift in Sources */,
+				3558933626B03F2A0027D787 /* View+snapshot.swift in Sources */,
 				8607E5CD269875CD007184A9 /* HomeScreenEnvironment.swift in Sources */,
 				35F12E652698708F002A9532 /* OnboardingMappingView.swift in Sources */,
 				35F12E6126987034002A9532 /* CreateNewLearningView.swift in Sources */,
