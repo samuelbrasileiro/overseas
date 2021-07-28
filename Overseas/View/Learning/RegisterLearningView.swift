@@ -31,6 +31,12 @@ struct RegisterLearningView: View {
                 }
             }).padding(.top, 200)
          
+            TabView(selection: $segmentedControlIndex) {
+                DescribeLearningView()
+                    .tag(0)
+                TweetTextView(c: Color(.systemPink), h: 890, w: 123)
+                    .tag(1)
+            }
         
         }
         .navigationBarHidden(false)
