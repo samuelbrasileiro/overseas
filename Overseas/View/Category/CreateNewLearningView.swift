@@ -53,19 +53,22 @@ struct CreateNewLearningView: View {
             ScrollView(.horizontal){
                 HStack{
                     ForEach(0..<env.categories.count, id: \.self){ index in
-                        ZStack{
+                        ZStack(alignment: .topTrailing){
                             Text(env.categories[index].name ?? "")
                                 .padding(5)
                                 .background(Color.categoryColors[env.categories[index].colorIndex])
                                 .onTapGesture {
                                     self.selectedCategoryIndex = index
                                 }
-                            if(self.selectedCategoryIndex==index){
-                                Image(systemName: "checkmark.circle.fill")
-                                    //.foregroundColor(Color.categoryColors[env.categories[index].colorIndex])
-                                    .foregroundColor(.white)
+                                .padding([.top,.trailing], 5)
+                           
+                            Image(systemName: "checkmark.circle.fill")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                                .foregroundColor(Color.categoryColors[env.categories[index].colorIndex])
+                                .foregroundColor(.white)
+                                .opacity(self.selectedCategoryIndex == index ? 1 : 0)
                                    
-                            }
                         }
                         
                     }
