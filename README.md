@@ -1,4 +1,4 @@
-# overseas
+# Overseas
 
 Overseas was a project in which our goal was to create a solution to encourage students to track their learning and increase their self-awareness of progress and growth.
 
@@ -9,11 +9,11 @@ Looking for a way to reconcile this management with learning methods such as Blo
 Prisma is an iPadOS app built to help people better follow their academic and personal development, through guided reflections and revisiting your learning, writing down your discoveries daily, and building a new perception of knowledge.
 
 
-### Coding Style
+## Coding Style
 
 > This project has a coding guideline that follows the GitHub Swift Style Guide. \n Install the SwiftLint extension on XCode, [follow this guide](https://medium.com/popcodemobile/como-inserir-swift-lint-no-seu-projeto-ios-baee64ada71a).
 
-### Git flow
+## Git flow
 
 To create a new feature or fix
 
@@ -29,6 +29,6 @@ To create a new feature or fix
 If you have any conflicts when creating PR, rebase it with master. Don't merge it right away.
 ```
 
-### License
+## License
 
-This project is under the license [MIT]()   
+This project is under the license [MIT](https://github.com/samuelbrasileiro/overseas/blob/main/License)
