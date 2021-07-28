@@ -52,7 +52,7 @@ struct HomeScreenView: View{
                                 VStack(alignment: .trailing){
                                     HStack(spacing: 40){
                                         ForEach(fixed[0..<(fixed.count < 3 ? fixed.count : 3)]){ l in
-                                            HomeScreenLearningItemView(learning: l, color: Color.categoryColors[l.category!.colorIndex]).frame(width: 240, height: 240)
+                                            HomeScreenLearningItemView(learning: l, color: Color.categoryColors[l.category!.colorIndex], delegate: env).frame(width: 240, height: 240)
                                                 .scaleEffect(0.8)
                                                 .frame(width: 240*0.8, height: 240*0.8)
                                         }
@@ -108,7 +108,7 @@ struct HomeScreenView: View{
                                     HStack(spacing: 40){
                                         ForEach(all[0..<(all.count < 3 ? all.count : 3)]){ l in
                                             
-                                            HomeScreenLearningItemView(learning: l, color: Color.categoryColors[l.category!.colorIndex])
+                                            HomeScreenLearningItemView(learning: l, color: Color.categoryColors[l.category!.colorIndex], delegate: env)
                                                 .frame(width: 240, height: 240)
                                                 .scaleEffect(0.8)
                                                 .frame(width: 240*0.8, height: 240*0.8)

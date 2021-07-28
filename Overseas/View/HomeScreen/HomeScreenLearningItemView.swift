@@ -12,10 +12,11 @@ struct HomeScreenLearningItemView: View {
     var color: Color //lembrar de fazer referencia à color do category referente (não fizemos porque é string)
     
     @State var isPresented = false
+    var delegate: LearningDelegate?
     
     var body: some View {
         
-        NavigationLink(destination: LearningDetailsView(learning: learning, color: color)) {
+        NavigationLink(destination: LearningDetailsView(learning: learning, color: color, delegate: delegate)) {
             ZStack{
                 VStack(alignment: .leading){
                     ZStack(alignment: .trailing){

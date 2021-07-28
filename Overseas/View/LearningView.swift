@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-protocol LearningDelegate{
-    func saveNewLearning(categoryIndex: Int, title: String, description: String, emoji: String)
-}
-
 struct LearningView: View {
     
     var delegate: LearningDelegate?

@@ -40,7 +40,7 @@ struct CategoryView: View {
             ScrollView{
                 LazyVGrid(columns: [GridItem(),GridItem()], content: {
                     ForEach(learnings[0..<learnings.count]){ learning in
-                        CategoryLearningView(learning: learning, color: Color.categoryColors[homeEnv.categories[index].colorIndex])
+                        CategoryLearningView(learning: learning, color: Color.categoryColors[homeEnv.categories[index].colorIndex], delegate: homeEnv)
                             .padding()
                     }
                 })
@@ -52,7 +52,7 @@ struct CategoryView: View {
         .navigationTitle(homeEnv.categories[index].name ?? "")
         .background(NavigationConfigurator { nc in
             nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.clear]
-                    })
+        })
         .navigationBarTitleDisplayMode(.inline)
     }
 }

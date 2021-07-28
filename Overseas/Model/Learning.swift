@@ -33,4 +33,15 @@ class Learning: NSManagedObject {
         
     }
     
+    func toggleIsFixed() {
+        self.isFixed.toggle()
+        print("favoritou")
+        
+        do {
+            try AppDelegate.viewContext.save()
+        } catch {
+            print(error)
+        }
+    }
+    
 }
