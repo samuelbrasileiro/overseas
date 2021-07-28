@@ -11,6 +11,8 @@
 		0E93235126948EE100163E2B /* Learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93235026948EE100163E2B /* Learning.swift */; };
 		0EB065DD269DB9AC00AEA2E2 /* GridLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */; };
 		1054763B269DD490006F8713 /* EmojiStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054763A269DD490006F8713 /* EmojiStructure.swift */; };
+		10E7447026B1887E00F93805 /* RegisterLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E7446F26B1887E00F93805 /* RegisterLearningView.swift */; };
+		10E7447226B1A4AB00F93805 /* DescribeLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E7447126B1A4AB00F93805 /* DescribeLearningView.swift */; };
 		3596751B26A9AF4100CE20B6 /* Notification.Name+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3596751A26A9AF4100CE20B6 /* Notification.Name+Names.swift */; };
 		35B9B88526A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B9B88426A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift */; };
 		35B9B88826A5B2D200747AC4 /* UIColor+adjust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B9B88726A5B2D200747AC4 /* UIColor+adjust.swift */; };
@@ -63,6 +65,8 @@
 		0E93235026948EE100163E2B /* Learning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learning.swift; sourceTree = "<group>"; };
 		0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLearningView.swift; sourceTree = "<group>"; };
 		1054763A269DD490006F8713 /* EmojiStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiStructure.swift; sourceTree = "<group>"; };
+		10E7446F26B1887E00F93805 /* RegisterLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLearningView.swift; sourceTree = "<group>"; };
+		10E7447126B1A4AB00F93805 /* DescribeLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribeLearningView.swift; sourceTree = "<group>"; };
 		3596751A26A9AF4100CE20B6 /* Notification.Name+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Names.swift"; sourceTree = "<group>"; };
 		359A048826986B4D006C7374 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		35B9B88426A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMappingCategoryView.swift; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 			isa = PBXGroup;
 			children = (
 				863100C726B1822900E6D592 /* TweetTextView.swift */,
+				10E7446F26B1887E00F93805 /* RegisterLearningView.swift */,
+				10E7447126B1A4AB00F93805 /* DescribeLearningView.swift */,
 			);
 			path = Learning;
 			sourceTree = "<group>";
@@ -374,6 +380,8 @@
 				8607E5CF269875E2007184A9 /* CategoryEnvironment.swift in Sources */,
 				35F12E5F26987007002A9532 /* CategoryLearningView.swift in Sources */,
 				0EB065DD269DB9AC00AEA2E2 /* GridLearningView.swift in Sources */,
+				10E7447026B1887E00F93805 /* RegisterLearningView.swift in Sources */,
+				10E7447226B1A4AB00F93805 /* DescribeLearningView.swift in Sources */,
 				35B9B88A26A5BFE400747AC4 /* View+onRotate.swift in Sources */,
 				35F12E6A2698711B002A9532 /* LearningView.swift in Sources */,
 				35BCE4B026947E820022B49A /* AppDelegate.swift in Sources */,

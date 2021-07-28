@@ -103,6 +103,16 @@ struct HomeScreenView: View{
                                             .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
                                             .padding(.leading)
                                     }
+                                    
+                                    NavigationLink(destination: RegisterLearningView()) {
+                                        Image(systemName: "plus")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                            .foregroundColor(.black)
+                                            .padding(10)
+                                            .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+                                            .padding(.leading)
+                                    }
                                 }
                                 VStack(alignment: .trailing){
                                     HStack(spacing: 40){
