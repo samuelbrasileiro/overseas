@@ -16,11 +16,6 @@ class Learning: NSManagedObject {
         return formatter
     }()
     
-    //@NSManaged var steps: [String]?
-    
-    //@NSManaged var detail: String?
-    
-    //@NSManaged var humor: NSNumber?
     
     convenience init(name: String, descriptionText: String?, emoji: String?, estimatedTime: TimeInterval?, text: String?, context: NSManagedObjectContext){
         self.init(context: context)
