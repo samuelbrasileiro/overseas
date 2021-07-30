@@ -10,6 +10,9 @@
 		0E93234F26948D2600163E2B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93234E26948D2600163E2B /* Category.swift */; };
 		0E93235126948EE100163E2B /* Learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93235026948EE100163E2B /* Learning.swift */; };
 		0EB065DD269DB9AC00AEA2E2 /* GridLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */; };
+		102CA9C626B41C5E00D0D288 /* EvaluateLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102CA9C526B41C5E00D0D288 /* EvaluateLearningView.swift */; };
+		102CA9C826B41C6D00D0D288 /* OrderLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102CA9C726B41C6D00D0D288 /* OrderLearningView.swift */; };
+		102CA9CA26B421A700D0D288 /* StepsTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102CA9C926B421A700D0D288 /* StepsTextfieldView.swift */; };
 		1054763B269DD490006F8713 /* EmojiStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054763A269DD490006F8713 /* EmojiStructure.swift */; };
 		10E7447026B1887E00F93805 /* RegisterLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E7446F26B1887E00F93805 /* RegisterLearningView.swift */; };
 		10E7447226B1A4AB00F93805 /* DescribeLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E7447126B1A4AB00F93805 /* DescribeLearningView.swift */; };
@@ -64,6 +67,9 @@
 		0E93234E26948D2600163E2B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		0E93235026948EE100163E2B /* Learning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learning.swift; sourceTree = "<group>"; };
 		0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLearningView.swift; sourceTree = "<group>"; };
+		102CA9C526B41C5E00D0D288 /* EvaluateLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateLearningView.swift; sourceTree = "<group>"; };
+		102CA9C726B41C6D00D0D288 /* OrderLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLearningView.swift; sourceTree = "<group>"; };
+		102CA9C926B421A700D0D288 /* StepsTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsTextfieldView.swift; sourceTree = "<group>"; };
 		1054763A269DD490006F8713 /* EmojiStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiStructure.swift; sourceTree = "<group>"; };
 		10E7446F26B1887E00F93805 /* RegisterLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLearningView.swift; sourceTree = "<group>"; };
 		10E7447126B1A4AB00F93805 /* DescribeLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribeLearningView.swift; sourceTree = "<group>"; };
@@ -259,6 +265,9 @@
 				863100C726B1822900E6D592 /* TweetTextView.swift */,
 				10E7446F26B1887E00F93805 /* RegisterLearningView.swift */,
 				10E7447126B1A4AB00F93805 /* DescribeLearningView.swift */,
+				102CA9C526B41C5E00D0D288 /* EvaluateLearningView.swift */,
+				102CA9C726B41C6D00D0D288 /* OrderLearningView.swift */,
+				102CA9C926B421A700D0D288 /* StepsTextfieldView.swift */,
 			);
 			path = Learning;
 			sourceTree = "<group>";
@@ -378,6 +387,7 @@
 				35F12E5B26986FC6002A9532 /* CategoryView.swift in Sources */,
 				35F12E5D26986FE7002A9532 /* AllLearningsView.swift in Sources */,
 				8607E5CF269875E2007184A9 /* CategoryEnvironment.swift in Sources */,
+				102CA9C626B41C5E00D0D288 /* EvaluateLearningView.swift in Sources */,
 				35F12E5F26987007002A9532 /* CategoryLearningView.swift in Sources */,
 				0EB065DD269DB9AC00AEA2E2 /* GridLearningView.swift in Sources */,
 				10E7447026B1887E00F93805 /* RegisterLearningView.swift in Sources */,
@@ -389,7 +399,9 @@
 				8607E5D526987673007184A9 /* SideBarView.swift in Sources */,
 				1054763B269DD490006F8713 /* EmojiStructure.swift in Sources */,
 				3596751B26A9AF4100CE20B6 /* Notification.Name+Names.swift in Sources */,
+				102CA9CA26B421A700D0D288 /* StepsTextfieldView.swift in Sources */,
 				35F12E5726986F31002A9532 /* OrganizingOnboardingView.swift in Sources */,
+				102CA9C826B41C6D00D0D288 /* OrderLearningView.swift in Sources */,
 				35F12E5726986F31002A9532 /* OrganizingOnboardingView.swift in Sources */,
 				35BCE4B226947E820022B49A /* SceneDelegate.swift in Sources */,
 				35BCE4B426947E820022B49A /* ContentView.swift in Sources */,

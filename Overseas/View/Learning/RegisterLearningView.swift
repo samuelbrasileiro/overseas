@@ -34,8 +34,10 @@ struct RegisterLearningView: View {
             TabView(selection: $segmentedControlIndex) {
                 DescribeLearningView()
                     .tag(0)
-                TweetTextView(c: Color(.systemPink), h: 890, w: 123)
+                OrderLearningView()
                     .tag(1)
+                EvaluateLearningView()
+                    .tag(2)
             }
         
         }
