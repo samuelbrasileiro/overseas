@@ -16,6 +16,11 @@ class Learning: NSManagedObject {
         return formatter
     }()
     
+    //@NSManaged var steps: [String]?
+    
+    //@NSManaged var detail: String?
+    
+    //@NSManaged var humor: NSNumber?
     
     convenience init(name: String, descriptionText: String?, emoji: String?, estimatedTime: TimeInterval?, text: String?, context: NSManagedObjectContext){
         self.init(context: context)
@@ -31,6 +36,20 @@ class Learning: NSManagedObject {
         self.objectWillChange.send()
         
         
+    }
+    
+    func setDetails(detail: String, humor: Int, steps: [String]){
+        
+        self.detail = detail
+        self.steps = steps
+        self.humor = NSDecimalNumber(integerLiteral: humor)
+        
+        
+        do {
+            try AppDelegate.viewContext.save()
+        } catch {
+            print(error)
+        }
     }
     
     func toggleIsFixed() {

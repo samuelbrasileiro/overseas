@@ -14,6 +14,27 @@ protocol LearningDelegate {
     
 }
 
+
+enum Humor: String {
+    case wasNot = "Não Foi"
+    case neutre = "Neutro"
+    case very = "Muito"
+    case aLot = "Bastante"
+    
+    var emoji: String {
+        switch self {
+        case .wasNot:
+            return "☹️"
+        case .neutre:
+            return "🤔"
+        case .very:
+            return "😌"
+        case .aLot:
+            return "😍"
+        }
+    }
+}
+
 struct LearningDetailsView: View {
     @ObservedObject var learning: Learning
     
@@ -23,7 +44,15 @@ struct LearningDetailsView: View {
     var body: some View {
         VStack {
             HStack {
-                
+//                if let detail = learning.detail{
+//                    Text(detail)
+//                }
+//                Button(action:{
+//                    learning.setDetails(detail: "Foi muito trabalhoso desviar de tubarões, mas ao mesmo tempo é divertido fazer eles de besta. Não morri.", humor: 3, steps: ["Vestir a roupa de mergulho","Entrar no mar de piedade","Cortar a ponta do dedo pra sair sangue", "Nadar em círculos", "Se um tubarão aparecer, bater no focinho!"])
+//                    learning.objectWillChange.send()
+//                }){
+//                    Text("Pressssssssssss")
+//                }
                 Text(learning.emoji ?? "?")
                     .font(.system(size: 60))
                     .padding(11)
@@ -56,7 +85,49 @@ struct LearningDetailsView: View {
             
             Divider()
             
+            VStack{
+                Text("Para mim, essa atividade foi")
+                    .bold()
+                    .padding(.bottom)
+                Text(learning.detail ?? "")
+                    
+            }
+            .padding()
+            
+            HStack{
+                
+                VStack{
+                    Text("As etapas para realizá-la foram")
+                        .bold()
+                        .padding(.bottom)
+                    
+                    ScrollView{
+                        
+                        let steps = learning.steps ?? []
+                        ForEach(0..<(steps).count, id: \.self){ index in
+                            HStack{
+                                Rectangle()
+                                    .fill(color)
+                                    .frame(width: 19, height: 19)
+                                
+                                Text(steps[index])
+                            }
+                        }
+                        
+                    }
+                    
+                }
+                
+                VStack{
+                    Text("Para mim, essa atividade foi")
+                        .bold()
+                        .padding(.bottom)
+                    Text(learning.detail ?? "")
+                }
+            }
+            
             Spacer()
+            
         } .navigationBarHidden(false)
         .navigationBarTitleDisplayMode(.inline)
         
