@@ -20,16 +20,18 @@ struct TweetTextView: View{
     var body: some View {
         ZStack{
             Rectangle()
-                .frame(width: width, height: height)
-                .padding([.leading, .top], 14)
+                .frame(height: height)
+                .padding(.top, 14)
                 .foregroundColor(color)
 
                 
             Rectangle()
                 .strokeBorder(color, lineWidth: 2)
                 .background(Rectangle().fill(Color(.white)))
-                .frame(width: width, height: height)
+                .frame(height: height)
+                .padding(.trailing, 14)
         }
+        .padding(.horizontal, 80)
     }
 }
 
