@@ -11,7 +11,6 @@ struct OrderLearningView: View {
     
     @State var stepsCount: Int = 1
     @State var stepsStrings: [String] = [""]
-    @State var index: Int
 
     var body: some View {
         VStack {
