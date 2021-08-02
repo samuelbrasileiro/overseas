@@ -97,7 +97,7 @@ struct StepsTextfieldView: View {
         
         HStack {
             Rectangle()
-                .frame(width: 25, height: 25, alignment: .leading)
+                .frame(width: 18, height: 18, alignment: .leading)
                 .foregroundColor(textInput.isEmpty == true ? Color(.systemPink) : Color(.systemRed))
             TextField("Insira sua próxima etapa aqui...", text: binding, onCommit: {
                 

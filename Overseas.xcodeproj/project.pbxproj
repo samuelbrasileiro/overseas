@@ -12,7 +12,6 @@
 		0EB065DD269DB9AC00AEA2E2 /* GridLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */; };
 		102CA9C626B41C5E00D0D288 /* EvaluateLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102CA9C526B41C5E00D0D288 /* EvaluateLearningView.swift */; };
 		102CA9C826B41C6D00D0D288 /* OrderLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102CA9C726B41C6D00D0D288 /* OrderLearningView.swift */; };
-		102CA9CA26B421A700D0D288 /* StepsTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102CA9C926B421A700D0D288 /* StepsTextfieldView.swift */; };
 		1054763B269DD490006F8713 /* EmojiStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054763A269DD490006F8713 /* EmojiStructure.swift */; };
 		10E7447026B1887E00F93805 /* RegisterLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E7446F26B1887E00F93805 /* RegisterLearningView.swift */; };
 		10E7447226B1A4AB00F93805 /* DescribeLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E7447126B1A4AB00F93805 /* DescribeLearningView.swift */; };
@@ -69,7 +68,6 @@
 		0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLearningView.swift; sourceTree = "<group>"; };
 		102CA9C526B41C5E00D0D288 /* EvaluateLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateLearningView.swift; sourceTree = "<group>"; };
 		102CA9C726B41C6D00D0D288 /* OrderLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLearningView.swift; sourceTree = "<group>"; };
-		102CA9C926B421A700D0D288 /* StepsTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsTextfieldView.swift; sourceTree = "<group>"; };
 		1054763A269DD490006F8713 /* EmojiStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiStructure.swift; sourceTree = "<group>"; };
 		10E7446F26B1887E00F93805 /* RegisterLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLearningView.swift; sourceTree = "<group>"; };
 		10E7447126B1A4AB00F93805 /* DescribeLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribeLearningView.swift; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 				10E7447126B1A4AB00F93805 /* DescribeLearningView.swift */,
 				102CA9C526B41C5E00D0D288 /* EvaluateLearningView.swift */,
 				102CA9C726B41C6D00D0D288 /* OrderLearningView.swift */,
-				102CA9C926B421A700D0D288 /* StepsTextfieldView.swift */,
 			);
 			path = Learning;
 			sourceTree = "<group>";
@@ -399,7 +396,6 @@
 				8607E5D526987673007184A9 /* SideBarView.swift in Sources */,
 				1054763B269DD490006F8713 /* EmojiStructure.swift in Sources */,
 				3596751B26A9AF4100CE20B6 /* Notification.Name+Names.swift in Sources */,
-				102CA9CA26B421A700D0D288 /* StepsTextfieldView.swift in Sources */,
 				35F12E5726986F31002A9532 /* OrganizingOnboardingView.swift in Sources */,
 				102CA9C826B41C6D00D0D288 /* OrderLearningView.swift in Sources */,
 				35F12E5726986F31002A9532 /* OrganizingOnboardingView.swift in Sources */,

@@ -19,8 +19,14 @@ struct DescribeLearningView: View {
             
             .padding(.bottom, 100)
             
-            TweetTextView(color: Color(.systemRed), height: 302, alignment: .topLeading){
-                TextField("", text: $textFieldInput)
+            TweetTextView(color: Color(.systemRed), height: 302, alignment: .leading){
+                    TextEditor(text: $textFieldInput)
+                        .frame(maxHeight: 290)
+                        .background(Color(.blue))
+                        .padding(.top)
+                        
+                        .padding([.bottom,.trailing], 10)
+                
             }
             
         }
