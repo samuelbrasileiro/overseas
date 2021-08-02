@@ -13,17 +13,16 @@ struct DescribeLearningView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            ZStack(alignment: .leading) {
-                TweetTextView(c: Color(.systemPink), h: 47, w: 478)
+            TweetTextView(color: Color(.systemPink), height: 47){
                 Text("O que você aprendeu nessa atividade?")
-                    .padding(.leading, 95)
             }
+            
             .padding(.bottom, 100)
             
-            ZStack(alignment: .center) {
-                TweetTextView(c: Color(.systemRed), h: 302, w: 921)
+            TweetTextView(color: Color(.systemRed), height: 302, alignment: .topLeading){
                 TextField("", text: $textFieldInput)
             }
+            
         }
     }
 }

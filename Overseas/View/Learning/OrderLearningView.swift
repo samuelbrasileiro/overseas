@@ -15,19 +15,21 @@ struct OrderLearningView: View, StepsTextFieldViewDelegate {
     
     var body: some View {
         VStack {
-            ZStack(alignment: .leading) {
-                TweetTextView(c: Color(.systemPink), h: 47, w: 478)
+            TweetTextView(color: Color(.systemPink), height: 47){
                 Text("Quais foram as etapas dessa atividade?")
-                    .padding(.leading, 95)
             }
+                
             .padding(.bottom, 100)
             
-            
-            ForEach(0..<steps.list.count, id: \.self) { index in
-                
-                StepsTextfieldView(delegate: self, textInput: $steps.list[index], index: index)
-                
+            VStack(spacing: 10){
+                ForEach(0..<steps.list.count, id: \.self) { index in
+                    
+                    StepsTextfieldView(delegate: self, textInput: $steps.list[index], index: index)
+                    
+                    
+                }
             }
+            .padding(100)
         }
     }
     
@@ -97,7 +99,7 @@ struct StepsTextfieldView: View {
             Rectangle()
                 .frame(width: 25, height: 25, alignment: .leading)
                 .foregroundColor(textInput.isEmpty == true ? Color(.systemPink) : Color(.systemRed))
-            TextField("Insira sua \(index + 1)ª etapa aqui...", text: binding, onCommit: {
+            TextField("Insira sua próxima etapa aqui...", text: binding, onCommit: {
                 
             })
         }

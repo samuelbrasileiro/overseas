@@ -11,18 +11,16 @@ struct EvaluateLearningView: View {
     
     @State var buttonText: [String] = ["Não foi", "Neutro", "Muito", "Bastante"]
     @State var emojiImages: [String] = ["☹️", "🤔", "😌", "😍"]
- 
+    
     
     var body: some View {
         
         VStack(alignment: .center) {
-            ZStack(alignment: .leading) {
-                
-                TweetTextView(c: Color(.systemPink), h: 47, w: 401)
+            
+            TweetTextView(color: Color(.systemPink), height: 47){
                 Text("O quão agradável foi realizá-la?")
-                    .padding(.leading, 95)
-      
             }
+            
             .padding(.bottom, 100)
             
             HStack {
@@ -51,7 +49,7 @@ struct EvaluateLearningView: View {
                     
                 }
                 .padding(12)
-              
+                
                 
                 ZStack {
                     Circle()
