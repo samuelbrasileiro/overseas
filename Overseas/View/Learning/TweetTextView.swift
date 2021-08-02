@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TweetTextView<Content>: View where Content: View {
     var color: Color
-    var height: CGFloat
+    var maxHeight: CGFloat = .infinity
     var alignment: Alignment = .leading
     var content: () -> Content
     
@@ -18,14 +18,14 @@ struct TweetTextView<Content>: View where Content: View {
         ZStack(alignment: alignment){
             ZStack{
                 Rectangle()
-                    .frame(height: height)
+                    .frame(maxHeight: maxHeight)
                     .foregroundColor(color)
                     .offset(x: 10, y: 10)
                 
                 Rectangle()
                     .strokeBorder(color, lineWidth: 2)
                     .background(Rectangle().fill(Color(.white)))
-                    .frame(height: height)
+                    .frame(maxHeight: maxHeight)
             }
             content()
                 .padding(.leading, 15)
@@ -37,6 +37,6 @@ struct TweetTextView<Content>: View where Content: View {
 
 struct TweetTextView_Previews: PreviewProvider {
     static var previews: some View {
-        TweetTextView(color: Color(.systemPink), height: 302){EmptyView()}
+        TweetTextView(color: Color(.systemPink), maxHeight: 302){EmptyView()}
     }
 }

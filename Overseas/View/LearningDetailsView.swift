@@ -104,50 +104,54 @@ struct LearningDetailsView: View {
             
             Divider()
             
-            VStack{
-                Text("Nessa atividade, aprendi que")
-                    .bold()
-                    .padding(.bottom)
-                Text(learning.detail ?? "")
-                
+            TweetTextView(color: Color(.systemPink), alignment: .center){
+                VStack{
+                    Text("Nessa atividade, aprendi que")
+                        .bold()
+                        .padding(.bottom)
+                    Text(learning.detail ?? "")
+                }
             }
             .padding()
             
             HStack(alignment: .top){
                 
-                VStack{
-                    
-                    Text("As etapas para realizá-la foram")
-                        .bold()
-                        .padding(.bottom)
-                    
-                    ScrollView{
-                        VStack(alignment: .leading){
-                            let steps = learning.steps ?? []
-                            ForEach(0..<(steps).count, id: \.self){ index in
-                                HStack{
-                                    Rectangle()
-                                        .fill(color)
-                                        .frame(width: 19, height: 19)
-                                    
-                                    Text(steps[index])
+                TweetTextView(color: Color(.systemPink)){
+                    VStack{
+                        
+                        Text("As etapas para realizá-la foram")
+                            .bold()
+                            .padding(.bottom)
+                        
+                        ScrollView{
+                            VStack(alignment: .leading){
+                                let steps = learning.steps ?? []
+                                ForEach(0..<(steps).count, id: \.self){ index in
+                                    HStack{
+                                        Rectangle()
+                                            .fill(color)
+                                            .frame(width: 19, height: 19)
+                                        
+                                        Text(steps[index])
+                                    }
                                 }
                             }
                         }
+                        .frame(maxHeight: 200)
+                        
                     }
-                    .frame(maxHeight: 200)
-                    
                 }
-                
-                VStack{
-                    Text("Para mim, essa atividade foi")
-                        .bold()
-                        .padding(.bottom)
-                    let humorIndex = Int(truncating: learning.humor ?? 4)
-                    let humor = Humor(rawValue: humorIndex)
-                    Text(humor!.emoji)
-                    Text(humor!.text)
-                    Text("agradável")
+                TweetTextView(color: Color(.systemPink)){
+                    VStack{
+                        Text("Para mim, essa atividade foi")
+                            .bold()
+                            .padding(.bottom)
+                        let humorIndex = Int(truncating: learning.humor ?? 4)
+                        let humor = Humor(rawValue: humorIndex)
+                        Text(humor!.emoji)
+                        Text(humor!.text)
+                        Text("agradável")
+                    }
                 }
             }
             

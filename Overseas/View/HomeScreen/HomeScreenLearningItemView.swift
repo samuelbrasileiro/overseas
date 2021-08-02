@@ -16,7 +16,7 @@ struct HomeScreenLearningItemView: View {
     
     var body: some View {
         
-        NavigationLink(destination: LearningDetailsView(learning: learning, color: color, delegate: delegate)) {
+        NavigationLink(destination: getDestination(learning: learning, color: color, delegate: delegate, isActive: isPresented), isActive: $isPresented) {
             ZStack{
                 VStack(alignment: .leading){
                     ZStack(alignment: .trailing){
@@ -63,6 +63,13 @@ struct HomeScreenLearningItemView: View {
             //provider.preferredPresentationSize
             
             return provider
+        }
+    }
+    func getDestination(learning: Learning, color: Color, delegate: LearningDelegate?, isActive: Bool) -> AnyView {
+        if learning.detail != nil && learning.detail != "" {
+            return AnyView(LearningDetailsView(learning: learning, color: color, delegate: delegate))
+        } else {
+            return AnyView(RegisterLearningView(learning: learning, isPresented: isActive))
         }
     }
 }

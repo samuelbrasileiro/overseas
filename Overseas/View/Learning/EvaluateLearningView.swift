@@ -19,7 +19,7 @@ struct EvaluateLearningView: View {
         
         VStack(alignment: .center) {
             
-            TweetTextView(color: Color(.systemPink), height: 47){
+            TweetTextView(color: Color(.systemPink), maxHeight: 47){
                 Text("O quão agradável foi realizá-la?")
             }
             

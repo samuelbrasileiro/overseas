@@ -13,13 +13,13 @@ struct DescribeLearningView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            TweetTextView(color: Color(.systemPink), height: 47){
+            TweetTextView(color: Color(.systemPink), maxHeight: 47){
                 Text("O que você aprendeu nessa atividade?")
             }
             
             .padding(.bottom, 100)
             
-            TweetTextView(color: Color(.systemRed), height: 302, alignment: .leading){
+            TweetTextView(color: Color(.systemRed), maxHeight: 302, alignment: .leading){
                 TextEditor(text: $env.description)
                         .frame(maxHeight: 290)
                         .padding(.top)

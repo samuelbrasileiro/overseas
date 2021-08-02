@@ -14,7 +14,7 @@ struct OrderLearningView: View, StepsTextFieldViewDelegate {
     
     var body: some View {
         VStack {
-            TweetTextView(color: Color(.systemPink), height: 47){
+            TweetTextView(color: Color(.systemPink), maxHeight: 47){
                 Text("Quais foram as etapas dessa atividade?")
             }
                 
@@ -61,7 +61,18 @@ class RegisterEnvironment: ObservableObject {
     
     @Published var humorIndex: Int? = nil
     
-    
+    func save(to learning: Learning){
+        
+        learning.detail = description
+        learning.steps = order
+        learning.humor = NSDecimalNumber(integerLiteral: humorIndex ?? 0)
+        
+        do{
+            try AppDelegate.viewContext.save()
+        }catch{
+            print(error)
+        }
+    }
 }
 
 

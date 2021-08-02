@@ -16,6 +16,8 @@ struct RegisterLearningView: View {
     
     @ObservedObject var learning: Learning
     
+    @State var isPresented: Bool
+    
     var body: some View {
         ZStack {
             
@@ -53,7 +55,8 @@ struct RegisterLearningView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Salvar") {
-                    print("salvando")
+                    env.save(to: learning)
+                    isPresented = false
                 }
             }
         }
@@ -62,6 +65,6 @@ struct RegisterLearningView: View {
 
 struct RegisterLearningView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterLearningView(env: RegisterEnvironment(), learning: Learning())
+        RegisterLearningView(env: RegisterEnvironment(), learning: Learning(), isPresented: true)
     }
 }
