@@ -104,7 +104,7 @@ struct LearningDetailsView: View {
             
             Divider()
             
-            TweetTextView(color: Color(.systemPink), alignment: .center){
+            TweetTextView(color: color, alignment: .center){
                 VStack{
                     Text("Nessa atividade, aprendi que")
                         .bold()
@@ -116,7 +116,7 @@ struct LearningDetailsView: View {
             
             HStack(alignment: .top){
                 
-                TweetTextView(color: Color(.systemPink)){
+                TweetTextView(color: color){
                     VStack{
                         
                         Text("As etapas para realizá-la foram")
@@ -141,7 +141,7 @@ struct LearningDetailsView: View {
                         
                     }
                 }
-                TweetTextView(color: Color(.systemPink)){
+                TweetTextView(color: color){
                     VStack{
                         Text("Para mim, essa atividade foi")
                             .bold()
