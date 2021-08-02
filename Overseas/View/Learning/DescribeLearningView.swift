@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DescribeLearningView: View {
     
-    @State var textFieldInput: String = ""
+    @ObservedObject var env: RegisterEnvironment
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -20,9 +20,8 @@ struct DescribeLearningView: View {
             .padding(.bottom, 100)
             
             TweetTextView(color: Color(.systemRed), height: 302, alignment: .leading){
-                    TextEditor(text: $textFieldInput)
+                TextEditor(text: $env.description)
                         .frame(maxHeight: 290)
-                        .background(Color(.blue))
                         .padding(.top)
                         
                         .padding([.bottom,.trailing], 10)
@@ -35,7 +34,7 @@ struct DescribeLearningView: View {
 
 struct DescribeLearningView_Previews: PreviewProvider {
     static var previews: some View {
-        DescribeLearningView()
+        DescribeLearningView(env: RegisterEnvironment())
             .previewLayout(.fixed(width: 1080, height: 810))
             .environment(\.horizontalSizeClass, .compact)
             .environment(\.verticalSizeClass, .compact)

@@ -104,7 +104,7 @@ struct HomeScreenView: View{
                                             .padding(.leading)
                                     }
                                     
-                                    NavigationLink(destination: RegisterLearningView()) {
+                                    NavigationLink(destination: RegisterLearningView( learning: env.allLearnings[0])) {
                                         Image(systemName: "plus")
                                             .resizable()
                                             .frame(width: 20, height: 20)

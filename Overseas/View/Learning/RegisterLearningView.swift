@@ -12,10 +12,9 @@ struct RegisterLearningView: View {
     @State private var segmentedControlCells = ["Descreva", "Ordene", "Avalie"]
     @State private var segmentedControlIndex = 0
     
-//    init() {
-//
-//            UINavigationBar.appearance().backgroundColor = .white
-//    }
+    @ObservedObject var env: RegisterEnvironment = RegisterEnvironment()
+    
+    @ObservedObject var learning: Learning
     
     var body: some View {
         ZStack {
@@ -32,11 +31,11 @@ struct RegisterLearningView: View {
             }).padding(.top, 200)
          
             TabView(selection: $segmentedControlIndex) {
-                DescribeLearningView()
+                DescribeLearningView(env: env)
                     .tag(0)
-                OrderLearningView()
+                OrderLearningView(env: env)
                     .tag(1)
-                EvaluateLearningView()
+                EvaluateLearningView(env: env)
                     .tag(2)
             }
         
@@ -63,6 +62,6 @@ struct RegisterLearningView: View {
 
 struct RegisterLearningView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterLearningView()
+        RegisterLearningView(env: RegisterEnvironment(), learning: Learning())
     }
 }

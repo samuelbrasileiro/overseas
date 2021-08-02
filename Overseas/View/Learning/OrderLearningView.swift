@@ -10,8 +10,7 @@ import Combine
 
 struct OrderLearningView: View, StepsTextFieldViewDelegate {
     
-    @ObservedObject var steps: Steps = Steps()
-    //@State var currentIndex: Int = 0
+    @ObservedObject var env: RegisterEnvironment
     
     var body: some View {
         VStack {
@@ -22,9 +21,9 @@ struct OrderLearningView: View, StepsTextFieldViewDelegate {
             .padding(.bottom, 100)
             
             VStack(spacing: 10){
-                ForEach(0..<steps.list.count, id: \.self) { index in
+                ForEach(0..<env.order.count, id: \.self) { index in
                     
-                    StepsTextfieldView(delegate: self, textInput: $steps.list[index], index: index)
+                    StepsTextfieldView(delegate: self, textInput: $env.order[index], index: index)
                     
                     
                 }
@@ -34,11 +33,11 @@ struct OrderLearningView: View, StepsTextFieldViewDelegate {
     }
     
     func textFieldIsEmpty(index: Int) -> String{
-        if steps.list.count > 0{
+        if env.order.count > 0{
             print("removed ", index)
             
-            let aux = steps.list[index + 1]
-            steps.list.remove(at: index)
+            let aux = env.order[index + 1]
+            env.order.remove(at: index)
             
             return aux
         }
@@ -46,17 +45,23 @@ struct OrderLearningView: View, StepsTextFieldViewDelegate {
     }
     
     func textFieldwasFilled(index: Int) {
-        if index == steps.list.count - 1{
+        if index == env.order.count - 1{
             print("filled")
-            steps.list.append("")
+            env.order.append("")
         }
     }
 }
 
 
-class Steps: ObservableObject {
+class RegisterEnvironment: ObservableObject {
     
-    @Published var list: [String] = [""]
+    @Published var order: [String] = [""]
+    
+    @Published var description: String = ""
+    
+    @Published var humorIndex: Int? = nil
+    
+    
 }
 
 
@@ -108,6 +113,6 @@ struct StepsTextfieldView: View {
 
 struct OrderLearningView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderLearningView()
+        OrderLearningView(env: RegisterEnvironment())
     }
 }
