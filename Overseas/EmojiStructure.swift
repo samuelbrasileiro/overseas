@@ -14,8 +14,10 @@ class UIEmojiTextField: UITextField {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
     
+
     func setEmoji() {
         _ = self.textInputMode
     }
@@ -42,6 +44,8 @@ struct EmojiTextField: UIViewRepresentable {
     func makeUIView(context: Context) -> UIEmojiTextField {
         let emojiTextField = UIEmojiTextField()
         emojiTextField.placeholder = placeholder
+        emojiTextField.font = emojiTextField.font?.withSize(27)
+        emojiTextField.textAlignment = .center
         emojiTextField.text = text
         emojiTextField.delegate = context.coordinator
         return emojiTextField
@@ -60,6 +64,7 @@ struct EmojiTextField: UIViewRepresentable {
         
         init(parent: EmojiTextField) {
             self.parent = parent
+           
         }
         
         func textFieldDidChangeSelection(_ textField: UITextField) {

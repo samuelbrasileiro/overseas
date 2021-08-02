@@ -10,7 +10,11 @@
 		0E93234F26948D2600163E2B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93234E26948D2600163E2B /* Category.swift */; };
 		0E93235126948EE100163E2B /* Learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93235026948EE100163E2B /* Learning.swift */; };
 		0EB065DD269DB9AC00AEA2E2 /* GridLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */; };
+		102CA9C626B41C5E00D0D288 /* EvaluateLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102CA9C526B41C5E00D0D288 /* EvaluateLearningView.swift */; };
+		102CA9C826B41C6D00D0D288 /* OrderLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102CA9C726B41C6D00D0D288 /* OrderLearningView.swift */; };
 		1054763B269DD490006F8713 /* EmojiStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054763A269DD490006F8713 /* EmojiStructure.swift */; };
+		10E7447026B1887E00F93805 /* RegisterLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E7446F26B1887E00F93805 /* RegisterLearningView.swift */; };
+		10E7447226B1A4AB00F93805 /* DescribeLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E7447126B1A4AB00F93805 /* DescribeLearningView.swift */; };
 		3558933626B03F2A0027D787 /* View+snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3558933526B03F2A0027D787 /* View+snapshot.swift */; };
 		3596751B26A9AF4100CE20B6 /* Notification.Name+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3596751A26A9AF4100CE20B6 /* Notification.Name+Names.swift */; };
 		35B9B88526A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B9B88426A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift */; };
@@ -44,6 +48,7 @@
 		8607E5EA269879BE007184A9 /* Learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93235026948EE100163E2B /* Learning.swift */; };
 		8607E5EB269879D3007184A9 /* Overseas.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4B526947E820022B49A /* Overseas.xcdatamodeld */; };
 		8607E5EC26988074007184A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4AF26947E820022B49A /* AppDelegate.swift */; };
+		863100C826B1822900E6D592 /* TweetTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863100C726B1822900E6D592 /* TweetTextView.swift */; };
 		86B23D0026AEEA15009BA19A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86B23D0326AEEA15009BA19A /* Localizable.strings */; };
 		86B23D0126AEEA15009BA19A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86B23D0326AEEA15009BA19A /* Localizable.strings */; };
 /* End PBXBuildFile section */
@@ -62,7 +67,11 @@
 		0E93234E26948D2600163E2B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		0E93235026948EE100163E2B /* Learning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learning.swift; sourceTree = "<group>"; };
 		0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLearningView.swift; sourceTree = "<group>"; };
+		102CA9C526B41C5E00D0D288 /* EvaluateLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateLearningView.swift; sourceTree = "<group>"; };
+		102CA9C726B41C6D00D0D288 /* OrderLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLearningView.swift; sourceTree = "<group>"; };
 		1054763A269DD490006F8713 /* EmojiStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiStructure.swift; sourceTree = "<group>"; };
+		10E7446F26B1887E00F93805 /* RegisterLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLearningView.swift; sourceTree = "<group>"; };
+		10E7447126B1A4AB00F93805 /* DescribeLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribeLearningView.swift; sourceTree = "<group>"; };
 		3558933526B03F2A0027D787 /* View+snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+snapshot.swift"; sourceTree = "<group>"; };
 		3596751A26A9AF4100CE20B6 /* Notification.Name+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Names.swift"; sourceTree = "<group>"; };
 		359A048826986B4D006C7374 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
@@ -95,6 +104,7 @@
 		8607E5DC26987926007184A9 /* OverseasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OverseasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8607E5DE26987926007184A9 /* OverseasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverseasTests.swift; sourceTree = "<group>"; };
 		8607E5E026987926007184A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		863100C726B1822900E6D592 /* TweetTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTextView.swift; sourceTree = "<group>"; };
 		86B23D0226AEEA15009BA19A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		86B23D0626AEFCE4009BA19A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		86B23D0726AEFD17009BA19A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -133,6 +143,7 @@
 				35F12E67269870A7002A9532 /* HomeScreen */,
 				35F12E6626987096002A9532 /* Onboarding */,
 				35F12E6826987106002A9532 /* Category */,
+				863100C626B1809A00E6D592 /* Learning */,
 				35F12E692698711B002A9532 /* LearningView.swift */,
 				35F12E5C26986FE7002A9532 /* AllLearningsView.swift */,
 				0EB065DC269DB9AC00AEA2E2 /* GridLearningView.swift */,
@@ -249,6 +260,18 @@
 			path = OverseasTests;
 			sourceTree = "<group>";
 		};
+		863100C626B1809A00E6D592 /* Learning */ = {
+			isa = PBXGroup;
+			children = (
+				863100C726B1822900E6D592 /* TweetTextView.swift */,
+				10E7446F26B1887E00F93805 /* RegisterLearningView.swift */,
+				10E7447126B1A4AB00F93805 /* DescribeLearningView.swift */,
+				102CA9C526B41C5E00D0D288 /* EvaluateLearningView.swift */,
+				102CA9C726B41C6D00D0D288 /* OrderLearningView.swift */,
+			);
+			path = Learning;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -355,6 +378,7 @@
 				0E93234F26948D2600163E2B /* Category.swift in Sources */,
 				35F12E6326987066002A9532 /* CreateNewCategoryView.swift in Sources */,
 				35B9B88826A5B2D200747AC4 /* UIColor+adjust.swift in Sources */,
+				863100C826B1822900E6D592 /* TweetTextView.swift in Sources */,
 				35F12E5926986FA0002A9532 /* HomeScreenLearningItemView.swift in Sources */,
 				35B9B88526A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift in Sources */,
 				35F12E5526986CC9002A9532 /* HomeScreenView.swift in Sources */,
@@ -363,8 +387,11 @@
 				35F12E5B26986FC6002A9532 /* CategoryView.swift in Sources */,
 				35F12E5D26986FE7002A9532 /* AllLearningsView.swift in Sources */,
 				8607E5CF269875E2007184A9 /* CategoryEnvironment.swift in Sources */,
+				102CA9C626B41C5E00D0D288 /* EvaluateLearningView.swift in Sources */,
 				35F12E5F26987007002A9532 /* CategoryLearningView.swift in Sources */,
 				0EB065DD269DB9AC00AEA2E2 /* GridLearningView.swift in Sources */,
+				10E7447026B1887E00F93805 /* RegisterLearningView.swift in Sources */,
+				10E7447226B1A4AB00F93805 /* DescribeLearningView.swift in Sources */,
 				35B9B88A26A5BFE400747AC4 /* View+onRotate.swift in Sources */,
 				35F12E6A2698711B002A9532 /* LearningView.swift in Sources */,
 				35BCE4B026947E820022B49A /* AppDelegate.swift in Sources */,
@@ -373,6 +400,7 @@
 				1054763B269DD490006F8713 /* EmojiStructure.swift in Sources */,
 				3596751B26A9AF4100CE20B6 /* Notification.Name+Names.swift in Sources */,
 				35F12E5726986F31002A9532 /* OrganizingOnboardingView.swift in Sources */,
+				102CA9C826B41C6D00D0D288 /* OrderLearningView.swift in Sources */,
 				35F12E5726986F31002A9532 /* OrganizingOnboardingView.swift in Sources */,
 				35BCE4B226947E820022B49A /* SceneDelegate.swift in Sources */,
 				35BCE4B426947E820022B49A /* ContentView.swift in Sources */,

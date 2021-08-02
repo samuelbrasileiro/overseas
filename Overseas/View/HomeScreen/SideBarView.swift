@@ -19,6 +19,7 @@ struct SideBarView: View {
     @State var isPresented = false
     @State var state: Screen? = .homescreen
     
+    
     var body: some View {
         let categories = env.categories
         List{

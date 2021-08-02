@@ -31,7 +31,7 @@ struct HomeScreenNavigationView: View { //view
                 .opacity(env.didSelectNewCategory ? 1 : 0)
             
             CreateNewLearningView(env: env)
-                .frame(maxWidth: 600, maxHeight: 500)
+                .frame(maxWidth: 600, maxHeight: 630)
                 .offset(y: env.didSelectNewLearning ? 0 : 1000)
                 .animation(.spring())
                 .opacity(env.didSelectNewLearning ? 1 : 0)
@@ -101,6 +101,16 @@ struct HomeScreenView: View{
                                             .foregroundColor(.primary)
                                             .padding(10)
                                             .overlay(Rectangle().stroke(Color.primary, lineWidth: 2))
+                                            .padding(.leading)
+                                    }
+                                    
+                                    NavigationLink(destination: RegisterLearningView( learning: env.allLearnings[0])) {
+                                        Image(systemName: "plus")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                            .foregroundColor(.black)
+                                            .padding(10)
+                                            .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
                                             .padding(.leading)
                                     }
                                 }
