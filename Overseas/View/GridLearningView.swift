@@ -56,7 +56,7 @@ struct GridLearningView: View {
                     
                     ForEach(learnings, id:\.self){ learning in
                         
-                        CategoryLearningView(learning: learning, color: Color.categoryColors[learning.category!.colorIndex])
+                        CategoryLearningView(learning: learning, color: Color.categoryColors[learning.category!.colorIndex], delegate: env)
                             
                             
                     }
@@ -65,6 +65,7 @@ struct GridLearningView: View {
             }
         }
         .navigationBarHidden(false)
+        .navigationTitle(isFixed ? "Fixados" : "Meus Aprendizados")
     }
 }
 

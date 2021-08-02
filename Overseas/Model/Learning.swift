@@ -33,4 +33,29 @@ class Learning: NSManagedObject {
         
     }
     
+    func setDetails(detail: String, humor: Int, steps: [String]){
+        
+        self.detail = detail
+        self.steps = steps
+        self.humor = NSDecimalNumber(integerLiteral: humor)
+        
+        
+        do {
+            try AppDelegate.viewContext.save()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func toggleIsFixed() {
+        self.isFixed.toggle()
+        print("favoritou")
+        
+        do {
+            try AppDelegate.viewContext.save()
+        } catch {
+            print(error)
+        }
+    }
+    
 }

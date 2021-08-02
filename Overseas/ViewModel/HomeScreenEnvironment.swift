@@ -29,6 +29,22 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         
         reset()
     }
+    
+    func resetFixedLearnings() {
+        fixedLearnings = []
+        
+        let fixedsRequest: NSFetchRequest<Learning> = Learning.fetchRequest()
+        
+        fixedsRequest.predicate = NSPredicate(format: "isFixed == true")
+        fixedsRequest.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        do {
+            try fixedLearnings = context.fetch(fixedsRequest)
+            
+        } catch {
+            print(error)
+        }
+    }
 
     func reset(){
         print("resetted")
@@ -60,18 +76,6 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         }catch{
             print(error)
         }
-        
-//        let fixed = categories.map({ category in
-//            (category.learnings?.allObjects as! [Learning]).filter({learning in
-//                                                                    learning.isFixed == true})
-//
-//        }).joined()
-//        fixedLearnings.append(contentsOf: fixed)
-//
-//        let all = categories.map({ category in
-//            (category.learnings?.allObjects as! [Learning])
-//        }).joined()
-//        allLearnings.append(contentsOf: all)
         
         self.objectWillChange.send()
     }
@@ -108,6 +112,7 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         })
         return learnings
     }
+    
     func saveNewLearning(categoryIndex: Int, title: String, description: String, emoji: String) {
         
         if title.isEmpty || description.isEmpty {
