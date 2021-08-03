@@ -94,25 +94,36 @@ struct LearningDetailsView: View {
             .padding(.top)
             
             Divider()
-            
+             
             TweetTextView(color: color, maxHeight: 150, alignment: .leading){
                 VStack(alignment: .leading){
                     Text("Nessa atividade, aprendi que")
                         .bold()
-                        .padding(.bottom, 5)
+                        .padding(.vertical)
+
+                        
+                       
                     Text(learning.detail ?? "")
+
+                    Spacer()
                 }
+                .padding(.leading, 15)
+
             }
-            .padding()
+            .padding(.vertical)
+            .padding(.horizontal, 30)
             
             HStack(alignment: .top){
                 
                 TweetTextView(color: color){
-                    VStack{
+                    VStack(alignment: .leading){
                         
                         Text("As etapas para realizá-la foram")
                             .bold()
-                            .padding(.bottom)
+                            .padding(.vertical)
+                            .padding(.leading, 15)
+
+                           
                         
                         ScrollView{
                             VStack(alignment: .leading){
@@ -124,7 +135,10 @@ struct LearningDetailsView: View {
                                             .frame(width: 19, height: 19)
                                         
                                         Text(steps[index])
+                                        Spacer()
                                     }
+                                    .padding(.leading, 15)
+
                                 }
                             }
                         }
@@ -132,20 +146,35 @@ struct LearningDetailsView: View {
                         
                     }
                 }
+                .padding(.horizontal, 30)
+
                 TweetTextView(color: color, maxWidth: 200){
                     VStack{
-                        Text("Para mim, essa atividade foi")
-                            .bold()
-                            .padding(.bottom)
+                        HStack {
+                            Spacer()
+                            Text("Para mim, essa atividade foi")
+                                .bold()
+                                .multilineTextAlignment(.center)
+                                .padding(.vertical)
+                            Spacer()
+                        }
+                            
+                        
                         let humorIndex = Int(truncating: learning.humor ?? 4)
                         let humor = Humor(rawValue: humorIndex)
                         Text(humor!.emoji)
+                            .font(Font.system(size:70, design: .default))
+                            .padding(.bottom, 5)
+                            
                         Text(humor!.text)
                         Text("agradável")
+                        Spacer()
                     }
                 }
                 
             }
+            .padding(.trailing, 30)
+
             .padding(.bottom)
             Spacer()
             

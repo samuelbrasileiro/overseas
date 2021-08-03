@@ -29,14 +29,11 @@ struct TweetTextView<Content>: View where Content: View {
                     .background(Rectangle().fill(Color(.systemBackground)))
                     
                 content()
-                    .padding(.leading, 15)
                     .padding(.top, 5)
             }
             
         }
-        .frame(maxWidth: maxWidth, maxHeight: maxHeight)
-        .padding(.horizontal, 80)
-        
+        .frame(maxWidth: maxWidth, maxHeight: maxHeight)        
     }
 }
 
