@@ -34,6 +34,7 @@ class OnboardingEnvironment: ObservableObject{
 struct OnboardingMappingView: View {
     @State var isPresented = false
     @State private var orientation = UIDeviceOrientation.unknown
+    var delegate: OnboardingDelegate?
     
     @ObservedObject var env: OnboardingEnvironment
     var body: some View {
@@ -62,6 +63,8 @@ struct OnboardingMappingView: View {
                 Button(action:{
                     if env.hasSelectedAny{
                         env.saveSelectedToCoreData()
+                        UserDefaults.standard.set(true, forKey: "didLaunchBefore")
+                        delegate?.changeRootToHomeScreen()
                     }
                 }){
                     HStack{
