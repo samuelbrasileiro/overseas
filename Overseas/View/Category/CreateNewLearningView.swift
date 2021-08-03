@@ -56,7 +56,8 @@ struct CreateNewLearningView: View {
                         ZStack(alignment: .topTrailing){
                             Text(env.categories[index].name ?? "")
                                 .padding(5)
-                                .background(Color.categoryColors[env.categories[index].colorIndex])
+                                .foregroundColor(Color.categoryColors[env.categories[index].colorIndex])
+                                .background(Color.categoryColors[env.categories[index].colorIndex].opacity(0.2))
                                 .onTapGesture {
                                     self.env.lastCategory = index
                                 }
