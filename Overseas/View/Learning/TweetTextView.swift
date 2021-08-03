@@ -18,22 +18,25 @@ struct TweetTextView<Content>: View where Content: View {
     
     
     var body: some View {
-        ZStack(alignment: alignment){
-            ZStack{
-                Rectangle()
-                    .frame(maxWidth: maxWidth, maxHeight: maxHeight)
-                    .foregroundColor(color)
-                    .offset(x: 10, y: 10)
+        ZStack{
+            Rectangle()
+                .foregroundColor(color)
+                .offset(x: 10, y: 10)
+            ZStack(alignment: alignment){
                 
                 Rectangle()
                     .strokeBorder(color, lineWidth: 2)
-                    .background(Rectangle().fill(Color(.white)))
-                    .frame(maxWidth: maxWidth, maxHeight: maxHeight)
+                    .background(Rectangle().fill(Color(.systemBackground)))
+                    
+                content()
+                    .padding(.leading, 15)
+                    .padding(.top, 5)
             }
-            content()
-                .padding(.leading, 15)
+            
         }
+        .frame(maxWidth: maxWidth, maxHeight: maxHeight)
         .padding(.horizontal, 80)
+        
     }
 }
 

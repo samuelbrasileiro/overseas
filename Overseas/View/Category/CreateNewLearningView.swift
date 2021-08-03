@@ -13,8 +13,6 @@ struct CreateNewLearningView: View {
     @State var name: String = ""
     @State var description: String = ""
     @State var emoji: String = ""
-    @State var selectedCategoryIndex: Int = 0
-    @State var colorIndex: Int = 0
     
     var body: some View {
         
@@ -32,8 +30,10 @@ struct CreateNewLearningView: View {
                 Spacer()
                 Button(action:{
                     env.didSelectNewLearning = false
-                    env.saveNewLearning(categoryIndex: selectedCategoryIndex, title: name, description: description, emoji: emoji)
+                    env.saveNewLearning(categoryIndex: env.lastCategory, title: name, description: description, emoji: emoji)
                     name = ""
+                    description = ""
+                    emoji = ""
 
                 }){
                     Text("Salvar")
@@ -58,7 +58,7 @@ struct CreateNewLearningView: View {
                                 .padding(5)
                                 .background(Color.categoryColors[env.categories[index].colorIndex])
                                 .onTapGesture {
-                                    self.selectedCategoryIndex = index
+                                    self.env.lastCategory = index
                                 }
                                 .padding([.top,.trailing], 5)
                            
@@ -67,7 +67,7 @@ struct CreateNewLearningView: View {
                                 .frame(width: 15, height: 15)
                                 .foregroundColor(Color.categoryColors[env.categories[index].colorIndex])
                                 .foregroundColor(.white)
-                                .opacity(self.selectedCategoryIndex == index ? 1 : 0)
+                                .opacity(self.env.lastCategory == index ? 1 : 0)
                                    
                         }
                         

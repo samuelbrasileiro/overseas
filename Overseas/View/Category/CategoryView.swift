@@ -16,11 +16,15 @@ struct CategoryView: View {
     
     var body: some View {
         let learnings = homeEnv.getLearningsFromCategory(index)
+        
         VStack{
             HStack{
                 Text(homeEnv.categories[index].name ?? "Categoria").underline()
                     .font(.largeTitle.bold())
-                NavigationLink(destination: LearningView(delegate: homeEnv, homeEnv: homeEnv,index: index, isFromCategory: true)){
+                Button(action: {
+                    homeEnv.lastCategory = index
+                    homeEnv.didSelectNewLearning = true
+                }){
                     Image(systemName: "plus")
                         .resizable()
                         .frame(width: 20, height: 20)
@@ -48,12 +52,14 @@ struct CategoryView: View {
             .padding(.horizontal, 40)
             Spacer()
         }
+        
         .navigationBarHidden(false)
         .navigationTitle(homeEnv.categories[index].name ?? "")
         .background(NavigationConfigurator { nc in
             nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.clear]
         })
         .navigationBarTitleDisplayMode(.inline)
+        
     }
 }
 

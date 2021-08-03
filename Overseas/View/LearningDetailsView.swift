@@ -63,15 +63,7 @@ struct LearningDetailsView: View {
     var body: some View {
         VStack {
             HStack {
-                //                if let detail = learning.detail{
-                //                    Text(detail)
-                //                }
-                //                Button(action:{
-                //                    learning.setDetails(detail: "Foi muito trabalhoso desviar de tubarões, mas ao mesmo tempo é divertido fazer eles de besta. Não morri.", humor: 3, steps: ["Vestir a roupa de mergulho","Entrar no mar de piedade","Cortar a ponta do dedo pra sair sangue", "Nadar em círculos", "Se um tubarão aparecer, bater no focinho!"])
-                //                    learning.objectWillChange.send()
-                //                }){
-                //                    Text("Pressssssssssss")
-                //                }
+
                 Text(learning.emoji ?? "?")
                     .font(.system(size: 60))
                     .padding(11)
@@ -104,11 +96,11 @@ struct LearningDetailsView: View {
             
             Divider()
             
-            TweetTextView(color: color, alignment: .center){
-                VStack{
+            TweetTextView(color: color, maxHeight: 150, alignment: .leading){
+                VStack(alignment: .leading){
                     Text("Nessa atividade, aprendi que")
                         .bold()
-                        .padding(.bottom)
+                        .padding(.bottom, 5)
                     Text(learning.detail ?? "")
                 }
             }
@@ -137,11 +129,11 @@ struct LearningDetailsView: View {
                                 }
                             }
                         }
-                        .frame(maxHeight: 200)
+                        
                         
                     }
                 }
-                TweetTextView(color: color){
+                TweetTextView(color: color, maxWidth: 200){
                     VStack{
                         Text("Para mim, essa atividade foi")
                             .bold()
@@ -153,8 +145,9 @@ struct LearningDetailsView: View {
                         Text("agradável")
                     }
                 }
+                
             }
-            
+            .padding(.bottom)
             Spacer()
             
         } .navigationBarHidden(false)

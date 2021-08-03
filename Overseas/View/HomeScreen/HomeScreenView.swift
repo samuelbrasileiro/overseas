@@ -94,7 +94,10 @@ struct HomeScreenView: View{
                                     Text("Meus Aprendizados").underline()
                                         .font(.largeTitle.bold())
 
-                                    Button(action: {env.didSelectNewLearning = true}){
+                                    Button(action: {
+                                        env.lastCategory = 0
+                                        env.didSelectNewLearning = true
+                                    }){
                                         Image(systemName: "plus")
                                             .resizable()
                                             .frame(width: 20, height: 20)
