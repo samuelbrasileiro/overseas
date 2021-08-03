@@ -15,7 +15,7 @@ struct RegisterLearningView: View {
     
     var color: Color
     
-    @State private var segmentedControlCells = ["Descreva", "Ordene", "Avalie"]
+    @State private var segmentedControlCells: [LocalizedStringKey] = ["Descreva", "Ordene", "Avalie"]
     @State private var segmentedControlIndex = 0
     
     @ObservedObject var env: RegisterEnvironment = RegisterEnvironment()
