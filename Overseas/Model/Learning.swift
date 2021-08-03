@@ -16,6 +16,7 @@ class Learning: NSManagedObject {
         return formatter
     }()
     
+    @Published var isPresented = false
     
     convenience init(name: String, descriptionText: String?, emoji: String?, estimatedTime: TimeInterval?, text: String?, context: NSManagedObjectContext){
         self.init(context: context)

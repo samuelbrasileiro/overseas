@@ -11,8 +11,8 @@ struct CategoryLearningView: View {
     @ObservedObject var learning: Learning
     var color: Color //lembrar de fazer referencia à color do category referente (não fizemos porque é string)
     
-    @State var isDetailsPresented = false
-    @State var isRegisterPresented = false
+    @ObservedObject var detailNav = BindingNav()
+    @ObservedObject var registerNav = BindingNav()
     var delegate: LearningDelegate?
     
     var body: some View {
@@ -20,18 +20,18 @@ struct CategoryLearningView: View {
 
         Button(action:{
             if learning.detail != nil && learning.detail != ""{
-                isDetailsPresented = true
+                detailNav.isPresented = true
             }
             else{
-                isRegisterPresented = true
+                registerNav.isPresented = true
             }
         }){
             
             ZStack{
-                NavigationLink(destination: LearningDetailsView(learning: learning, color: color, delegate: delegate), isActive: $isDetailsPresented){
+                NavigationLink(destination: LearningDetailsView(learning: learning, color: color, delegate: delegate), isActive: $detailNav.isPresented){
                     EmptyView()
                 }
-                NavigationLink(destination: RegisterLearningView(color: color, learning: learning, isPresented: $isRegisterPresented, isDetailsPresented: $isDetailsPresented), isActive: $isRegisterPresented){
+                NavigationLink(destination: RegisterLearningView(color: color, learning: learning, nav: registerNav), isActive: $registerNav.isPresented){
                     EmptyView()
                 }
                 

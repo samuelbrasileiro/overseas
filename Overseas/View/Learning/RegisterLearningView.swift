@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+class BindingNav: ObservableObject {
+  @Published var isPresented: Bool = false
+}
+
 struct RegisterLearningView: View {
     
     var color: Color
@@ -18,10 +22,9 @@ struct RegisterLearningView: View {
     
     @ObservedObject var learning: Learning
     
-    @Binding var isPresented: Bool
-    
-    @Binding var isDetailsPresented: Bool
-    
+    @ObservedObject var nav: BindingNav
+        
+    @State var isCongratulationsPresented = false
     var body: some View {
         ZStack {
             
@@ -60,16 +63,18 @@ struct RegisterLearningView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Salvar") {
                     env.save(to: learning)
-                    isPresented = false
-                    isDetailsPresented = true
+                    isCongratulationsPresented = true
                 }
             }
+        }
+        .fullScreenCover(isPresented: $isCongratulationsPresented){
+            CongratulationsView(nav: nav, isPresented: $isCongratulationsPresented)
         }
     }
 }
 
 struct RegisterLearningView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterLearningView(color: .blue, env: RegisterEnvironment(), learning: Learning(), isPresented: .constant(true), isDetailsPresented: .constant(true))
+        RegisterLearningView(color: .blue, env: RegisterEnvironment(), learning: Learning(), nav: BindingNav())
     }
 }

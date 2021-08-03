@@ -20,10 +20,11 @@ struct Shake: GeometryEffect {
 }
 
 struct CongratulationsView: View {
-    @State var isPresented = false
+    
     @State var offset: CGSize = CGSize(width: -250, height: 100)
     @State var ammount = 0
-    
+    @ObservedObject var nav: BindingNav
+    @Binding var isPresented: Bool
     var body: some View {
         VStack{
             ZStack{
@@ -57,7 +58,8 @@ struct CongratulationsView: View {
                 .padding(.bottom, 20)
             
             Button {
-                self.isPresented = true
+                isPresented = false
+                nav.isPresented = false
             } label: {
                 ZStack{
 
@@ -77,6 +79,6 @@ struct CongratulationsView: View {
 
 struct CongratulationsView_Previews: PreviewProvider {
     static var previews: some View {
-        CongratulationsView()
+        CongratulationsView(nav: BindingNav(), isPresented: .constant(true))
     }
 }
