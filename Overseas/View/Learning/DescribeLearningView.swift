@@ -17,7 +17,11 @@ struct DescribeLearningView: View {
         VStack(alignment: .leading) {
             TweetTextView(color: color, maxHeight: 47){
                 Text("O que você aprendeu nessa atividade?")
+                    .padding(.leading, 15)
+
             }
+            .padding(.horizontal, 30)
+
             
             .padding(.bottom, 100)
             
@@ -29,6 +33,8 @@ struct DescribeLearningView: View {
                         .padding([.bottom,.trailing], 10)
                 
             }
+            .padding(.horizontal, 35)
+
             
         }
     }

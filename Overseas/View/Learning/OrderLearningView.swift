@@ -18,8 +18,10 @@ struct OrderLearningView: View, StepsTextFieldViewDelegate {
         VStack {
             TweetTextView(color: color, maxHeight: 47){
                 Text("Quais foram as etapas dessa atividade?")
+                    .padding(.leading, 15)
+
             }
-                
+            .padding(.horizontal, 30)
             .padding(.bottom, 100)
             
             VStack(spacing: 10){

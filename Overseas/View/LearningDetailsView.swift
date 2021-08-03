@@ -22,7 +22,7 @@ enum Humor: Int {
     case aLot
     case none
     
-    var text: String{
+    var text: LocalizedStringKey{
         switch self {
         case .wasNot:
             return "Não Foi"

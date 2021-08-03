@@ -13,7 +13,7 @@ struct EvaluateLearningView: View {
     
     @ObservedObject var env: RegisterEnvironment
     
-    @State var buttonText: [String] = ["Não foi", "Neutro", "Muito", "Bastante"]
+    @State var buttonText: [LocalizedStringKey] = ["Não foi", "Neutro", "Muito", "Bastante"]
     @State var emojiImages: [String] = ["☹️", "🤔", "😌", "😍"]
     
     
@@ -23,8 +23,10 @@ struct EvaluateLearningView: View {
             
             TweetTextView(color: color, maxHeight: 47){
                 Text("O quão agradável foi realizá-la?")
+                    .padding(.leading, 15)
+
             }
-            
+            .padding(.horizontal, 30)
             .padding(.bottom, 100)
             
             HStack {

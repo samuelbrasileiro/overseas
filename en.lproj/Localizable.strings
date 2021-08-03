@@ -34,11 +34,12 @@
 "Os aprendizados referentes a essa categoria ficarão sinalizadas com a cor escolhida" = "Learnings related to this category will be marked with the chosen color";
 
 //Aprendizado popup
+"Aprendizado" = "Learning";
 "Adicionar Aprendizado" = "Add Learning";
 "Adicione um título" = "Add title";
 "Adicione uma descrição" = "Add description";
 
-"O título do aprendizado é uma forma rápida e resumida de representar o aprendizado" = "The learning title is a quick and short way to represent the learning";
+"O título do aprendizado é uma forma rápida e resumida de representar o aprendizado." = "The learning title is a quick and short way to represent the learning";
 "Descrição" = "Description";
 "A descrição ajuda a compreender as especificidades dos aprendizados." = "The description helps to understand the specifics of the learning.";
 
@@ -53,9 +54,24 @@
 "Quais foram as etapas dessa atividade?" = "What were the steps of this activity?";
 
 "O quão agradável foi realizá-la?" = "How satisfying was it?";
+"agradável" = "satisfying";
 "Não foi" = "It wasn't";
+"Não Foi" = "It wasn't";
 "Neutro" = "Neutral";
 "Muito" = "Very";
 "Bastante" = "A lot";
 "Parabéns!" = "Congratulations";
 "Concluir aprendizado" = "Complete learning";
+
+//Tela de visão geral
+"Nessa atividade, aprendi que" = "In this activity I learned that";
+"As etapas para realizá-la foram" = "The steps of this activity were";
+"Para mim, essa atividade foi" = "For me, this activity was";
+
+//Tela de congratulação
+"Você conseguiu alcançar mais uma etapa de aprendizado" = "You managed to reach another stage of learning";
+
+
+"" = "";
+"" = "";
+
