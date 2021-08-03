@@ -10,6 +10,7 @@ import SwiftUI
 
 struct KnowledgeOnboardingView: View {
     
+    var delegate: OnboardingDelegate?
     @ObservedObject var env = OnboardingEnvironment()
     @State var isPresented = false
     
@@ -71,14 +72,15 @@ struct KnowledgeOnboardingView: View {
 
         }
         .onAppear(){
-            withAnimation(.spring().speed(0.5).delay(2)){
+            withAnimation(.linear(duration: 1).delay(2)){
                 initialPositions = finalPositions
                 scaleBrain = CGSize(width: 0.5, height: 0.5)
                 scaleObjects = CGSize(width: 0.125, height: 0.125)
             }
+            
         }
         .fullScreenCover(isPresented: $isPresented){
-            OnboardingMappingView(env: OnboardingEnvironment())
+            OnboardingMappingView(delegate: delegate, env: OnboardingEnvironment())
         }
     }
 }

@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct OnboardingTabView: View {
+    var delegate: OnboardingDelegate?
+    
     var body: some View {
-        
+    
         TabView {
             OrganizingOnboardingView()
-            KnowledgeOnboardingView()
+            KnowledgeOnboardingView(delegate: delegate)
         }
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
