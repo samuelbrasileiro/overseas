@@ -10,33 +10,39 @@ import SwiftUI
 
 struct TweetTextView<Content>: View where Content: View {
     var color: Color
-    var height: CGFloat
+    var maxHeight: CGFloat = .infinity
+    var maxWidth: CGFloat = .infinity
     var alignment: Alignment = .leading
+    
     var content: () -> Content
     
+    
     var body: some View {
-        ZStack(alignment: alignment){
-            ZStack{
-                Rectangle()
-                    .frame(height: height)
-                    .foregroundColor(color)
-                    .offset(x: 10, y: 10)
+        ZStack{
+            Rectangle()
+                .foregroundColor(color)
+                .offset(x: 10, y: 10)
+            ZStack(alignment: alignment){
                 
                 Rectangle()
                     .strokeBorder(color, lineWidth: 2)
-                    .background(Rectangle().fill(Color(.white)))
-                    .frame(height: height)
+                    .background(Rectangle().fill(Color(.systemBackground)))
+                    
+                content()
+                    .padding(.leading, 15)
+                    .padding(.top, 5)
             }
-            content()
-                .padding(.leading, 15)
+            
         }
+        .frame(maxWidth: maxWidth, maxHeight: maxHeight)
         .padding(.horizontal, 80)
+        
     }
 }
 
 
 struct TweetTextView_Previews: PreviewProvider {
     static var previews: some View {
-        TweetTextView(color: Color(.systemPink), height: 302){EmptyView()}
+        TweetTextView(color: Color(.systemPink), maxHeight: 302){EmptyView()}
     }
 }

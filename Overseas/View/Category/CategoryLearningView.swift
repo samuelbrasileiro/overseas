@@ -11,12 +11,30 @@ struct CategoryLearningView: View {
     @ObservedObject var learning: Learning
     var color: Color //lembrar de fazer referencia à color do category referente (não fizemos porque é string)
     
-    @State var isPresented = false
+    @State var isDetailsPresented = false
+    @State var isRegisterPresented = false
     var delegate: LearningDelegate?
     
     var body: some View {
-        NavigationLink(destination: LearningDetailsView(learning: learning, color: color, delegate: delegate)) {
+        
+
+        Button(action:{
+            if learning.detail != nil && learning.detail != ""{
+                isDetailsPresented = true
+            }
+            else{
+                isRegisterPresented = true
+            }
+        }){
+            
             ZStack{
+                NavigationLink(destination: LearningDetailsView(learning: learning, color: color, delegate: delegate), isActive: $isDetailsPresented){
+                    EmptyView()
+                }
+                NavigationLink(destination: RegisterLearningView(color: color, learning: learning, isPresented: $isRegisterPresented, isDetailsPresented: $isDetailsPresented), isActive: $isRegisterPresented){
+                    EmptyView()
+                }
+                
                 VStack(alignment: .leading){
                     ZStack(alignment: .trailing){
                         Rectangle()
@@ -69,6 +87,8 @@ struct CategoryLearningView: View {
             .background(Color(.systemBackground))
             .navigationBarHidden(false)
             
+            
+            
         }.accentColor(.primary)
         .onDrag {
             let learningViewImage = CategoryLearningView(learning: learning, color: color).frame(width: 500, height: 400).background(Color(.systemBackground).shadow(radius: 7)).padding(30).snapshot()
@@ -80,6 +100,7 @@ struct CategoryLearningView: View {
             return provider
         }
     }
+    
 }
 
 struct CategoryLearningView_Previews: PreviewProvider {

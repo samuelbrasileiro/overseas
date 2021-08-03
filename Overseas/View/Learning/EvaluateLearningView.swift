@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EvaluateLearningView: View {
     
+    var color: Color
+    
     @ObservedObject var env: RegisterEnvironment
     
     @State var buttonText: [String] = ["Não foi", "Neutro", "Muito", "Bastante"]
@@ -19,7 +21,7 @@ struct EvaluateLearningView: View {
         
         VStack(alignment: .center) {
             
-            TweetTextView(color: Color(.systemPink), height: 47){
+            TweetTextView(color: color, maxHeight: 47){
                 Text("O quão agradável foi realizá-la?")
             }
             
@@ -37,7 +39,7 @@ struct EvaluateLearningView: View {
                         }) {
                             ZStack{
                                 Circle()
-                                    .foregroundColor(Color(.systemPink).opacity(isSelected ? 1 : 0.7))
+                                    .foregroundColor(color.opacity(isSelected ? 1 : 0.7))
                                     .frame(width: 140, height: 140)
                                     .offset(x: 10, y: 10)
                                 VStack {
@@ -50,7 +52,7 @@ struct EvaluateLearningView: View {
                                 .foregroundColor(.black)
                                 .background(Color(.systemBackground))
                                 .clipShape(Circle())
-                                .overlay(Circle().stroke(Color(.systemPink).opacity(isSelected ? 1 : 0.7), lineWidth: 2))
+                                .overlay(Circle().stroke(color.opacity(isSelected ? 1 : 0.7), lineWidth: 2))
                             }
                         }
                         
@@ -68,7 +70,7 @@ struct EvaluateLearningView: View {
 
 struct EvaluateLearningView_Previews: PreviewProvider {
     static var previews: some View {
-        EvaluateLearningView(env: RegisterEnvironment())
+        EvaluateLearningView(color: .green, env: RegisterEnvironment())
             .previewLayout(.fixed(width: 1080, height: 810))
             .environment(\.horizontalSizeClass, .compact)
             .environment(\.verticalSizeClass, .compact)

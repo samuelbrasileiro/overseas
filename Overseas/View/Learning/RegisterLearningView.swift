@@ -9,12 +9,18 @@ import SwiftUI
 
 struct RegisterLearningView: View {
     
+    var color: Color
+    
     @State private var segmentedControlCells = ["Descreva", "Ordene", "Avalie"]
     @State private var segmentedControlIndex = 0
     
     @ObservedObject var env: RegisterEnvironment = RegisterEnvironment()
     
     @ObservedObject var learning: Learning
+    
+    @Binding var isPresented: Bool
+    
+    @Binding var isDetailsPresented: Bool
     
     var body: some View {
         ZStack {
@@ -31,11 +37,11 @@ struct RegisterLearningView: View {
             }).padding(.top, 200)
          
             TabView(selection: $segmentedControlIndex) {
-                DescribeLearningView(env: env)
+                DescribeLearningView(color: color, env: env)
                     .tag(0)
-                OrderLearningView(env: env)
+                OrderLearningView(color: color, env: env)
                     .tag(1)
-                EvaluateLearningView(env: env)
+                EvaluateLearningView(color: color, env: env)
                     .tag(2)
             }
         
@@ -53,7 +59,9 @@ struct RegisterLearningView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Salvar") {
-                    print("salvando")
+                    env.save(to: learning)
+                    isPresented = false
+                    isDetailsPresented = true
                 }
             }
         }
@@ -62,6 +70,6 @@ struct RegisterLearningView: View {
 
 struct RegisterLearningView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterLearningView(env: RegisterEnvironment(), learning: Learning())
+        RegisterLearningView(color: .blue, env: RegisterEnvironment(), learning: Learning(), isPresented: .constant(true), isDetailsPresented: .constant(true))
     }
 }

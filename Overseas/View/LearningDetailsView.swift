@@ -63,15 +63,7 @@ struct LearningDetailsView: View {
     var body: some View {
         VStack {
             HStack {
-                //                if let detail = learning.detail{
-                //                    Text(detail)
-                //                }
-                //                Button(action:{
-                //                    learning.setDetails(detail: "Foi muito trabalhoso desviar de tubarões, mas ao mesmo tempo é divertido fazer eles de besta. Não morri.", humor: 3, steps: ["Vestir a roupa de mergulho","Entrar no mar de piedade","Cortar a ponta do dedo pra sair sangue", "Nadar em círculos", "Se um tubarão aparecer, bater no focinho!"])
-                //                    learning.objectWillChange.send()
-                //                }){
-                //                    Text("Pressssssssssss")
-                //                }
+
                 Text(learning.emoji ?? "?")
                     .font(.system(size: 60))
                     .padding(11)
@@ -104,53 +96,58 @@ struct LearningDetailsView: View {
             
             Divider()
             
-            VStack{
-                Text("Nessa atividade, aprendi que")
-                    .bold()
-                    .padding(.bottom)
-                Text(learning.detail ?? "")
-                
+            TweetTextView(color: color, maxHeight: 150, alignment: .leading){
+                VStack(alignment: .leading){
+                    Text("Nessa atividade, aprendi que")
+                        .bold()
+                        .padding(.bottom, 5)
+                    Text(learning.detail ?? "")
+                }
             }
             .padding()
             
             HStack(alignment: .top){
                 
-                VStack{
-                    
-                    Text("As etapas para realizá-la foram")
-                        .bold()
-                        .padding(.bottom)
-                    
-                    ScrollView{
-                        VStack(alignment: .leading){
-                            let steps = learning.steps ?? []
-                            ForEach(0..<(steps).count, id: \.self){ index in
-                                HStack{
-                                    Rectangle()
-                                        .fill(color)
-                                        .frame(width: 19, height: 19)
-                                    
-                                    Text(steps[index])
+                TweetTextView(color: color){
+                    VStack{
+                        
+                        Text("As etapas para realizá-la foram")
+                            .bold()
+                            .padding(.bottom)
+                        
+                        ScrollView{
+                            VStack(alignment: .leading){
+                                let steps = learning.steps ?? []
+                                ForEach(0..<(steps).count, id: \.self){ index in
+                                    HStack{
+                                        Rectangle()
+                                            .fill(color)
+                                            .frame(width: 19, height: 19)
+                                        
+                                        Text(steps[index])
+                                    }
                                 }
                             }
                         }
+                        
+                        
                     }
-                    .frame(maxHeight: 200)
-                    
+                }
+                TweetTextView(color: color, maxWidth: 200){
+                    VStack{
+                        Text("Para mim, essa atividade foi")
+                            .bold()
+                            .padding(.bottom)
+                        let humorIndex = Int(truncating: learning.humor ?? 4)
+                        let humor = Humor(rawValue: humorIndex)
+                        Text(humor!.emoji)
+                        Text(humor!.text)
+                        Text("agradável")
+                    }
                 }
                 
-                VStack{
-                    Text("Para mim, essa atividade foi")
-                        .bold()
-                        .padding(.bottom)
-                    let humorIndex = Int(truncating: learning.humor ?? 4)
-                    let humor = Humor(rawValue: humorIndex)
-                    Text(humor!.emoji)
-                    Text(humor!.text)
-                    Text("agradável")
-                }
             }
-            
+            .padding(.bottom)
             Spacer()
             
         } .navigationBarHidden(false)
