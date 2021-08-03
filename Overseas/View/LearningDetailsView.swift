@@ -83,10 +83,9 @@ struct LearningDetailsView: View {
                     learning.toggleIsFixed()
                     delegate?.resetFixedLearnings()
                 }) {
-                    Text(Image(systemName: learning.isFixed ? "pin.fill" : "pin"))
+                    Text(Image(systemName: learning.isFixed ? "heart.fill" : "heart"))
                         .font(.system(size: 28))
                         .foregroundColor(color)
-                        .rotationEffect(.init(degrees: 45))
                         .padding()
                 }
                 

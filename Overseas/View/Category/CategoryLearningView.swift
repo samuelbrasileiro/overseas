@@ -72,10 +72,9 @@ struct CategoryLearningView: View {
                             Spacer()
                         }
                         
-                        Text(Image(systemName: "pin.fill"))
+                        Text(Image(systemName: "heart.fill"))
                             .font(.system(size: 28))
                             .foregroundColor(color)
-                            .rotationEffect(.init(degrees: 45))
                             .padding()
                             .opacity(learning.isFixed ? 1 : 0)
                         
