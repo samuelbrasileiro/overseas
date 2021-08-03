@@ -52,6 +52,9 @@
 		8607E5EC26988074007184A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BCE4AF26947E820022B49A /* AppDelegate.swift */; };
 		863100C826B1822900E6D592 /* TweetTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863100C726B1822900E6D592 /* TweetTextView.swift */; };
 		8633FA4D26B837C900824427 /* CongratulationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633FA4C26B837C900824427 /* CongratulationsView.swift */; };
+		86916D4F26B977FC001E33C0 /* OnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86916D4E26B977FC001E33C0 /* OnboardingCardView.swift */; };
+		86916D5126B97833001E33C0 /* KnowledgeOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86916D5026B97833001E33C0 /* KnowledgeOnboardingView.swift */; };
+		86916D5326B97937001E33C0 /* OnboardingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86916D5226B97937001E33C0 /* OnboardingTabView.swift */; };
 		86B23D0026AEEA15009BA19A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86B23D0326AEEA15009BA19A /* Localizable.strings */; };
 		86B23D0126AEEA15009BA19A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86B23D0326AEEA15009BA19A /* Localizable.strings */; };
 /* End PBXBuildFile section */
@@ -111,6 +114,9 @@
 		8607E5E026987926007184A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		863100C726B1822900E6D592 /* TweetTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTextView.swift; sourceTree = "<group>"; };
 		8633FA4C26B837C900824427 /* CongratulationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationsView.swift; sourceTree = "<group>"; };
+		86916D4E26B977FC001E33C0 /* OnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardView.swift; sourceTree = "<group>"; };
+		86916D5026B97833001E33C0 /* KnowledgeOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeOnboardingView.swift; sourceTree = "<group>"; };
+		86916D5226B97937001E33C0 /* OnboardingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTabView.swift; sourceTree = "<group>"; };
 		86B23D0226AEEA15009BA19A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		86B23D0626AEFCE4009BA19A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		86B23D0726AEFD17009BA19A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -224,6 +230,9 @@
 				35F12E5626986F31002A9532 /* OrganizingOnboardingView.swift */,
 				35F12E642698708F002A9532 /* OnboardingMappingView.swift */,
 				35B9B88426A5A9DE00747AC4 /* OnboardingMappingCategoryView.swift */,
+				86916D4E26B977FC001E33C0 /* OnboardingCardView.swift */,
+				86916D5026B97833001E33C0 /* KnowledgeOnboardingView.swift */,
+				86916D5226B97937001E33C0 /* OnboardingTabView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -400,7 +409,10 @@
 				35F12E5D26986FE7002A9532 /* AllLearningsView.swift in Sources */,
 				8607E5CF269875E2007184A9 /* CategoryEnvironment.swift in Sources */,
 				102CA9C626B41C5E00D0D288 /* EvaluateLearningView.swift in Sources */,
+				86916D5126B97833001E33C0 /* KnowledgeOnboardingView.swift in Sources */,
+				86916D4F26B977FC001E33C0 /* OnboardingCardView.swift in Sources */,
 				35F12E5F26987007002A9532 /* CategoryLearningView.swift in Sources */,
+				86916D5326B97937001E33C0 /* OnboardingTabView.swift in Sources */,
 				0EB065DD269DB9AC00AEA2E2 /* GridLearningView.swift in Sources */,
 				10E7447026B1887E00F93805 /* RegisterLearningView.swift in Sources */,
 				10E7447226B1A4AB00F93805 /* DescribeLearningView.swift in Sources */,
