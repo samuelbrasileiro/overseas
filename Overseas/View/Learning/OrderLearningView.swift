@@ -10,11 +10,13 @@ import Combine
 
 struct OrderLearningView: View, StepsTextFieldViewDelegate {
     
+    var color: Color
+    
     @ObservedObject var env: RegisterEnvironment
     
     var body: some View {
         VStack {
-            TweetTextView(color: Color(.systemPink), maxHeight: 47){
+            TweetTextView(color: color, maxHeight: 47){
                 Text("Quais foram as etapas dessa atividade?")
             }
                 
@@ -23,7 +25,7 @@ struct OrderLearningView: View, StepsTextFieldViewDelegate {
             VStack(spacing: 10){
                 ForEach(0..<env.order.count, id: \.self) { index in
                     
-                    StepsTextfieldView(delegate: self, textInput: $env.order[index], index: index)
+                    StepsTextfieldView(color: color, delegate: self, textInput: $env.order[index], index: index)
                     
                     
                 }
@@ -62,7 +64,7 @@ class RegisterEnvironment: ObservableObject {
     @Published var humorIndex: Int? = nil
     
     func save(to learning: Learning){
-        
+        order.removeLast()
         learning.detail = description
         learning.steps = order
         learning.humor = NSDecimalNumber(integerLiteral: humorIndex ?? 0)
@@ -83,6 +85,8 @@ protocol StepsTextFieldViewDelegate{
 
 
 struct StepsTextfieldView: View {
+    
+    var color: Color
     
     var delegate: StepsTextFieldViewDelegate
     
@@ -114,16 +118,14 @@ struct StepsTextfieldView: View {
         HStack {
             Rectangle()
                 .frame(width: 18, height: 18, alignment: .leading)
-                .foregroundColor(textInput.isEmpty == true ? Color(.systemPink) : Color(.systemRed))
-            TextField("Insira sua próxima etapa aqui...", text: binding, onCommit: {
-                
-            })
+                .foregroundColor(color.opacity( textInput.isEmpty == true ? 0.7 : 1))
+            TextField("Insira sua próxima etapa aqui...", text: binding)
         }
     }
 }
 
 struct OrderLearningView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderLearningView(env: RegisterEnvironment())
+        OrderLearningView(color: .blue, env: RegisterEnvironment())
     }
 }

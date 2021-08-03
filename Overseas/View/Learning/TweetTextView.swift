@@ -11,21 +11,24 @@ import SwiftUI
 struct TweetTextView<Content>: View where Content: View {
     var color: Color
     var maxHeight: CGFloat = .infinity
+    var maxWidth: CGFloat = .infinity
     var alignment: Alignment = .leading
+    
     var content: () -> Content
+    
     
     var body: some View {
         ZStack(alignment: alignment){
             ZStack{
                 Rectangle()
-                    .frame(maxHeight: maxHeight)
+                    .frame(maxWidth: maxWidth, maxHeight: maxHeight)
                     .foregroundColor(color)
                     .offset(x: 10, y: 10)
                 
                 Rectangle()
                     .strokeBorder(color, lineWidth: 2)
                     .background(Rectangle().fill(Color(.white)))
-                    .frame(maxHeight: maxHeight)
+                    .frame(maxWidth: maxWidth, maxHeight: maxHeight)
             }
             content()
                 .padding(.leading, 15)

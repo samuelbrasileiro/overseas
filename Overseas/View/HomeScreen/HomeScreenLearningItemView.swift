@@ -11,13 +11,27 @@ struct HomeScreenLearningItemView: View {
     @ObservedObject var learning: Learning
     var color: Color //lembrar de fazer referencia à color do category referente (não fizemos porque é string)
     
-    @State var isPresented = false
+    @State var isDetailsPresented = false
+    @State var isRegisterPresented = false
     var delegate: LearningDelegate?
     
     var body: some View {
         
-        NavigationLink(destination: getDestination(learning: learning, color: color, delegate: delegate, isActive: isPresented), isActive: $isPresented) {
+        Button(action:{
+            if learning.detail != nil && learning.detail != ""{
+                isDetailsPresented = true
+            }
+            else{
+                isRegisterPresented = true
+            }
+        }) {
             ZStack{
+                NavigationLink(destination: LearningDetailsView(learning: learning, color: color, delegate: delegate), isActive: $isDetailsPresented){
+                    EmptyView()
+                }
+                NavigationLink(destination: RegisterLearningView(color: color, learning: learning, isPresented: $isRegisterPresented, isDetailsPresented: $isDetailsPresented), isActive: $isRegisterPresented){
+                    EmptyView()
+                }
                 VStack(alignment: .leading){
                     ZStack(alignment: .trailing){
                         Rectangle()
@@ -63,13 +77,6 @@ struct HomeScreenLearningItemView: View {
             //provider.preferredPresentationSize
             
             return provider
-        }
-    }
-    func getDestination(learning: Learning, color: Color, delegate: LearningDelegate?, isActive: Bool) -> AnyView {
-        if learning.detail != nil && learning.detail != "" {
-            return AnyView(LearningDetailsView(learning: learning, color: color, delegate: delegate))
-        } else {
-            return AnyView(RegisterLearningView(learning: learning, isPresented: isActive))
         }
     }
 }

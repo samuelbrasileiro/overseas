@@ -9,17 +9,19 @@ import SwiftUI
 
 struct DescribeLearningView: View {
     
+    var color: Color
+
     @ObservedObject var env: RegisterEnvironment
     
     var body: some View {
         VStack(alignment: .leading) {
-            TweetTextView(color: Color(.systemPink), maxHeight: 47){
+            TweetTextView(color: color, maxHeight: 47){
                 Text("O que você aprendeu nessa atividade?")
             }
             
             .padding(.bottom, 100)
             
-            TweetTextView(color: Color(.systemRed), maxHeight: 302, alignment: .leading){
+            TweetTextView(color: color, maxHeight: 302, alignment: .leading){
                 TextEditor(text: $env.description)
                         .frame(maxHeight: 290)
                         .padding(.top)
@@ -34,7 +36,7 @@ struct DescribeLearningView: View {
 
 struct DescribeLearningView_Previews: PreviewProvider {
     static var previews: some View {
-        DescribeLearningView(env: RegisterEnvironment())
+        DescribeLearningView(color: .green, env: RegisterEnvironment())
             .previewLayout(.fixed(width: 1080, height: 810))
             .environment(\.horizontalSizeClass, .compact)
             .environment(\.verticalSizeClass, .compact)
