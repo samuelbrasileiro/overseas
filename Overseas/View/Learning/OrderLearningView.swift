@@ -14,24 +14,42 @@ struct OrderLearningView: View, StepsTextFieldViewDelegate {
     
     @ObservedObject var env: RegisterEnvironment
     
+    
     var body: some View {
         VStack {
             TweetTextView(color: color, maxHeight: 47){
                 Text("Quais foram as etapas dessa atividade?")
                     .padding(.leading, 15)
-
+                
             }
             .padding(.horizontal, 30)
             .padding(.bottom, 100)
             
-            VStack(spacing: 10){
-                ForEach(0..<env.order.count, id: \.self) { index in
+            TweetTextView(color: color){
+                List{
                     
-                    StepsTextfieldView(color: color, delegate: self, textInput: $env.order[index], index: index)
+                    ForEach(0..<env.order.count, id: \.self) { index in
+                        
+                        HStack {
+                            Rectangle()
+                                .frame(width: 18, height: 18, alignment: .leading)
+                                .foregroundColor(color.opacity( env.order[index].isEmpty == true ? 0.7 : 1))
+                            
+                            StepsTextfieldView(color: color, delegate: self, textInput: $env.order[index], index: index)
+                        }
+                        
+                    }
                     
+                    .onMove(perform: { source, destination in
+                        env.order.move(fromOffsets: source, toOffset: destination)
+                        
+                    })
                     
                 }
+                .padding()
+                
             }
+            .frame(maxHeight: 400)
             .padding(100)
         }
     }
@@ -80,6 +98,7 @@ class RegisterEnvironment: ObservableObject {
 }
 
 
+
 protocol StepsTextFieldViewDelegate{
     func textFieldIsEmpty(index: Int) -> String
     func textFieldwasFilled(index: Int)
@@ -117,12 +136,10 @@ struct StepsTextfieldView: View {
             
         })
         
-        HStack {
-            Rectangle()
-                .frame(width: 18, height: 18, alignment: .leading)
-                .foregroundColor(color.opacity( textInput.isEmpty == true ? 0.7 : 1))
-            TextField("Insira sua próxima etapa aqui...", text: binding)
-        }
+        
+        TextField("Insira sua próxima etapa aqui...", text: binding)
+            .textFieldStyle(PlainTextFieldStyle())
+        
     }
 }
 

@@ -30,7 +30,7 @@ struct DescribeLearningView: View {
                         .frame(maxHeight: 290)
                         .padding(.top)
                         
-                        .padding([.bottom,.trailing], 10)
+                    .padding([.leading, .bottom,.trailing], 10)
                 
             }
             .padding(.horizontal, 35)

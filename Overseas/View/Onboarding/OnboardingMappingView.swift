@@ -18,7 +18,7 @@ class OnboardingEnvironment: ObservableObject{
     func saveSelectedToCoreData(){
         let context = AppDelegate.viewContext
         
-        _ = self.categories.filter({$0.isSelected}).map{Category(name: $0.name, color: 0, context: context)}
+        _ = self.categories.filter({$0.isSelected}).map{Category(name: $0.name, color: (0..<4).randomElement()!, context: context)}
         do{
             try context.save()
         }catch{
@@ -31,6 +31,7 @@ class OnboardingEnvironment: ObservableObject{
         }
     }
 }
+
 struct OnboardingMappingView: View {
     @State var isPresented = false
     @State private var orientation = UIDeviceOrientation.unknown
