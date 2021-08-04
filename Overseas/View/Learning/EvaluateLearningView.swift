@@ -29,37 +29,29 @@ struct EvaluateLearningView: View {
             .padding(.horizontal, 30)
             .padding(.bottom, 100)
             
-            HStack {
+            HStack(spacing: 40) {
                 ForEach(0..<4, id: \.self){ index in
-                    ZStack {
-                        
-                        let isSelected = env.humorIndex == index
-                        
-                        
-                        Button(action: {
-                            env.humorIndex = index
-                        }) {
-                            ZStack{
-                                Circle()
-                                    .foregroundColor(color.opacity(isSelected ? 1 : 0.7))
-                                    .frame(width: 140, height: 140)
-                                    .offset(x: 10, y: 10)
-                                VStack {
-                                    Text(emojiImages[index])
-                                        .font(.system(size: 64))
-                                    Text(buttonText[index])
-                                        .font(.system(size: 16, weight: isSelected ? .bold : .regular, design: .default))
-                                }
-                                .frame(width: 140, height: 140)
-                                .foregroundColor(.black)
-                                .background(Color(.systemBackground))
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(color.opacity(isSelected ? 1 : 0.7), lineWidth: 2))
+                    
+                    let isSelected = env.humorIndex == index
+                    
+                    
+                    Button(action: {
+                        env.humorIndex = index
+                    }) {
+                        TweetTextView(color: color.opacity(isSelected ? 1 : 0.7), maxHeight: 140, maxWidth: 140, alignment: .center){
+                            VStack {
+                                Text(emojiImages[index])
+                                    .font(.system(size: 64))
+                                Text(buttonText[index])
+                                    .font(.system(size: 16, weight: isSelected ? .bold : .regular, design: .default))
                             }
+                            .accentColor(.primary)
+                            
                         }
-                        
                     }
-                    .padding(12)
+                    
+                    
+                    
                 }
                 
                 
