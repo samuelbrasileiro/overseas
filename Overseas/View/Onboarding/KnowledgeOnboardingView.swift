@@ -43,13 +43,13 @@ struct KnowledgeOnboardingView: View {
                 
             }
             .frame(maxWidth: 250, maxHeight: 250)
-            .padding(.top, 250)
+            .padding(.top, 150)
             .padding(.bottom, 50)
             
             Text("Conhecimento para além do óbvio")
                 .font(.title)
                 .fontWeight(.bold)
-                .padding(.top, 150)
+                .padding(.top, 100)
             
             Text("Valorize seus aprendizados do cotidiano.")
             
@@ -60,14 +60,14 @@ struct KnowledgeOnboardingView: View {
                     Spacer()
                 Text("Mapear interesses")
                     .font(.title)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(.systemBackground))
                     .padding()
                     Spacer()
                 }
                 .background(Color.darkBlue)
                 .overlay(Rectangle().stroke(Color.darkBlue, lineWidth: 2))
-                .padding(.horizontal, 40)
-                .padding(.top, 50)
+                .padding(.all, 40)
+                
             }
 
         }

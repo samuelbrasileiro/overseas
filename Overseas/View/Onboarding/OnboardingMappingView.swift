@@ -47,7 +47,7 @@ class OnboardingEnvironment: ObservableObject{
 
 struct OnboardingMappingView: View {
     @State var isPresented = false
-    @State private var orientation = UIDeviceOrientation.unknown
+    @State private var orientation: UIDeviceOrientation = .unknown
     var delegate: OnboardingDelegate?
     
     @ObservedObject var env: OnboardingEnvironment
@@ -57,20 +57,21 @@ struct OnboardingMappingView: View {
                 VStack(alignment: .leading){
                     Text("Escolha uma ou mais categorias de seu interesse")
                         .font(.largeTitle)
-                    Text("Essas áreas armazenarão seus aprendizados menores")
+                    Text("Essas áreas armazenarão seus aprendizados")
                         .font(.title2)
                 }
                 Spacer()
             }
-            .padding(40)
+            .padding(30)
             VStack{
-                LazyVGrid(columns: (orientation == .portrait || orientation == .faceUp ? [GridItem(), GridItem()]: [GridItem(), GridItem(), GridItem(), GridItem()]) , content: {
+                LazyVGrid(columns: (UIScreen.main.bounds.height > 900 ? [GridItem(), GridItem(), GridItem()]: [GridItem(), GridItem(), GridItem(), GridItem()]) , content: {
+                    
                     ForEach(0..<env.categories.count, id: \.self){ index in
                         OnboardingMappingCategoryView(category: $env.categories[index]).padding(10)
                     }
                     
                 })
-                .padding(30)
+                .padding(20)
                 
                 Spacer()
                 
@@ -85,20 +86,21 @@ struct OnboardingMappingView: View {
                         Spacer()
                         Text("Concluir seleção")
                             .font(.title)
-                            .foregroundColor(env.hasSelectedAny ? .white : .darkBlue)
+                            .foregroundColor(env.hasSelectedAny ? Color(.systemBackground) : .darkBlue)
                             .padding()
                         Spacer()
                     }
-                    .background(env.hasSelectedAny ? Color.darkBlue : Color.white)
+                    .background(env.hasSelectedAny ? Color.darkBlue : Color(.systemBackground))
                     .overlay(Rectangle().stroke(Color.darkBlue, lineWidth: 2))
                     .padding(.horizontal, 40)
                     
-                }.padding(.bottom, 100)
+                }.padding(.bottom, 80)
             }
             Spacer()
         }
         .onRotate{ o in
             orientation = o
+            env.objectWillChange.send()
         }
         
     }

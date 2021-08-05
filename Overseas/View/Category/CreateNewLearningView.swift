@@ -44,7 +44,7 @@ struct CreateNewLearningView: View {
                 
             }
             .padding()
-            .background(Color(.white))
+            .background(Color(.systemBackground))
             
             Text("Categoria")
                 .font(.title2.bold())
@@ -67,7 +67,7 @@ struct CreateNewLearningView: View {
                                 .resizable()
                                 .frame(width: 15, height: 15)
                                 .foregroundColor(Color.categoryColors[env.categories[index].colorIndex])
-                                .foregroundColor(.white)
+                                .foregroundColor(Color(.systemBackground))
                                 .opacity(self.env.lastCategory == index ? 1 : 0)
                                    
                         }
@@ -78,7 +78,7 @@ struct CreateNewLearningView: View {
                 .padding(20)
 
             }
-            .background(Color(.white))
+            .background(Color(.systemBackground))
             
             Text("Aprendizado")
                 .font(.title2.bold())
@@ -97,7 +97,7 @@ struct CreateNewLearningView: View {
                     .padding(.leading, 5)
                     //.padding(.leading, 50)
             }
-            .background(Color(.white))
+            .background(Color(.systemBackground))
            
             
             HStack{
@@ -115,7 +115,7 @@ struct CreateNewLearningView: View {
             
             TextField("Adicione uma descrição", text: $description)
             .padding(20)
-            .background(Color(.white))
+            .background(Color(.systemBackground))
             
            
             HStack{

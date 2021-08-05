@@ -39,7 +39,7 @@ struct OnboardingCardView: View {
             Rectangle().stroke(color, lineWidth: 4)
             
         }
-        .background(Color.white)
+        .background(Color(.systemBackground))
         .frame(maxWidth: 250, maxHeight: 250)
         .offset(x: position.x, y: position.y)
         .scaleEffect(scale)

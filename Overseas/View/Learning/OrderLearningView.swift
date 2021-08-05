@@ -23,7 +23,8 @@ struct OrderLearningView: View, StepsTextFieldViewDelegate {
                 
             }
             .padding(.horizontal, 30)
-            .padding(.bottom, 100)
+            .padding(.top, 130)
+            .padding(.bottom, 80)
             
             TweetTextView(color: color){
                 List{

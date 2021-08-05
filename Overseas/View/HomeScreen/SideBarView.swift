@@ -26,17 +26,17 @@ struct SideBarView: View {
             
             NavigationLink(destination: HomeScreenView(env: env), tag: Screen.homescreen, selection: $state){
                 HStack{ 
-                    Label("Home", systemImage: "house")
+                    Text("Home")
                         .padding(.horizontal)
                         .padding(.vertical, 10)
                     Spacer()
                 }
+                .overlay(Rectangle().stroke(Color.primary, lineWidth: 2))
+                .font(Font.headline.weight(state == Screen.homescreen ? .bold : .regular))
+                .foregroundColor(.primary)
                 
 
             }
-            .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
-            .font(Font.headline.weight(state == Screen.homescreen ? .bold : .regular))
-            .foregroundColor(.black)
             .padding()
             
             Button(action:{
@@ -56,10 +56,10 @@ struct SideBarView: View {
                     
                     
                 }.padding(10)
-                .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+                .overlay(Rectangle().stroke(Color.primary, lineWidth: 2))
                 .padding(.horizontal)
             }
-            .foregroundColor(.black)
+            .foregroundColor(.primary)
             
             Group{
                 ForEach((0..<(env.categoriesIsOpen ? categories.count : 0)), id: \.self){ index in
@@ -69,7 +69,7 @@ struct SideBarView: View {
                          
                     }
                     .font(Font.headline.weight(state == Screen.category(index: index) ? .bold : .regular))
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                     
                 }
             }
@@ -82,7 +82,7 @@ struct SideBarView: View {
                 HStack{
                     Text(Image(systemName: "plus"))
                         .padding(5)
-                        .overlay(Rectangle().stroke(Color.black, lineWidth: 2))
+                        .overlay(Rectangle().stroke(Color.primary, lineWidth: 2))
                         .padding(.leading)
                     Text("Adicionar Categoria")
                 }

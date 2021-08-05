@@ -45,7 +45,7 @@ struct CreateNewCategoryView: View {
                 
             }
             .padding()
-            .background(Color(.white))
+            .background(Color(.systemBackground))
             
             Text("Categoria")
                 .font(.title2.bold())
@@ -53,7 +53,7 @@ struct CreateNewCategoryView: View {
             
             TextField("Nome da categoria", text: $name)
             .padding()
-            .background(Color(.white))
+            .background(Color(.systemBackground))
             HStack{
                 Spacer()
                 Text("A categoria ajuda a agrupar os aprendizados e ver o progresso em diferentes aspectos da vida")
@@ -80,7 +80,7 @@ struct CreateNewCategoryView: View {
                                 .overlay(Circle().stroke().foregroundColor(Color.categoryColors[index]).opacity(index == colorIndex ? 1 : 0)
                                 )
                             Text(Image(systemName: "checkmark"))
-                                .foregroundColor(.white)
+                                .foregroundColor(Color(.systemBackground))
                                 .font(.system(size: 20))
                                 .opacity(index == colorIndex ? 1 : 0)
                         }
@@ -91,7 +91,7 @@ struct CreateNewCategoryView: View {
             }
             .padding(.leading)
             .padding(.vertical)
-            .background(Color(.white))
+            .background(Color(.systemBackground))
             HStack{
                 Spacer()
                 Text("Os aprendizados referentes a essa categoria ficarão sinalizadas com a cor escolhida")

@@ -39,7 +39,7 @@ struct OnboardingMappingCategoryView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             
-                            .foregroundColor(.white)
+                            .foregroundColor(Color(.systemBackground))
                             .padding(10)
                             .opacity(self.category.isSelected ? 1 : 0)
                         
@@ -54,7 +54,7 @@ struct OnboardingMappingCategoryView: View {
                     
                     Text(category.name)
                         .font(.title.bold())
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                         .padding(.leading)
                         
                     
@@ -71,14 +71,3 @@ struct OnboardingMappingCategoryView: View {
         
     }
 }
-
-//struct OnboardingMappingCategoryView_Previews: PreviewProvider {
-////    @State var c = SelectionCategory(name: "Culinária", emoji: "🍣")
-////    static var previews: some View {
-////        OnboardingMappingCategoryView(category: $c)
-////            
-////            .previewLayout(.fixed(width: 300, height: 300))
-////            .environment(\.horizontalSizeClass, .compact)
-////            .environment(\.verticalSizeClass, .compact)
-////    }
-//}

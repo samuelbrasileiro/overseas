@@ -68,7 +68,7 @@ struct CongratulationsView: View {
                         .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Text("Concluir aprendizado")
                         .font(.title2)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(.systemBackground))
                 }
                
             }

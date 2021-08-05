@@ -17,7 +17,7 @@ struct OrganizingOnboardingView: View {
         
         VStack {
             
-            Spacer()
+            
             
             ZStack{
                 
@@ -42,11 +42,11 @@ struct OrganizingOnboardingView: View {
             Text("Tudo em seu devido lugar")
                 .font(.title)
                 .fontWeight(.bold)
-                .padding(.top, 150)
+                .padding(.top)
             
             Text("Organize seus aprendizados em um espaço construído por você.")
             
-            Spacer()
+            
         }
         
         .onAppear {
@@ -57,16 +57,3 @@ struct OrganizingOnboardingView: View {
         }
     }
 }
-
-
-
-
-//
-//struct OnboardingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PageViewController()
-//            .previewLayout(.fixed(width: 1080, height: 810))
-//            .environment(\.horizontalSizeClass, .compact)
-//            .environment(\.verticalSizeClass, .compact)
-//    }
-//}
