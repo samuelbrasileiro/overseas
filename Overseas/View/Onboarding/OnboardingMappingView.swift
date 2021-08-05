@@ -7,12 +7,25 @@
 
 import SwiftUI
 import CoreData
+
+extension String {
+    func localized() -> String {
+        let path = Bundle.main.path(forResource: "en", ofType: "lproj")!
+        if let bundle = Bundle(path: path) {
+            let str = bundle.localizedString(forKey: self, value: nil, table: nil)
+            return str
+        }
+        return ""
+    }
+}
+
 class OnboardingEnvironment: ObservableObject{
     @Published var categories: [SelectionCategory] = []
+    var categoriesName: [LocalizedStringKey] = []
     
     
     init(){
-        categories.append(contentsOf: [("Culinária","🧑‍🍳"), ("Investimento","💸"), ("Música","🎵"), ("Manutenção da casa","🔧"), ("Videogames","🎮"), ("Cabelo","💈"), ("Animais de estimação","🐶"), ("Skin Care","🧼") ].map{.init(name: $0.0, emoji: $0.1)})
+        categories.append(contentsOf: [("Culinária".localized(),"🧑‍🍳"), ("Investimento".localized(),"💸"), ("Música".localized(),"🎵"), ("Manutenção da casa".localized(),"🔧"), ("Videogames".localized(),"🎮"), ("Cabelo".localized(),"💈"), ("Animais de estimação".localized(),"🐶"), ("Skin Care".localized(),"🧼") ].map{.init(name: $0.0, emoji: $0.1)})
     }
     
     func saveSelectedToCoreData(){

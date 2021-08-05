@@ -5,15 +5,23 @@
   Created by Elaine  Cruz on 26/07/21.
   
 */
-
+//Onboarding
 "Tudo em seu devido lugar" = "Everything in its place";
 "Organize seus aprendizados em um espaço construído por você." = "Organize your learnings in a space built by yourself.";
 "Conhecimento para além do óbvio" = "Knowledge beyond usual";
-"Valorize seus aprendizados do cotidiano" = "Value your daily learnings";
-"Mapear Interesses" = "Map Interests";
+"Valorize seus aprendizados do cotidiano." = "Value your daily learnings.";
+"Mapear interesses" = "Map interests";
 "Escolha uma ou mais categorias de seu interesse" = "Choose one or more categories that you are interested in";
 "Essas áreas armazenarão seus aprendizados." = "These areas will store your learnings.";
 "Concluir seleção" = "Complete selection";
+
+"Culinária" = "Cooking";
+"Investimento" = "Investment";
+"Música" = "Music";
+"Manutenção da casa" = "House maintenance";
+"Videogames" = "Video games";
+"Cabelo" = "Hair";
+"Animais de estimação" = "Pets";
 
 //Homescreen
 "Meus Aprendizados" = "My Learnings";
