@@ -25,7 +25,7 @@ struct SideBarView: View {
         List{
             
             NavigationLink(destination: HomeScreenView(env: env), tag: Screen.homescreen, selection: $state){
-                HStack{
+                HStack{ 
                     Label("Home", systemImage: "house")
                         .padding(.horizontal)
                         .padding(.vertical, 10)
