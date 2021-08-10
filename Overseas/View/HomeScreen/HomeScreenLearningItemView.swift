@@ -59,11 +59,11 @@ struct HomeScreenLearningItemView: View {
                         .padding(.leading)
                     Spacer()
                     
-                    
-                    
-                    Text(String(Int(learning.estimatedTime / 60)) + " minutos" )
-                        .padding(.leading)
-                        .padding(.bottom, 20)
+//
+//
+//                    Text(String(Int(learning.estimatedTime / 60)) + " minutos" )
+//                        .padding(.leading)
+//                        .padding(.bottom, 20)
                 }
                 Rectangle().stroke(color, lineWidth: 4)
                 

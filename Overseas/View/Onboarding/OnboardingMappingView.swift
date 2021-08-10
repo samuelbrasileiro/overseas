@@ -10,7 +10,12 @@ import CoreData
 
 extension String {
     func localized() -> String {
-        let path = Bundle.main.path(forResource: "en", ofType: "lproj")!
+        var path = Bundle.main.path(forResource: "en", ofType: "lproj")!
+
+        if( Locale.current.identifier == "pt_US"){
+            path = Bundle.main.path(forResource: "pt-BR", ofType: "lproj")!
+        }
+       
         if let bundle = Bundle(path: path) {
             let str = bundle.localizedString(forKey: self, value: nil, table: nil)
             return str

@@ -64,7 +64,7 @@ struct CategoryLearningView: View {
                                 
                                 
                                 
-                                Text(String(Int(learning.estimatedTime / 60)) + " minutos • \(learning.dateFormatter.string(from: learning.creationDate!))" )
+                                Text("\(learning.dateFormatter.string(from: learning.creationDate!))" )
                                     .padding(.leading)
                                     .padding(.bottom, 20)
                             }
