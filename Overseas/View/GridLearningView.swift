@@ -11,7 +11,7 @@ struct GridLearningView: View {
     
     @State var isPresented = false
     
-    @ObservedObject var env = HomeScreenEnvironment()
+    @ObservedObject var env: HomeScreenEnvironment = HomeScreenEnvironment("")
     var isFixed: Bool = false
     var learnings: [Learning] = []
     var title: LocalizedStringKey = ""

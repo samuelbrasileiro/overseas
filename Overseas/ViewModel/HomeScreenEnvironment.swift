@@ -30,7 +30,9 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         
         reset()
     }
-    
+    init(_ any: Any?){
+        
+    }
     func resetFixedLearnings() {
         fixedLearnings = []
         
