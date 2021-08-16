@@ -117,6 +117,9 @@ struct HomeScreenView: View{
                                                 .scaleEffect(0.8)
                                                 .frame(width: 240*0.8, height: 240*0.8)
                                         }
+                                        
+                                        Spacer()
+
                                     }
                                     
                                     if(all.count==0){
@@ -152,7 +155,7 @@ struct HomeScreenView: View{
                             }
                             
                         }
-                        .padding(.leading)
+                       .padding(.leading)
 
                     .animation(.spring())
                     
