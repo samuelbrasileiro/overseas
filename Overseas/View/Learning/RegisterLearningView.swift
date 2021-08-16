@@ -68,7 +68,7 @@ struct RegisterLearningView: View {
             }
         }
         .fullScreenCover(isPresented: $isCongratulationsPresented){
-            CongratulationsView(nav: nav, isPresented: $isCongratulationsPresented)
+            CongratulationsView(nav: nav)
         }
     }
 }

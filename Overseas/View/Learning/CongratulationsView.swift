@@ -24,7 +24,8 @@ struct CongratulationsView: View {
     @State var offset: CGSize = CGSize(width: -250, height: 100)
     @State var ammount = 0
     @ObservedObject var nav: BindingNav
-    @Binding var isPresented: Bool
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack{
             ZStack{
@@ -43,7 +44,7 @@ struct CongratulationsView: View {
                     .onAppear(){
                         offset = CGSize(width: -130, height: 50)
                     }
-                    .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                    .animation(.easeIn)
             }
             .padding(.bottom, 50)
 
@@ -58,7 +59,7 @@ struct CongratulationsView: View {
                 .padding(.bottom, 20)
             
             Button {
-                isPresented = false
+                presentationMode.wrappedValue.dismiss()
                 nav.isPresented = false
             } label: {
                 ZStack{
@@ -79,6 +80,6 @@ struct CongratulationsView: View {
 
 struct CongratulationsView_Previews: PreviewProvider {
     static var previews: some View {
-        CongratulationsView(nav: BindingNav(), isPresented: .constant(true))
+        CongratulationsView(nav: BindingNav())
     }
 }
