@@ -64,7 +64,7 @@ struct CategoryLearningView: View {
                                 
                                 
                                 
-                                Text("\(learning.dateFormatter.string(from: learning.creationDate!))" )
+                                Text("\(learning.dateFormatter.string(from: learning.creationDate ?? Date()))" )
                                     .padding(.leading)
                                     .padding(.bottom, 20)
                             }

@@ -13,9 +13,14 @@ struct CategoryView: View {
     
     @State var isPresented = false
     
+    @State var isEditMode: EditMode = .inactive{
+        didSet{
+            print(isEditMode)
+        }
+    }
     
     var body: some View {
-        let learnings = homeEnv.getLearningsFromCategory(index)
+        var learnings = homeEnv.getLearningsFromCategory(index)
         
         VStack{
             HStack{
@@ -43,13 +48,44 @@ struct CategoryView: View {
             
             ScrollView{
                 LazyVGrid(columns: [GridItem(),GridItem()], content: {
-                    ForEach(learnings[0..<learnings.count]){ learning in
-                        CategoryLearningView(learning: learning, color: Color.categoryColors[homeEnv.categories[index].colorIndex], delegate: homeEnv)
-                            .padding()
+                    ForEach(0..<learnings.count, id: \.self){ i in
+                        ZStack(alignment: .topTrailing){
+                            
+                            CategoryLearningView(learning: learnings[i], color: Color.categoryColors[homeEnv.categories[index].colorIndex], delegate: homeEnv)
+                                .animation(nil)
+                            Button(action: {
+                                withAnimation { () -> () in
+                                    //learnings.remove(at: i)
+                                    let context = AppDelegate.viewContext
+                                    context.delete(learnings[i])
+                                    do{
+                                        try context.save()
+                                    }catch{
+                                        print(error)
+                                    }
+                                    homeEnv.objectWillChange.send()
+                                }
+                            }){
+                                Text(Image(systemName: "multiply"))
+                                    .bold()
+                                    .foregroundColor(Color(.systemBackground))
+                                    .frame(width:40,height:40)
+                                    .background(Color.primary)
+                                    
+                            }
+                            .opacity(isEditMode == .active ? 1 : 0)
+                            .animation(nil)
+                        }    .padding()
+                        
                     }
+                    .rotationEffect(Angle(radians: isEditMode == .active ? 0.06 : 0))
+                    .animation(.default.speed(3).repeat(while: isEditMode == .active, autoreverses: true))
+                    
                 })
+                .padding(.top)
+                .padding(.trailing, 40)
             }
-            .padding(.horizontal, 40)
+            .padding(.leading, 40)
             Spacer()
         }
         
@@ -59,7 +95,10 @@ struct CategoryView: View {
             nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.clear]
         })
         .navigationBarTitleDisplayMode(.inline)
-        
+        .toolbar {
+            EditButton()
+        }
+        .environment(\.editMode, self.$isEditMode)
     }
 }
 
@@ -70,5 +109,15 @@ struct CategoryView_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 1080, height: 810))
             .environment(\.horizontalSizeClass, .compact)
             .environment(\.verticalSizeClass, .compact)
+    }
+}
+
+extension Animation {
+    func `repeat`(while expression: Bool, autoreverses: Bool = true) -> Animation {
+        if expression {
+            return self.repeatForever(autoreverses: autoreverses)
+        } else {
+            return self
+        }
     }
 }
