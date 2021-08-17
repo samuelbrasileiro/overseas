@@ -65,11 +65,17 @@ struct RegisterLearningView: View {
                     env.save(to: learning)
                     isCongratulationsPresented = true
                 }
+
             }
-        }
-        .fullScreenCover(isPresented: $isCongratulationsPresented){
-            CongratulationsView(nav: nav)
-        }
+            
+        }.fullScreenCover(isPresented: $isCongratulationsPresented,
+                          onDismiss: didDismiss,
+                          content: {CongratulationsView()})
+    }
+    
+    private func didDismiss() {
+        isCongratulationsPresented = false
+        print("fechou congrats")
     }
 }
 

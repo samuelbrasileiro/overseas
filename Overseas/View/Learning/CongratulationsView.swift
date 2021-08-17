@@ -23,7 +23,8 @@ struct CongratulationsView: View {
     
     @State var offset: CGSize = CGSize(width: -250, height: 100)
     @State var ammount = 0
-    @ObservedObject var nav: BindingNav
+//    @ObservedObject var nav: BindingNav
+//    @Binding var isPresented: Bool
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -60,13 +61,15 @@ struct CongratulationsView: View {
             
             Button {
                 presentationMode.wrappedValue.dismiss()
-                nav.isPresented = false
+//                isPresented = false
+//                nav.isPresented = false
+                print("clicou dismiss congrats")
             } label: {
                 ZStack{
 
                     Rectangle()
                         .foregroundColor(Color(.systemBlue))
-                        .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/15, alignment: .center)
                     Text("Concluir aprendizado")
                         .font(.title2)
                         .foregroundColor(Color(.systemBackground))
@@ -78,8 +81,8 @@ struct CongratulationsView: View {
     }
 }
 
-struct CongratulationsView_Previews: PreviewProvider {
-    static var previews: some View {
-        CongratulationsView(nav: BindingNav())
-    }
-}
+//struct CongratulationsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CongratulationsView(nav: BindingNav(), isPresented: true)
+//    }
+//}
