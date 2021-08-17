@@ -10,8 +10,8 @@ import SwiftUI
 struct OrganizingOnboardingView: View {
     
     @State var scale = CGSize(width: 1, height: 1)
-    @State var positions = [CGPoint(x: -80,y: 20), CGPoint(x: -100,y: 70), CGPoint(x: -300,y: 0), CGPoint(x: -200,y: 80)]
-    var finalPositions = [CGPoint(x: 440,y: 0), CGPoint(x: 480,y: -30), CGPoint(x: 460,y: 0), CGPoint(x: 520,y: -10)]
+    @State var positions = [CGPoint(x: -6,y: -60), CGPoint(x: -7,y: 70), CGPoint(x: -5,y: 81), CGPoint(x: -4,y: 80)]
+    var finalPositions = [CGPoint(x: 1.75,y: -20), CGPoint(x: 2,y: -25), CGPoint(x: 1.75,y: -20), CGPoint(x: 1.5,y: -15)]
     
     var body: some View {
         
@@ -22,7 +22,7 @@ struct OrganizingOnboardingView: View {
             ZStack{
                 
                 Image("BackFolder")
-                    .offset(x: 600, y: 0)
+                    .offset(x: UIScreen.main.bounds.width/1.5 , y: 0)
                     .scaleEffect(CGSize(width: 0.35, height: 0.35))
                 
                 
@@ -32,7 +32,7 @@ struct OrganizingOnboardingView: View {
                 OnboardingCardView(position: $positions[3], scale: $scale, emoji: "🧚🏼‍♂️", color: .purple)
                 
                 Image("FrontFolder")
-                    .offset(x: 600, y: 0)
+                    .offset(x: UIScreen.main.bounds.width/1.5, y: 0)
                     .scaleEffect(CGSize(width: 0.35, height: 0.35))
                 
             }
@@ -45,7 +45,7 @@ struct OrganizingOnboardingView: View {
                 .padding(.top)
             
             Text("Organize seus aprendizados em um espaço construído por você.")
-            
+                .padding(.bottom)
             
         }
         
