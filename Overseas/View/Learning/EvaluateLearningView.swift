@@ -10,7 +10,7 @@ import SwiftUI
 struct EvaluateLearningView: View {
     
     var color: Color
-    
+    var learning: Learning
     @ObservedObject var env: RegisterEnvironment
     
     
@@ -47,6 +47,12 @@ struct EvaluateLearningView: View {
                             
                         }
                     }
+                    .onAppear{
+                        if learning.humor != nil {
+                            env.humorIndex = Int(learning.humor!)
+                        }
+                        
+                    }
                     
                     
                     
@@ -60,11 +66,11 @@ struct EvaluateLearningView: View {
     }
 }
 
-struct EvaluateLearningView_Previews: PreviewProvider {
-    static var previews: some View {
-        EvaluateLearningView(color: .green, env: RegisterEnvironment())
-            .previewLayout(.fixed(width: 1080, height: 810))
-            .environment(\.horizontalSizeClass, .compact)
-            .environment(\.verticalSizeClass, .compact)
-    }
-}
+//struct EvaluateLearningView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EvaluateLearningView(color: .green, env: RegisterEnvironment())
+//            .previewLayout(.fixed(width: 1080, height: 810))
+//            .environment(\.horizontalSizeClass, .compact)
+//            .environment(\.verticalSizeClass, .compact)
+//    }
+//}
