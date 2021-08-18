@@ -79,7 +79,7 @@ struct HomeScreenView: View{
                                 .padding([.top, .bottom, .trailing],20)
                                 
                             }else{
-                                NavigationLink(destination: GridLearningView(isFixed: true)){
+                                NavigationLink(destination: GridLearningView(isFixed: true, env: env)){
                                     HStack{
                                         Text("Ver todos")
                                             .bold()
@@ -140,7 +140,7 @@ struct HomeScreenView: View{
                                 .padding(20)
                             }else{
                                 
-                                NavigationLink(destination: GridLearningView(isFixed: false)){
+                                NavigationLink(destination: GridLearningView(isFixed: false, env: env)){
                                     HStack{
                                         Text("Ver todos")
                                             .bold()

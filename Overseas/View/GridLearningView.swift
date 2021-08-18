@@ -9,29 +9,32 @@ import SwiftUI
 
 struct GridLearningView: View {
     
-    @State var isPresented = false
-    
-    @ObservedObject var env: HomeScreenEnvironment = HomeScreenEnvironment("")
     var isFixed: Bool = false
-    var learnings: [Learning] = []
-    var title: LocalizedStringKey = ""
-    
-    init(isFixed: Bool){
-        self.isFixed = isFixed
-        
+    @ObservedObject var env: HomeScreenEnvironment
+
+    func checkIsFixed()->[Learning]{
+        var learnings: [Learning] = []
         if isFixed == true {
             learnings = env.fixedLearnings
-            title = "Fixados"
         } else {
             learnings = env.allLearnings
-            title = "Meus Aprendizados"
         }
+        return learnings
     }
-    
+    func checkIsFixedText()->LocalizedStringKey{
+        
+        if isFixed == true {
+            return "Fixados"
+        } else {
+            return "Meus Aprendizados"
+        }
+        
+    }
     var body: some View {
         VStack{
+        let learnings = checkIsFixed()
             HStack{
-                Text(title).underline()
+                Text(checkIsFixedText()).underline()
                     .font(.largeTitle.bold())
                     .padding(.leading)
                     
@@ -71,7 +74,7 @@ struct GridLearningView: View {
 
 struct GridLearningView_Previews: PreviewProvider {
     static var previews: some View {
-        GridLearningView(isFixed: false)
+        GridLearningView(isFixed: false, env: HomeScreenEnvironment())
             .previewLayout(.fixed(width: 1080, height: 810))
             .environment(\.horizontalSizeClass, .compact)
             .environment(\.verticalSizeClass, .compact)
