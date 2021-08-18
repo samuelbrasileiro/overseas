@@ -21,19 +21,17 @@ struct Shake: GeometryEffect {
 
 struct CongratulationsView: View {
     
-    @State var offset: CGSize = CGSize(width: -250, height: 100)
+    var defaultOffset: CGSize = CGSize(width: -250, height: 100)
+    var finalOffset: CGSize = CGSize(width: -130, height: 50)
     @State var ammount = 0
-//    @ObservedObject var nav: BindingNav
-//    @Binding var isPresented: Bool
     @Environment(\.presentationMode) var presentationMode
+    @Binding var showCongrats: Bool
     
     var body: some View {
         VStack{
             ZStack{
                 Image("Target")
-                   
                     .modifier(Shake(animatableData: CGFloat(ammount)))
-
                     .onAppear(){
                         withAnimation(.default.delay(0.35)){
                             ammount += 1
@@ -41,11 +39,9 @@ struct CongratulationsView: View {
                     }
                 
                 Image("Arrow")
-                    .offset(offset)
-                    .onAppear(){
-                        offset = CGSize(width: -130, height: 50)
-                    }
+                    .offset(showCongrats ? finalOffset : defaultOffset)
                     .animation(.easeIn)
+                
             }
             .padding(.bottom, 50)
 
@@ -61,9 +57,8 @@ struct CongratulationsView: View {
             
             Button {
                 presentationMode.wrappedValue.dismiss()
-//                isPresented = false
-//                nav.isPresented = false
                 print("clicou dismiss congrats")
+                print(showCongrats)
             } label: {
                 ZStack{
 
@@ -74,15 +69,9 @@ struct CongratulationsView: View {
                         .font(.title2)
                         .foregroundColor(Color(.systemBackground))
                 }
-               
             }
-
         }
+        .padding(.all, 50)
+        .background(Color(.systemBackground).shadow(radius: 7))
     }
 }
-
-//struct CongratulationsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CongratulationsView(nav: BindingNav(), isPresented: true)
-//    }
-//}

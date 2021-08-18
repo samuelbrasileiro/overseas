@@ -25,6 +25,7 @@ struct RegisterLearningView: View {
     @ObservedObject var nav: BindingNav
         
     @State var isCongratulationsPresented = false
+    
     var body: some View {
         ZStack {
             
@@ -47,6 +48,12 @@ struct RegisterLearningView: View {
                 EvaluateLearningView(color: color, env: env)
                     .tag(2)
             }
+            
+            CongratulationsView(showCongrats: $isCongratulationsPresented)
+                .frame(maxWidth: 600, maxHeight: 630)
+                .offset(y: isCongratulationsPresented ? 0 : 1000)
+                .opacity(isCongratulationsPresented ? 1 : 0)
+                .animation(.spring())
         
         }
         .navigationBarHidden(false)
@@ -65,17 +72,8 @@ struct RegisterLearningView: View {
                     env.save(to: learning)
                     isCongratulationsPresented = true
                 }
-
             }
-            
-        }.fullScreenCover(isPresented: $isCongratulationsPresented,
-                          onDismiss: didDismiss,
-                          content: {CongratulationsView()})
-    }
-    
-    private func didDismiss() {
-        isCongratulationsPresented = false
-        print("fechou congrats")
+        }
     }
 }
 
