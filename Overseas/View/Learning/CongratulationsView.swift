@@ -23,7 +23,7 @@ struct CongratulationsView: View {
     
     var defaultOffset: CGSize = CGSize(width: -250, height: 100)
     var finalOffset: CGSize = CGSize(width: -130, height: 50)
-    @State var ammount = 0
+    @Binding var ammount: Int
     @Environment(\.presentationMode) var presentationMode
     @Binding var showCongrats: Bool
     
@@ -32,12 +32,7 @@ struct CongratulationsView: View {
             ZStack{
                 Image("Target")
                     .modifier(Shake(animatableData: CGFloat(ammount)))
-                    .onAppear(){
-                        withAnimation(.default.delay(0.35)){
-                            ammount += 1
-                        }
-                    }
-                
+                    
                 Image("Arrow")
                     .offset(showCongrats ? finalOffset : defaultOffset)
                     .animation(.easeIn)
