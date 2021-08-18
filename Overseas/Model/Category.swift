@@ -14,9 +14,8 @@ class Category: NSManagedObject {
         get{
             Int(color ?? "0" ) ?? 0
         }
-
     }
-
+    
     convenience init(name: String, color: Int, context: NSManagedObjectContext){
         self.init(context: context)
 

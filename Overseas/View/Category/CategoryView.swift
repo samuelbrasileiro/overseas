@@ -12,20 +12,61 @@ struct CategoryView: View {
     @ObservedObject var homeEnv: HomeScreenEnvironment
     
     @State var isPresented = false
+    @State var colorIndex: Int = 0
+    @State var name: String = ""
+
     
     @State var isEditMode: EditMode = .inactive{
         didSet{
             print(isEditMode)
+            print(name)
         }
     }
     
     var body: some View {
-        var learnings = homeEnv.getLearningsFromCategory(index)
+        let learnings = homeEnv.getLearningsFromCategory(index)
         
         VStack{
             HStack{
-                Text(homeEnv.categories[index].name ?? "Categoria").underline()
-                    .font(.largeTitle.bold())
+                if(isEditMode == .active){
+                    VStack{
+                        HStack{
+                            TextField("", text: $name)
+                                .textFieldStyle(PlainTextFieldStyle())
+                                .font(.largeTitle.bold())
+                                .onAppear{
+                                    name = homeEnv.categories[index].name ?? "Categoria"
+                                }
+                            Spacer()
+                            
+                            Image(systemName: "multiply")
+                                .foregroundColor(Color(.systemGray))
+                                .frame(width:30,height:30)
+                                .background(
+                                    Rectangle().fill(Color(.systemGray6))
+
+                                )
+                                .onTapGesture {
+                                    name = ""
+                                }
+                        }
+                      
+                        Divider()
+                         .frame(height: 2)
+                         .padding(.horizontal, 30)
+                            .background(Color.black)
+                    }
+                        
+
+                }else{
+                    Text(homeEnv.categories[index].name ?? "Categoria").underline()
+                        .font(.largeTitle.bold())
+                       
+                }
+                
+
+                
+
                 Button(action: {
                     homeEnv.lastCategory = index
                     homeEnv.didSelectNewLearning = true
@@ -37,10 +78,38 @@ struct CategoryView: View {
                         .padding(10)
                         .overlay(Rectangle().stroke(Color.primary, lineWidth: 2))
                         .padding(.leading)
+                        .opacity(isEditMode == .active ? 0 : 1)
+                        .animation(nil)
                 }
                 .accentColor(.primary)
                 
                 Spacer()
+                
+                ForEach((0..<Color.categoryColors.count)){index in
+                    Button(action:{
+                        self.colorIndex = index
+                        
+                    }){
+                        ZStack{
+                            Circle()
+                                .fill(Color.categoryColors[index])
+                                .frame(width: 40, height: 40)
+                                .padding(4)
+                                .overlay(Circle().stroke().foregroundColor(Color.categoryColors[index]).opacity(index == colorIndex ? 1 : 0)
+                                )
+                            Text(Image(systemName: "checkmark"))
+                                .foregroundColor(Color(.systemBackground))
+                                .font(.system(size: 10))
+                                .opacity(index == colorIndex ? 1 : 0)
+                        }
+                        .opacity(isEditMode == .active ? 1 : 0)
+                        .padding(.trailing)
+                    }
+                    .onAppear{
+                        colorIndex = homeEnv.categories[self.index].colorIndex
+                            
+                    }
+                }
             }
             .padding(.leading)
             .padding([.leading, .top], 40)
@@ -51,7 +120,7 @@ struct CategoryView: View {
                     ForEach(0..<learnings.count, id: \.self){ i in
                         ZStack(alignment: .topTrailing){
                             
-                            CategoryLearningView(learning: learnings[i], color: Color.categoryColors[homeEnv.categories[index].colorIndex], delegate: homeEnv)
+                            CategoryLearningView(learning: learnings[i], color: Color.categoryColors[self.colorIndex], delegate: homeEnv)
                                 .animation(nil)
                             Button(action: {
                                 withAnimation { () -> () in
@@ -68,9 +137,10 @@ struct CategoryView: View {
                             }){
                                 Text(Image(systemName: "multiply"))
                                     .bold()
-                                    .foregroundColor(Color(.systemBackground))
-                                    .frame(width:40,height:40)
-                                    .background(Color.primary)
+                                    .foregroundColor(Color.categoryColors[self.colorIndex])
+                                    .frame(width:50,height:50)
+                                    .background(Rectangle().stroke().foregroundColor(Color.categoryColors[self.colorIndex]).background(Rectangle().fill(Color(.white))))
+                                    .offset(x: /*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/, y: -10)
                                     
                             }
                             .opacity(isEditMode == .active ? 1 : 0)
@@ -78,8 +148,9 @@ struct CategoryView: View {
                         }    .padding()
                         
                     }
-                    .rotationEffect(Angle(radians: isEditMode == .active ? 0.06 : 0))
-                    .animation(.default.speed(3).repeat(while: isEditMode == .active, autoreverses: true))
+                    //.rotationEffect(Angle(radians: isEditMode == .active ? 0.06 : 0))
+                        
+                    //.animation(.default.speed(3).repeat(while: isEditMode == .active, autoreverses: true))
                     
                 })
                 .padding(.top)
@@ -96,9 +167,22 @@ struct CategoryView: View {
         })
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            EditButton()
-        }
-        .environment(\.editMode, self.$isEditMode)
+                    Button(action:{
+                        if isEditMode == .active{
+                            isEditMode = .inactive
+                            homeEnv.updateCategory(categoryIndex: index, name: name, index: colorIndex)
+
+                        }
+                        else{
+                            isEditMode = .active
+                        }
+                    }){
+                    EditButton()
+                       
+                    }
+                }
+                .environment(\.editMode, self.$isEditMode)
+       
     }
 }
 
