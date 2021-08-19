@@ -6,11 +6,31 @@
 //
 
 import SwiftUI
+import Combine
+
+//extension Notification {
+//    var keyboardHeight: CGFloat {
+//        return (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
+//    }
+//}
+
+extension Publishers {
+    // 1.
+    static var keyboardHeight: AnyPublisher<Bool, Never> {
+        // 2.
+        let willShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
+            .map {  _ in Bool()}
+
+        return AnyPublisher(willShow)
+    }
+}
 
 struct DescribeLearningView: View {
     
     var color: Color
+    @State var keyboardOpen: Bool = false
     var learning: Learning
+
     @ObservedObject var env: RegisterEnvironment
     
     var body: some View {
@@ -21,15 +41,21 @@ struct DescribeLearningView: View {
                 
             }
             .padding(.horizontal, 30)
-            
-            
             .padding(.bottom, 100)
+            
             
             TweetTextView(color: color, maxHeight: 302, alignment: .leading){
                 TextEditor(text: $env.description)
                     .frame(maxHeight: 290)
                     .padding(.top)
                     .padding([.leading, .bottom,.trailing], 10)
+                    
+                
+            }
+            .padding(.horizontal, 35)
+//            .onReceive(Publishers.keyboardHeight, perform: {self.keyboardOpen =  $0})
+//            .offset(y: keyboardOpen ? -100 : 0)
+
                     .onAppear{
                         if learning.detail != nil {
                             env.description = learning.detail!
@@ -40,6 +66,7 @@ struct DescribeLearningView: View {
                 
             }
         }
+
     }
 }
 

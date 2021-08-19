@@ -41,7 +41,7 @@ struct OnboardingCardView: View {
         }
         .background(Color(.systemBackground))
         .frame(maxWidth: 250, maxHeight: 250)
-        .offset(x: position.x, y: position.y)
+        .offset(x: UIScreen.main.bounds.width / position.x, y: UIScreen.main.bounds.height / position.y)
         .scaleEffect(scale)
     }
 }

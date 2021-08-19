@@ -124,6 +124,20 @@ struct HomeScreenView: View{
                                         .scaleEffect(0.8)
                                         .frame(width: 240*0.8, height: 240*0.8)
                                 }
+                              
+                                VStack(alignment: .trailing){
+                                    HStack(spacing: 40){
+                                        ForEach(all[0..<(all.count < 3 ? all.count : 3)]){ l in
+                                            
+                                            HomeScreenLearningItemView(learning: l, color: Color.categoryColors[l.category!.colorIndex], delegate: env)
+                                                .frame(width: 240, height: 240)
+                                                .scaleEffect(0.8)
+                                                .frame(width: 240*0.8, height: 240*0.8)
+                                        }
+                                        
+                                        Spacer()
+
+
                             }
                             
                             if(all.count==0){
@@ -133,6 +147,7 @@ struct HomeScreenView: View{
                                         Spacer()
                                         Text("Você ainda não adicionou nenhum aprendizado")
                                         Spacer()
+
                                     }
                                     Spacer()
                                     
@@ -155,6 +170,11 @@ struct HomeScreenView: View{
                                 .opacity(all.count > 3 ? 1 : 0)
                             }
                         }
+
+                       .padding(.leading)
+
+                    .animation(.spring())
+
                         
                     }
                     
