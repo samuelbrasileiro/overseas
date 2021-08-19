@@ -10,11 +10,8 @@ import SwiftUI
 struct EvaluateLearningView: View {
     
     var color: Color
-    
+    var learning: Learning
     @ObservedObject var env: RegisterEnvironment
-    
-    @State var buttonText: [LocalizedStringKey] = ["Não foi", "Neutro", "Muito", "Bastante"]
-    @State var emojiImages: [String] = ["☹️", "🤔", "😌", "😍"]
     
     
     var body: some View {
@@ -33,21 +30,28 @@ struct EvaluateLearningView: View {
                 ForEach(0..<4, id: \.self){ index in
                     
                     let isSelected = env.humorIndex == index
-                    
+                    let humor = Humor(rawValue: index)
                     
                     Button(action: {
                         env.humorIndex = index
                     }) {
                         TweetTextView(color: color.opacity(isSelected ? 1 : 0.7), maxHeight: 140, maxWidth: 140, alignment: .center){
+                            
                             VStack {
-                                Text(emojiImages[index])
+                                Text(humor!.emoji)
                                     .font(.system(size: 64))
-                                Text(buttonText[index])
+                                Text(humor!.text)
                                     .font(.system(size: 16, weight: isSelected ? .bold : .regular, design: .default))
                             }
                             .accentColor(.primary)
                             
                         }
+                    }
+                    .onAppear{
+                        if learning.humor != nil {
+                            env.humorIndex = Int(learning.humor!)
+                        }
+                        
                     }
                     
                     
@@ -62,11 +66,11 @@ struct EvaluateLearningView: View {
     }
 }
 
-struct EvaluateLearningView_Previews: PreviewProvider {
-    static var previews: some View {
-        EvaluateLearningView(color: .green, env: RegisterEnvironment())
-            .previewLayout(.fixed(width: 1080, height: 810))
-            .environment(\.horizontalSizeClass, .compact)
-            .environment(\.verticalSizeClass, .compact)
-    }
-}
+//struct EvaluateLearningView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EvaluateLearningView(color: .green, env: RegisterEnvironment())
+//            .previewLayout(.fixed(width: 1080, height: 810))
+//            .environment(\.horizontalSizeClass, .compact)
+//            .environment(\.verticalSizeClass, .compact)
+//    }
+//}

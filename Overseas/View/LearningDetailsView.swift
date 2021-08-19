@@ -57,13 +57,16 @@ enum Humor: Int {
 struct LearningDetailsView: View {
     @ObservedObject var learning: Learning
     
+    @ObservedObject var detailNav = BindingNav()
+    @ObservedObject var registerNav = BindingNav()
+    
     var color: Color
     var delegate: LearningDelegate?
     
     var body: some View {
         VStack {
             HStack {
-
+                
                 Text(learning.emoji ?? "?")
                     .font(.system(size: 60))
                     .padding(11)
@@ -94,21 +97,21 @@ struct LearningDetailsView: View {
             .padding(.top)
             
             Divider()
-             
+            
             TweetTextView(color: color, maxHeight: 150, alignment: .leading){
                 VStack(alignment: .leading){
                     Text("Nessa atividade, aprendi que")
                         .bold()
                         .padding(.vertical)
-
-                        
-                       
+                    
+                    
+                    
                     Text(learning.detail ?? "")
-
+                    
                     Spacer()
                 }
                 .padding(.leading, 15)
-
+                
             }
             .padding(.vertical)
             .padding(.horizontal, 30)
@@ -122,8 +125,8 @@ struct LearningDetailsView: View {
                             .bold()
                             .padding(.vertical)
                             .padding(.leading, 15)
-
-                           
+                        
+                        
                         
                         ScrollView{
                             VStack(alignment: .leading){
@@ -138,7 +141,7 @@ struct LearningDetailsView: View {
                                         Spacer()
                                     }
                                     .padding(.leading, 15)
-
+                                    
                                 }
                             }
                         }
@@ -147,7 +150,7 @@ struct LearningDetailsView: View {
                     }
                 }
                 .padding(.horizontal, 30)
-
+                
                 TweetTextView(color: color, maxWidth: 200){
                     VStack{
                         HStack {
@@ -158,14 +161,14 @@ struct LearningDetailsView: View {
                                 .padding(.vertical)
                             Spacer()
                         }
-                            
+                        
                         
                         let humorIndex = Int(truncating: learning.humor ?? 4)
                         let humor = Humor(rawValue: humorIndex)
                         Text(humor!.emoji)
                             .font(Font.system(size:70, design: .default))
                             .padding(.bottom, 5)
-                            
+                        
                         Text(humor!.text)
                         Text("agradável")
                         Spacer()
@@ -174,7 +177,7 @@ struct LearningDetailsView: View {
                 
             }
             .padding(.trailing, 30)
-
+            
             .padding(.bottom)
             Spacer()
             
@@ -183,9 +186,14 @@ struct LearningDetailsView: View {
         
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing){
-                Button("Editar") {
-                    print("Estamos editando")
+                
+                NavigationLink(destination: RegisterLearningView(color: color, learning: learning, nav: registerNav), isActive: $registerNav.isPresented){
+                    Text("Editar")
                 }
+                
+                
+                
+                
             }
         }
         

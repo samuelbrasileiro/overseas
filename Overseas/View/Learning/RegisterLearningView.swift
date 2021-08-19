@@ -23,8 +23,23 @@ struct RegisterLearningView: View {
     @ObservedObject var learning: Learning
     
     @ObservedObject var nav: BindingNav
+    
+    @State var ammount = 0
+    
+    @State var isCongratulationsPresentedEnded = false
         
-    @State var isCongratulationsPresented = false
+    @State var isCongratulationsPresented = false {
+        didSet{
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
+                isCongratulationsPresentedEnded = isCongratulationsPresented
+                withAnimation(.default.delay(0.35)){
+                    ammount += 1
+                    print(ammount)
+                }
+            }
+        }
+    }
+    
     var body: some View {
         ZStack {
             
@@ -40,13 +55,20 @@ struct RegisterLearningView: View {
             }).padding(.top, 200)
          
             TabView(selection: $segmentedControlIndex) {
-                DescribeLearningView(color: color, env: env)
+                DescribeLearningView(color: color, learning: learning, env: env)
                     .tag(0)
-                OrderLearningView(color: color, env: env)
+                OrderLearningView(color: color, learning: learning, env: env)
                     .tag(1)
-                EvaluateLearningView(color: color, env: env)
+                EvaluateLearningView(color: color, learning: learning, env: env)
                     .tag(2)
             }
+            
+            CongratulationsView(ammount: $ammount, showCongrats: $isCongratulationsPresentedEnded)
+                .frame(maxWidth: 600, maxHeight: 630)
+                .animation(nil)
+                .offset(y: isCongratulationsPresented ? 0 : 1000)
+                .opacity(isCongratulationsPresented ? 1 : 0)
+                .animation(.spring())
         
         }
         .navigationBarHidden(false)
@@ -62,13 +84,11 @@ struct RegisterLearningView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Salvar") {
+                    
                     env.save(to: learning)
                     isCongratulationsPresented = true
                 }
             }
-        }
-        .fullScreenCover(isPresented: $isCongratulationsPresented){
-            CongratulationsView(nav: nav, isPresented: $isCongratulationsPresented)
         }
     }
 }

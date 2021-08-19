@@ -30,7 +30,9 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         
         reset()
     }
-    
+    init(_ any: Any?){
+        
+    }
     func resetFixedLearnings() {
         fixedLearnings = []
         
@@ -99,6 +101,19 @@ class HomeScreenEnvironment: ObservableObject, LearningDelegate{
         }catch{
             print(error)
         }
+        
+    }
+    
+    func updateCategory(categoryIndex: Int, name: String, index: Int){
+        categories[categoryIndex].name = name
+        categories[categoryIndex].color = String(index)
+        
+        do{
+            try context.save()
+        }catch{
+            print(error)
+        }
+
         
     }
     

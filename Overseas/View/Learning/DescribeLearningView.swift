@@ -29,6 +29,7 @@ struct DescribeLearningView: View {
     
     var color: Color
     @State var keyboardOpen: Bool = false
+    var learning: Learning
 
     @ObservedObject var env: RegisterEnvironment
     
@@ -37,7 +38,7 @@ struct DescribeLearningView: View {
             TweetTextView(color: color, maxHeight: 47){
                 Text("O que você aprendeu nessa atividade?")
                     .padding(.leading, 15)
-
+                
             }
             .padding(.horizontal, 30)
             .padding(.bottom, 100)
@@ -45,9 +46,8 @@ struct DescribeLearningView: View {
             
             TweetTextView(color: color, maxHeight: 302, alignment: .leading){
                 TextEditor(text: $env.description)
-                        .frame(maxHeight: 290)
-                        .padding(.top)
-                        
+                    .frame(maxHeight: 290)
+                    .padding(.top)
                     .padding([.leading, .bottom,.trailing], 10)
                     
                 
@@ -56,17 +56,25 @@ struct DescribeLearningView: View {
 //            .onReceive(Publishers.keyboardHeight, perform: {self.keyboardOpen =  $0})
 //            .offset(y: keyboardOpen ? -100 : 0)
 
-            
+                    .onAppear{
+                        if learning.detail != nil {
+                            env.description = learning.detail!
+                        }
+                        
+                    }
+                    .padding(.horizontal, 35)
+                
+            }
         }
 
     }
 }
 
-struct DescribeLearningView_Previews: PreviewProvider {
-    static var previews: some View {
-        DescribeLearningView(color: .green, env: RegisterEnvironment())
-            .previewLayout(.fixed(width: 1080, height: 810))
-            .environment(\.horizontalSizeClass, .compact)
-            .environment(\.verticalSizeClass, .compact)
-    }
-}
+//struct DescribeLearningView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DescribeLearningView(color: .green, env: RegisterEnvironment())
+//            .previewLayout(.fixed(width: 1080, height: 810))
+//            .environment(\.horizontalSizeClass, .compact)
+//            .environment(\.verticalSizeClass, .compact)
+//    }
+//}
