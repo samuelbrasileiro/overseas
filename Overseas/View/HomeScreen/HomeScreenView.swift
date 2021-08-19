@@ -94,6 +94,8 @@ struct HomeScreenView: View{
                             }
                             
                         }
+                        .padding(.leading)
+
                     }
                     
                     VStack(alignment: .leading){
@@ -124,20 +126,8 @@ struct HomeScreenView: View{
                                         .scaleEffect(0.8)
                                         .frame(width: 240*0.8, height: 240*0.8)
                                 }
-                              
-                                VStack(alignment: .trailing){
-                                    HStack(spacing: 40){
-                                        ForEach(all[0..<(all.count < 3 ? all.count : 3)]){ l in
-                                            
-                                            HomeScreenLearningItemView(learning: l, color: Color.categoryColors[l.category!.colorIndex], delegate: env)
-                                                .frame(width: 240, height: 240)
-                                                .scaleEffect(0.8)
-                                                .frame(width: 240*0.8, height: 240*0.8)
-                                        }
-                                        
-                                        Spacer()
-
-
+                                
+                                Spacer()
                             }
                             
                             if(all.count==0){
@@ -147,12 +137,12 @@ struct HomeScreenView: View{
                                         Spacer()
                                         Text("Você ainda não adicionou nenhum aprendizado")
                                         Spacer()
-
+                                        
                                     }
                                     Spacer()
                                     
                                 }.background(Color(.systemGray6))
-                                .padding(20)
+                                .padding([.top, .bottom, .trailing],20)
                             }else{
                                 
                                 NavigationLink(destination: GridLearningView(isFixed: false, env: env)){
@@ -164,17 +154,18 @@ struct HomeScreenView: View{
                                         
                                     }
                                     .padding(.top)
+                                    .padding(.trailing, 25)
                                     
                                 }.accentColor(.primary)
                                 
                                 .opacity(all.count > 3 ? 1 : 0)
                             }
                         }
-
-                       .padding(.leading)
-
-                    .animation(.spring())
-
+                        
+                        .padding(.leading)
+                        
+                        .animation(.spring())
+                        
                         
                     }
                     

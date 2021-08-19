@@ -27,7 +27,8 @@ struct RegisterLearningView: View {
     @State var ammount = 0
     
     @State var isCongratulationsPresentedEnded = false
-        
+   // @State var isCongratulationsPresented = false
+
     @State var isCongratulationsPresented = false {
         didSet{
             DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
@@ -63,7 +64,7 @@ struct RegisterLearningView: View {
                     .tag(2)
             }
             
-            CongratulationsView(ammount: $ammount, showCongrats: $isCongratulationsPresentedEnded)
+            CongratulationsView(ammount: $ammount, showCongrats: $isCongratulationsPresented)
                 .frame(maxWidth: 600, maxHeight: 630)
                 .animation(nil)
                 .offset(y: isCongratulationsPresented ? 0 : 1000)
@@ -88,8 +89,12 @@ struct RegisterLearningView: View {
                     env.save(to: learning)
                     isCongratulationsPresented = true
                 }
+            
             }
+            
+            
         }
+        .navigationBarHidden(true)
     }
 }
 

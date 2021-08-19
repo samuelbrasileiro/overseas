@@ -171,6 +171,7 @@ struct CategoryView: View {
                         if isEditMode == .active{
                             isEditMode = .inactive
                             homeEnv.updateCategory(categoryIndex: index, name: name, index: colorIndex)
+                            homeEnv.reset()
 
                         }
                         else{

@@ -35,7 +35,7 @@ struct CongratulationsView: View {
                     
                 Image("Arrow")
                     .offset(showCongrats ? finalOffset : defaultOffset)
-                    .animation(.easeIn)
+                    //.animation(.spring())
                 
             }
             .padding(.bottom, 50)

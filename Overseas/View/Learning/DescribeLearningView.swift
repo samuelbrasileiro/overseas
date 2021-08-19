@@ -67,7 +67,7 @@ struct DescribeLearningView: View {
             }
         }
 
-    }
+    
 }
 
 //struct DescribeLearningView_Previews: PreviewProvider {
