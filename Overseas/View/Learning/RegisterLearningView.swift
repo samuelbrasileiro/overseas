@@ -23,8 +23,23 @@ struct RegisterLearningView: View {
     @ObservedObject var learning: Learning
     
     @ObservedObject var nav: BindingNav
+    
+    @State var ammount = 0
+    
+    @State var isCongratulationsPresentedEnded = false
         
-    @State var isCongratulationsPresented = false
+    @State var isCongratulationsPresented = false {
+        didSet{
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
+                isCongratulationsPresentedEnded = isCongratulationsPresented
+                withAnimation(.default.delay(0.35)){
+                    ammount += 1
+                    print(ammount)
+                }
+            }
+        }
+    }
+    
     var body: some View {
         ZStack {
             
@@ -47,6 +62,13 @@ struct RegisterLearningView: View {
                 EvaluateLearningView(color: color, env: env)
                     .tag(2)
             }
+            
+            CongratulationsView(ammount: $ammount, showCongrats: $isCongratulationsPresentedEnded)
+                .frame(maxWidth: 600, maxHeight: 630)
+                .animation(nil)
+                .offset(y: isCongratulationsPresented ? 0 : 1000)
+                .opacity(isCongratulationsPresented ? 1 : 0)
+                .animation(.spring())
         
         }
         .navigationBarHidden(false)
@@ -66,9 +88,6 @@ struct RegisterLearningView: View {
                     isCongratulationsPresented = true
                 }
             }
-        }
-        .fullScreenCover(isPresented: $isCongratulationsPresented){
-            CongratulationsView(nav: nav, isPresented: $isCongratulationsPresented)
         }
     }
 }

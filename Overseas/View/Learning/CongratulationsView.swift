@@ -21,29 +21,22 @@ struct Shake: GeometryEffect {
 
 struct CongratulationsView: View {
     
-    @State var offset: CGSize = CGSize(width: -250, height: 100)
-    @State var ammount = 0
-    @ObservedObject var nav: BindingNav
-    @Binding var isPresented: Bool
+    var defaultOffset: CGSize = CGSize(width: -250, height: 100)
+    var finalOffset: CGSize = CGSize(width: -130, height: 50)
+    @Binding var ammount: Int
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var showCongrats: Bool
+    
     var body: some View {
         VStack{
             ZStack{
                 Image("Target")
-                   
                     .modifier(Shake(animatableData: CGFloat(ammount)))
-
-                    .onAppear(){
-                        withAnimation(.default.delay(0.35)){
-                            ammount += 1
-                        }
-                    }
-                
+                    
                 Image("Arrow")
-                    .offset(offset)
-                    .onAppear(){
-                        offset = CGSize(width: -130, height: 50)
-                    }
-                    .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                    .offset(showCongrats ? finalOffset : defaultOffset)
+                    .animation(.easeIn)
+                
             }
             .padding(.bottom, 50)
 
@@ -58,27 +51,22 @@ struct CongratulationsView: View {
                 .padding(.bottom, 20)
             
             Button {
-                isPresented = false
-                nav.isPresented = false
+                presentationMode.wrappedValue.dismiss()
+                print("clicou dismiss congrats")
+                print(showCongrats)
             } label: {
                 ZStack{
 
                     Rectangle()
                         .foregroundColor(Color(.systemBlue))
-                        .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/15, alignment: .center)
                     Text("Concluir aprendizado")
                         .font(.title2)
                         .foregroundColor(Color(.systemBackground))
                 }
-               
             }
-
         }
-    }
-}
-
-struct CongratulationsView_Previews: PreviewProvider {
-    static var previews: some View {
-        CongratulationsView(nav: BindingNav(), isPresented: .constant(true))
+        .padding(.all, 50)
+        .background(Color(.systemBackground).shadow(radius: 7))
     }
 }
