@@ -12,11 +12,11 @@ protocol OnboardingDelegate {
     func changeRootToHomeScreen()
 }
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, OnboardingDelegate {
-    
+    let homeScreenEnv = HomeScreenEnvironment()
     func changeRootToHomeScreen() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let homeScreenView = HomeScreenNavigationView().environment(\.managedObjectContext, context)
+        homeScreenEnv.reset()
+        let homeScreenView = HomeScreenNavigationView(env: homeScreenEnv).environment(\.managedObjectContext, context)
         
         self.window?.rootViewController =  UIHostingController(rootView: homeScreenView)
     }
@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, OnboardingDelegate {
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         
         let onboardingView = OnboardingTabView(delegate: self).environment(\.managedObjectContext, context)
-        let homeScreenView = HomeScreenNavigationView().environment(\.managedObjectContext, context)
+        let homeScreenView = HomeScreenNavigationView(env: homeScreenEnv).environment(\.managedObjectContext, context)
         
         
         // Use a UIHostingController as window root view controller.

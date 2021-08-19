@@ -11,7 +11,7 @@ import Combine
 struct OrderLearningView: View, StepsTextFieldViewDelegate {
     
     var color: Color
-    
+    var learning: Learning
     @ObservedObject var env: RegisterEnvironment
     
     
@@ -48,6 +48,13 @@ struct OrderLearningView: View, StepsTextFieldViewDelegate {
                     
                 }
                 .padding()
+                .onAppear{
+                    if learning.steps != nil {
+                        env.order = learning.steps!
+                        env.order.append("")
+                    }
+                    
+                }
                 
             }
             .frame(maxHeight: 400)
@@ -144,8 +151,8 @@ struct StepsTextfieldView: View {
     }
 }
 
-struct OrderLearningView_Previews: PreviewProvider {
-    static var previews: some View {
-        OrderLearningView(color: .blue, env: RegisterEnvironment())
-    }
-}
+//struct OrderLearningView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OrderLearningView(color: .blue, env: RegisterEnvironment())
+//    }
+//}

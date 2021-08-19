@@ -55,11 +55,11 @@ struct RegisterLearningView: View {
             }).padding(.top, 200)
          
             TabView(selection: $segmentedControlIndex) {
-                DescribeLearningView(color: color, env: env)
+                DescribeLearningView(color: color, learning: learning, env: env)
                     .tag(0)
-                OrderLearningView(color: color, env: env)
+                OrderLearningView(color: color, learning: learning, env: env)
                     .tag(1)
-                EvaluateLearningView(color: color, env: env)
+                EvaluateLearningView(color: color, learning: learning, env: env)
                     .tag(2)
             }
             
@@ -84,6 +84,7 @@ struct RegisterLearningView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Salvar") {
+                    
                     env.save(to: learning)
                     isCongratulationsPresented = true
                 }
